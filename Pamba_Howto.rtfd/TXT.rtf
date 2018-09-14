@@ -1,11 +1,12 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf400
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset222 Thonburi;}
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset222 Thonburi;\f2\fnil\fcharset0 Menlo-Regular;
+}
 {\colortbl;\red255\green255\blue255;\red100\green56\blue32;\red255\green255\blue255;\red196\green26\blue22;
 \red0\green0\blue0;\red170\green13\blue145;\red191\green191\blue191;\red92\green38\blue153;\red46\green13\blue110;
-\red63\green110\blue116;\red0\green0\blue0;}
+\red63\green110\blue116;}
 {\*\expandedcolortbl;;\csgenericrgb\c39100\c22000\c12500;\csgray\c100000;\csgenericrgb\c77000\c10200\c8600;
 \csgenericrgb\c0\c0\c0;\csgenericrgb\c66500\c5200\c56900;\csgray\c79525;\csgenericrgb\c35900\c14900\c60100;\csgenericrgb\c18100\c5200\c43100;
-\csgenericrgb\c24700\c43100\c45600;\cssrgb\c0\c0\c0;}
+\csgenericrgb\c24700\c43100\c45600;}
 \paperw11900\paperh16840\margl1440\margr1440\vieww17680\viewh12420\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
@@ -23,7 +24,9 @@
 \f0  pod 
 \f1 \'e3\'b9
 \f0  Podfile\
-	pod \'91KUPamba\'92, :git => \'91https://github.com/phonephone/KUPamba.git\'92 ,:branch => 'KU'\
+	pod \'91KUPamba\'92, :git => \'91https://github.com/phonephone/KUPamba.git\'92 ,:branch => \'91
+\f1 master
+\f0 \'92\
 \
 \
 2.
@@ -124,7 +127,66 @@
 \pard\intbl\itap1\tx543\pardeftab543\pardirnatural\partightenfactor0
 \cf6 let\cf5  storyboard = \cf8 UIStoryboard\cf5 (name: \cf4 \'93PambaMain"\cf5 , bundle: \cf6 nil\cf5 )\cf0 \
 \cf6 let\cf5  vc = storyboard.\cf9 instantiateViewController\cf5 (withIdentifier: \cf4 "Pamba"\cf5 ) \cf6 as\cf5 ? \cf10 Pamba\cf0 \
-\cf5 vc?.\cf10 userEmail\cf5  = \cf4 "jae@edfthai.org"\cf0 \
+\pard\intbl\itap1\tx543\pardeftab543\pardirnatural\partightenfactor0
+
+\f2 \cf5         vc?.\cf10 rqDTTM\cf5  = \cf4 "XXX"
+\f0 \cf0 \
+
+\f2 \cf5         vc?.\cf10 deviceID\cf5  = \cf4 "XXX"
+\f0 \cf0 \
+
+\f2 \cf5         vc?.\cf10 appID\cf5  = \cf4 "XXX"
+\f0 \cf0 \
+
+\f2 \cf5         vc?.\cf10 funcCode\cf5  = \cf4 "XXX"
+\f0 \cf0 \
+
+\f2 \cf5         vc?.\cf10 userToken\cf5  = \cf4 "XXX"
+\f0 \cf0 \
+
+\f2 \cf5         vc?.\cf10 xAuthorization\cf5  = \cf4 "XXX"
+\f0 \cf0 \
+
+\f2 \cf5         
+\f0 \cf0 \
+
+\f2 \cf5         vc?.\cf10 inquiryUserProfile\cf5  = \cf4 "XXX"
+\f0 \cf0 \
+
+\f2 \cf5         vc?.\cf10 firstNameTh\cf5  = \cf4 "XXX"
+\f0 \cf0 \
+
+\f2 \cf5         vc?.\cf10 firstNameEn\cf5  = \cf4 "XXX"
+\f0 \cf0 \
+
+\f2 \cf5         vc?.\cf10 lastNameTh\cf5  = \cf4 "XXX"
+\f0 \cf0 \
+
+\f2 \cf5         vc?.\cf10 lastNameEn\cf5  = \cf4 "XXX"
+\f0 \cf0 \
+
+\f2 \cf5         vc?.\cf10 facultyNameTh\cf5  = \cf4 "XXX"
+\f0 \cf0 \
+
+\f2 \cf5         vc?.\cf10 facultyNameEn\cf5  = \cf4 "XXX"
+\f0 \cf0 \
+
+\f2 \cf5         vc?.\cf10 profileImageUrl\cf5  = \cf4 "XXX"
+\f0 \cf0 \
+
+\f2 \cf5         vc?.\cf10 gender\cf5  = \cf4 "XXX"
+\f0 \cf0 \
+
+\f2 \cf5         vc?.\cf10 studentCode\cf5  = \cf4 "XXX"
+\f0 \cf0 \
+
+\f2 \cf5         vc?.\cf10 isSharewayAccepted\cf5  = \cf4 "XXX"
+\f0 \cf0 \
+
+\f2 \cf5         vc?.\cf10 language\cf5  = \cf4 "XXX"
+\f0 \
+\pard\intbl\itap1\tx543\pardeftab543\pardirnatural\partightenfactor0
+\cf0 \
 \cf8 navigationController\cf5 ?.\cf9 pushViewController\cf5 (vc!, animated: \cf6 true\cf5 )\cell \lastrow\row
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
 \cf5 \
@@ -134,14 +196,4 @@
 \b\fs36 \cf5 Remark
 \b0\fs28 \
 - 
-\f1 \'b5\'d1\'c7
-\f0  vc?.\cf10 userEmail 
-\f1 \cf11 \'e0\'bb\'e7\'b9\'b5\'d1\'c7\'a1\'d3\'cb\'b9\'b4
-\f0  User 
-\f1 \'ab\'d6\'e8\'a7\'b5\'cd\'b9\'b9\'d5\'e9\'c2\'d1\'a7\'e3\'aa\'e9\'e0\'bb\'e7\'b9
-\f0  email 
-\f1 \'b5\'d2\'c1\'e1\'ba\'ba\'e0\'b4\'d4\'c1\'cd\'c2\'d9\'e8
-\f0  
-\f1 \'e1\'b5\'e8\'e3\'b9\'cd\'b9\'d2\'a4\'b5\'cd\'d2\'a8\'a8\'d0\'e0\'bb\'c5\'d5\'e8\'c2\'b9\'e0\'bb\'e7\'b9
-\f0  user ID 
-\f1 \'cb\'c3\'d7\'cd\'e0\'ba\'cd\'c3\'ec\'e2\'b7\'c3\'b5\'e9\'cd\'a7\'c3\'cd\'ca\'c3\'d8\'bb\'e1\'c5\'e9\'c7\'cd\'d1\'be\'e0\'b4\'b7\'cd\'d5\'a1\'c3\'cd\'ba}
+\f1 \'a4\'e8\'d2\'a8\'d2\'a1\'b7\'d5\'e8 UApp \'ca\'e8\'a7\'e4\'bb\'a8\'d0\'c2\'d1\'a7\'e4\'c1\'e8\'e4\'b4\'e9\'e0\'cd\'d2\'e4\'bb\'e2\'aa\'c7\'ec\'cb\'c3\'d7\'cd\'cd\'d0\'e4\'c3\'b9\'d0\'a4\'c3\'d1\'ba \'b5\'cd\'b9\'b9\'d5\'e9\'a8\'d0\'c5\'e7\'cd\'a4\'e4\'c7\'e9\'e3\'cb\'e9\'b4\'d6\'a7 account demo \'c1\'d2\'e2\'aa\'c7\'ec\'a1\'e8\'cd\'b9\'a8\'d0\'e4\'b4\'e9\'e0\'cb\'e7\'b9 UI \'a4\'c3\'ba\'e6\'a4\'c3\'d1\'ba}

@@ -354,12 +354,14 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     configuration.textFont = [UIFont fontWithName:sharedManager.fontRegular size:13];
     configuration.tintColor = [UIColor whiteColor];
     configuration.borderColor = [UIColor colorWithRed:222.0/255 green:222.0/255 blue:222.0/255 alpha:1];
+    /*
     configuration.borderWidth = 1;
     configuration.shadowOffsetX = 2;
     configuration.shadowOpacity = 2;
     configuration.shadowColor = [UIColor darkGrayColor];
     configuration.shadowRadius = 2;
     configuration.shadowOpacity = 0.6;
+     */
     //configuration.textAlignment = ...
     //configuration.ignoreImageOriginalColor = ...;// set 'ignoreImageOriginalColor' to YES, images color will be same as textColor
     ///configuration.allowRoundedArrow = ...;// Default is 'NO', if sets to 'YES', the arrow will be drawn with round corner.
