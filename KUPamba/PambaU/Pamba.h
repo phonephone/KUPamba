@@ -31,7 +31,7 @@
 @property (strong, nonatomic) NSString *facultyNameEn;
 @property (strong, nonatomic) NSString *profileImageUrl;
 @property (strong, nonatomic) NSString *gender;
-@property (strong, nonatomic) NSString *usestudentCoderID;
+@property (strong, nonatomic) NSString *studentCode;
 @property (strong, nonatomic) NSString *isSharewayAccepted;
 @property (strong, nonatomic) NSString *language;
 

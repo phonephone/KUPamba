@@ -357,7 +357,7 @@
 
 - (IBAction)payBySCB:(id)sender
 {
-    [SCBPayHelper pay];
+    //[SCBPayHelper pay];
 }
 
 - (UILabel *)shorttext:(UILabel *)originalLabel

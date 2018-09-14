@@ -440,7 +440,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
 
 - (IBAction)payBySCB:(id)sender
 {
-    [SCBPayHelper pay];
+    //[SCBPayHelper pay];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

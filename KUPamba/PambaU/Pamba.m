@@ -17,7 +17,7 @@
 
 @implementation Pamba
 
-@synthesize userID,rqDTTM,deviceID,appID,funcCode,userToken,xAuthorization,inquiryUserProfile,firstNameTh,firstNameEn,lastNameTh,lastNameEn,facultyNameTh,facultyNameEn,profileImageUrl,gender,usestudentCoderID,isSharewayAccepted,language;
+@synthesize userID,rqDTTM,deviceID,appID,funcCode,userToken,xAuthorization,inquiryUserProfile,firstNameTh,firstNameEn,lastNameTh,lastNameEn,facultyNameTh,facultyNameEn,profileImageUrl,gender,studentCode,isSharewayAccepted,language;
 
 @synthesize headerView,headerTitle,headerLBtn,termLabel,checkBtn,checkLabel,acceptBtn;
 
@@ -48,7 +48,10 @@
     acceptBtn.backgroundColor = sharedManager.btnThemeColor;
     acceptBtn.titleLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
     
-    userID = @"1";//อย่าลืมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมม
+    if (!userID) {
+        userID = @"1";//อย่าลืมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมม
+    }
+    
     sharedManager.loginStatus = NO;//อย่าลืมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมม
     
     sharedManager.memberID = userID;

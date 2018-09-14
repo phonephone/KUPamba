@@ -261,7 +261,7 @@
 
 - (IBAction)payBySCB:(id)sender
 {
-    [SCBPayHelper pay];
+    //[SCBPayHelper pay];
 }
 
 - (IBAction)back:(id)sender
