@@ -1,0 +1,585 @@
+
+/* Class = "UITextView"; text = "ใส่รายละเอียด..."; ObjectID = "08S-Uu-IWQ"; */
+"08S-Uu-IWQ.text" = "ใส่รายละเอียด...";
+
+/* Class = "UILabel"; text = "วิคตอร์ ลินเดเลิฟ"; ObjectID = "0Fi-Qt-4Nl"; */
+"0Fi-Qt-4Nl.text" = "วิคตอร์ ลินเดเลิฟ";
+
+/* Class = "UILabel"; text = "เวลาออกเดินทาง"; ObjectID = "0IX-xr-oym"; */
+"0IX-xr-oym.text" = "เวลาออกเดินทาง";
+
+/* Class = "UILabel"; text = "เสนอที่นั่ง"; ObjectID = "0ja-sa-EbH"; */
+"0ja-sa-EbH.text" = "เสนอที่นั่ง";
+
+/* Class = "UILabel"; text = "อีเมลล์"; ObjectID = "1av-io-McZ"; */
+"1av-io-McZ.text" = "อีเมลล์";
+
+/* Class = "UILabel"; text = "Hat Pattaya"; ObjectID = "1eL-Wm-iIl"; */
+"1eL-Wm-iIl.text" = "Hat Pattaya";
+
+/* Class = "UITextField"; text = "ฟรี"; ObjectID = "1yV-K1-Esy"; */
+"1yV-K1-Esy.text" = "ฟรี";
+
+/* Class = "UILabel"; text = "1) โรงแรมเลอคองคอร์ด\n2) Motorways"; ObjectID = "1zN-RE-YyU"; */
+"1zN-RE-YyU.text" = "1) โรงแรมเลอคองคอร์ด\n2) Motorways";
+
+/* Class = "UILabel"; text = "รอ"; ObjectID = "2I0-Y4-5Ae"; */
+"2I0-Y4-5Ae.text" = "รอ";
+
+/* Class = "UILabel"; text = "ข้อกำหนดของ วิคตอร์ ลินเดเลิฟ"; ObjectID = "2Ra-eL-KzY"; */
+"2Ra-eL-KzY.text" = "ข้อกำหนดของ วิคตอร์ ลินเดเลิฟ";
+
+/* Class = "UILabel"; text = "บัญชีผู้ใช้"; ObjectID = "2c2-AB-NxM"; */
+"2c2-AB-NxM.text" = "บัญชีผู้ใช้";
+
+/* Class = "UITextField"; text = "19 มิ.ย. 2560"; ObjectID = "2hf-6Y-Sob"; */
+"2hf-6Y-Sob.text" = "19 มิ.ย. 2560";
+
+/* Class = "UITextField"; text = "18:30"; ObjectID = "47E-v9-s3d"; */
+"47E-v9-s3d.text" = "18:30";
+
+/* Class = "UILabel"; text = "วันที่ออกเดินทาง"; ObjectID = "4T5-hP-n6M"; */
+"4T5-hP-n6M.text" = "วันที่ออกเดินทาง";
+
+/* Class = "UITabBarItem"; title = "ต้องการที่นั่ง"; ObjectID = "4Xm-bu-FZz"; */
+"4Xm-bu-FZz.title" = "ต้องการที่นั่ง";
+
+/* Class = "UILabel"; text = "Hat Pattaya"; ObjectID = "5UH-CS-ZGQ"; */
+"5UH-CS-ZGQ.text" = "Hat Pattaya";
+
+/* Class = "UILabel"; text = "บาท"; ObjectID = "5zg-sF-wCz"; */
+"5zg-sF-wCz.text" = "บาท";
+
+/* Class = "UILabel"; text = "ข้อมูลส่วนตัว"; ObjectID = "69Q-fU-whT"; */
+"69Q-fU-whT.text" = "ข้อมูลส่วนตัว";
+
+/* Class = "UILabel"; text = "(5 รีวิว)"; ObjectID = "6Nf-O0-BDI"; */
+"6Nf-O0-BDI.text" = "(5 รีวิว)";
+
+/* Class = "UILabel"; text = "ข้อมูลผู้ขับ"; ObjectID = "6Tq-LV-HNn"; */
+"6Tq-LV-HNn.text" = "ข้อมูลผู้ขับ";
+
+/* Class = "UIButton"; normalTitle = "เสนอที่นั่ง"; ObjectID = "6gG-DD-fjP"; */
+"6gG-DD-fjP.normalTitle" = "เสนอที่นั่ง";
+
+/* Class = "UILabel"; text = "(5 รีวิว)"; ObjectID = "6jg-xg-92W"; */
+"6jg-xg-92W.text" = "(5 รีวิว)";
+
+/* Class = "UITextField"; placeholder = "กรุณาเลือกมหาวิทยาลัย"; ObjectID = "6l4-vg-dqb"; */
+"6l4-vg-dqb.placeholder" = "กรุณาเลือกมหาวิทยาลัย";
+
+/* Class = "UIButton"; normalTitle = "จองที่นั่ง"; ObjectID = "74U-CL-xcU"; */
+"74U-CL-xcU.normalTitle" = "จองที่นั่ง";
+
+/* Class = "UILabel"; text = "ข้อกำหนด"; ObjectID = "8vz-2K-fef"; */
+"8vz-2K-fef.text" = "ข้อกำหนด";
+
+/* Class = "UILabel"; text = "ไม่พบเส้นทางที่ค้นหา"; ObjectID = "8y4-GI-29R"; */
+"8y4-GI-29R.text" = "ไม่พบเส้นทางที่ค้นหา";
+
+/* Class = "UILabel"; text = "I accept the terms and condition."; ObjectID = "9L2-qN-j0j"; */
+"9L2-qN-j0j.text" = "I accept the terms and condition.";
+
+/* Class = "UILabel"; text = "วันที่ออกเดินทาง"; ObjectID = "9pa-yz-8tn"; */
+"9pa-yz-8tn.text" = "วันที่ออกเดินทาง";
+
+/* Class = "UILabel"; text = "\"ไม่มีรายการ\""; ObjectID = "9qO-Ib-AF5"; */
+"9qO-Ib-AF5.text" = "\"ไม่มีรายการ\"";
+
+/* Class = "UILabel"; text = "เวลาออกเดินทาง"; ObjectID = "A2v-Tr-Tjb"; */
+"A2v-Tr-Tjb.text" = "เวลาออกเดินทาง";
+
+/* Class = "UILabel"; text = "Hat Pattaya"; ObjectID = "A8D-wG-lVA"; */
+"A8D-wG-lVA.text" = "Hat Pattaya";
+
+/* Class = "UIButton"; normalTitle = "ตกลง"; ObjectID = "AMK-zA-i2d"; */
+"AMK-zA-i2d.normalTitle" = "ตกลง";
+
+/* Class = "UITextField"; placeholder = "ถึง"; ObjectID = "AnM-ym-SnL"; */
+"AnM-ym-SnL.placeholder" = "ถึง";
+
+/* Class = "UILabel"; text = "bob@gmail.com"; ObjectID = "Apm-Ii-UVG"; */
+"Apm-Ii-UVG.text" = "bob@gmail.com";
+
+/* Class = "UILabel"; text = "SME Bank Tower"; ObjectID = "BND-Ty-53q"; */
+"BND-Ty-53q.text" = "SME Bank Tower";
+
+/* Class = "UILabel"; text = "50%"; ObjectID = "C2g-T4-nuY"; */
+"C2g-T4-nuY.text" = "50%";
+
+/* Class = "UILabel"; text = "บาท"; ObjectID = "CEU-m9-yaJ"; */
+"CEU-m9-yaJ.text" = "บาท";
+
+/* Class = "UILabel"; text = "การเจาะจงเวลา"; ObjectID = "Cbm-mi-dGq"; */
+"Cbm-mi-dGq.text" = "การเจาะจงเวลา";
+
+/* Class = "UILabel"; text = "ขนาดกลาง"; ObjectID = "D5f-cc-kVl"; */
+"D5f-cc-kVl.text" = "ขนาดกลาง";
+
+/* Class = "UITextField"; placeholder = "ชื่อของท่าน"; ObjectID = "DAf-Ci-XO5"; */
+"DAf-Ci-XO5.placeholder" = "ชื่อของท่าน";
+
+/* Class = "UILabel"; text = "ขนาดของกระเป๋า"; ObjectID = "DS7-l7-IBA"; */
+"DS7-l7-IBA.text" = "ขนาดของกระเป๋า";
+
+/* Class = "UILabel"; text = "ชื่อ"; ObjectID = "DTN-Su-3Nu"; */
+"DTN-Su-3Nu.text" = "ชื่อ";
+
+/* Class = "UILabel"; text = "Bob Minion"; ObjectID = "Dh2-3D-AyR"; */
+"Dh2-3D-AyR.text" = "Bob Minion";
+
+/* Class = "UILabel"; text = "วิคเตอร์ ลินเดเลิฟ"; ObjectID = "DkM-Rl-0i5"; */
+"DkM-Rl-0i5.text" = "วิคเตอร์ ลินเดเลิฟ";
+
+/* Class = "UILabel"; text = "3 ที่นั่ง"; ObjectID = "DsF-C4-sQZ"; */
+"DsF-C4-sQZ.text" = "3 ที่นั่ง";
+
+/* Class = "UILabel"; text = "Terms and Conditions"; ObjectID = "Dt4-Nb-HM0"; */
+"Dt4-Nb-HM0.text" = "Terms and Conditions";
+
+/* Class = "UILabel"; text = "16 มิถุนายน 2560 เวลา 18:30 น."; ObjectID = "EIc-Db-pEd"; */
+"EIc-Db-pEd.text" = "16 มิถุนายน 2560 เวลา 18:30 น.";
+
+/* Class = "UILabel"; text = "การเสนอที่นั่งของคุณ"; ObjectID = "EOx-og-Qg2"; */
+"EOx-og-Qg2.text" = "การเสนอที่นั่งของคุณ";
+
+/* Class = "UILabel"; text = "SME Bank Tower"; ObjectID = "FDB-we-Wny"; */
+"FDB-we-Wny.text" = "SME Bank Tower";
+
+/* Class = "UILabel"; text = "รายละเอียดการเดินทาง"; ObjectID = "FX6-F8-v0X"; */
+"FX6-F8-v0X.text" = "รายละเอียดการเดินทาง";
+
+/* Class = "UILabel"; text = "เบอร์โทร"; ObjectID = "FwP-qg-xzM"; */
+"FwP-qg-xzM.text" = "เบอร์โทร";
+
+/* Class = "UILabel"; text = "ค้นหาที่นั่ง"; ObjectID = "GBU-Oo-Ohl"; */
+"GBU-Oo-Ohl.text" = "ค้นหาที่นั่ง";
+
+/* Class = "UILabel"; text = "ห้าม รับประทานอาหาร"; ObjectID = "Gih-Cz-mL0"; */
+"Gih-Cz-mL0.text" = "ห้าม รับประทานอาหาร";
+
+/* Class = "UIButton"; normalTitle = " สลับเส้นทาง"; ObjectID = "HUM-5I-3MP"; */
+"HUM-5I-3MP.normalTitle" = " สลับเส้นทาง";
+
+/* Class = "UITextField"; text = "3"; ObjectID = "Hq0-Tx-BTt"; */
+"Hq0-Tx-BTt.text" = "3";
+
+/* Class = "UILabel"; text = "SME Bank Tower"; ObjectID = "HwH-va-i15"; */
+"HwH-va-i15.text" = "SME Bank Tower";
+
+/* Class = "UILabel"; text = "โดยสารรถ 10 ครั้ง"; ObjectID = "IBc-DW-uzn"; */
+"IBc-DW-uzn.text" = "โดยสารรถ 10 ครั้ง";
+
+/* Class = "UILabel"; text = "3 ที่นั่ง"; ObjectID = "IVc-ss-r9j"; */
+"IVc-ss-r9j.text" = "3 ที่นั่ง";
+
+/* Class = "UILabel"; text = "ชื่อ*"; ObjectID = "IlE-Iu-YHc"; */
+"IlE-Iu-YHc.text" = "ชื่อ*";
+
+/* Class = "UILabel"; text = "ไม่เปิดเพลง"; ObjectID = "JCd-6R-6eW"; */
+"JCd-6R-6eW.text" = "ไม่เปิดเพลง";
+
+/* Class = "UILabel"; text = "ข้อมูลส่วนตัว"; ObjectID = "K3v-h8-Kr7"; */
+"K3v-h8-Kr7.text" = "ข้อมูลส่วนตัว";
+
+/* Class = "UILabel"; text = "ค่าโดยสาร (ต่อท่าน)"; ObjectID = "K8C-ss-mgP"; */
+"K8C-ss-mgP.text" = "ค่าโดยสาร (ต่อท่าน)";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "K8t-oj-oHU"; */
+"K8t-oj-oHU.text" = "0";
+
+/* Class = "UILabel"; text = "SME Bank Tower"; ObjectID = "L8P-yf-yNS"; */
+"L8P-yf-yNS.text" = "SME Bank Tower";
+
+/* Class = "UILabel"; text = "SME Bank Tower"; ObjectID = "LM9-w3-ePb"; */
+"LM9-w3-ePb.text" = "SME Bank Tower";
+
+/* Class = "UILabel"; text = "วิคตอร์ ลินเดเลิฟ"; ObjectID = "Lhm-Q3-bXc"; */
+"Lhm-Q3-bXc.text" = "วิคตอร์ ลินเดเลิฟ";
+
+/* Class = "UITextField"; placeholder = "ถึง"; ObjectID = "LiY-Bt-4JU"; */
+"LiY-Bt-4JU.placeholder" = "ถึง";
+
+/* Class = "UITextField"; placeholder = "จาก"; ObjectID = "M8W-x1-w07"; */
+"M8W-x1-w07.placeholder" = "จาก";
+
+/* Class = "UILabel"; text = "นามสกุล*"; ObjectID = "MBu-Uq-L2G"; */
+"MBu-Uq-L2G.text" = "นามสกุล*";
+
+/* Class = "UILabel"; text = "20"; ObjectID = "MTH-MO-ida"; */
+"MTH-MO-ida.text" = "20";
+
+/* Class = "UILabel"; text = "วันที่ออกเดินทาง"; ObjectID = "Mnd-cm-ZNY"; */
+"Mnd-cm-ZNY.text" = "วันที่ออกเดินทาง";
+
+/* Class = "UILabel"; text = "มหาวิทยาลัย"; ObjectID = "Mxp-ct-gEs"; */
+"Mxp-ct-gEs.text" = "มหาวิทยาลัย";
+
+/* Class = "UILabel"; text = "Hat Phattaya"; ObjectID = "Na2-TQ-T0x"; */
+"Na2-TQ-T0x.text" = "Hat Phattaya";
+
+/* Class = "UILabel"; text = "บัตรประชาชน"; ObjectID = "OJx-t4-ZAy"; */
+"OJx-t4-ZAy.text" = "บัตรประชาชน";
+
+/* Class = "UILabel"; text = "20"; ObjectID = "OMt-Iq-NwP"; */
+"OMt-Iq-NwP.text" = "20";
+
+/* Class = "UIButton"; normalTitle = " สลับเส้นทาง"; ObjectID = "OtR-aX-123"; */
+"OtR-aX-123.normalTitle" = " สลับเส้นทาง";
+
+/* Class = "UILabel"; text = "สถานะ :"; ObjectID = "OvU-LW-Vl2"; */
+"OvU-LW-Vl2.text" = "สถานะ :";
+
+/* Class = "UIButton"; normalTitle = " สลับเส้นทาง"; ObjectID = "P0t-uu-ZAn"; */
+"P0t-uu-ZAn.normalTitle" = " สลับเส้นทาง";
+
+/* Class = "UILabel"; text = "Bob Minion"; ObjectID = "PBv-AH-br1"; */
+"PBv-AH-br1.text" = "Bob Minion";
+
+/* Class = "UITextField"; text = "3"; ObjectID = "PLy-fp-F0T"; */
+"PLy-fp-F0T.text" = "3";
+
+/* Class = "UILabel"; text = "พระจอมเกล้าลาดกระบัง"; ObjectID = "PaX-Gu-FAS"; */
+"PaX-Gu-FAS.text" = "พระจอมเกล้าลาดกระบัง";
+
+/* Class = "UILabel"; text = "ห้าม สูบบุหรี่"; ObjectID = "Pk6-js-qo5"; */
+"Pk6-js-qo5.text" = "ห้าม สูบบุหรี่";
+
+/* Class = "UIButton"; normalTitle = "ยืนยันข้อมูล"; ObjectID = "Prj-F1-5GG"; */
+"Prj-F1-5GG.normalTitle" = "ยืนยันข้อมูล";
+
+/* Class = "UILabel"; text = "16 มิถุนายน 2560 เวลา 18:30 น."; ObjectID = "Q0Q-u2-h1W"; */
+"Q0Q-u2-h1W.text" = "16 มิถุนายน 2560 เวลา 18:30 น.";
+
+/* Class = "UILabel"; text = "ต้องการที่นั่ง"; ObjectID = "Q94-Sd-4CI"; */
+"Q94-Sd-4CI.text" = "ต้องการที่นั่ง";
+
+/* Class = "UITextView"; text = "ใส่รายละเอียด..."; ObjectID = "QLE-9I-4Ki"; */
+"QLE-9I-4Ki.text" = "ใส่รายละเอียด...";
+
+/* Class = "UILabel"; text = "การยืนยันตัวตน"; ObjectID = "QYw-Sn-eap"; */
+"QYw-Sn-eap.text" = "การยืนยันตัวตน";
+
+/* Class = "UILabel"; text = "Facebook"; ObjectID = "Raj-H4-yhp"; */
+"Raj-H4-yhp.text" = "Facebook";
+
+/* Class = "UITabBarItem"; title = "ค้นหาที่นั่ง"; ObjectID = "S7n-mf-28F"; */
+"S7n-mf-28F.title" = "ค้นหาที่นั่ง";
+
+/* Class = "UILabel"; text = "เสนอที่นั่ง"; ObjectID = "SB8-hd-hKn"; */
+"SB8-hd-hKn.text" = "เสนอที่นั่ง";
+
+/* Class = "UILabel"; text = "รายละเอียดการเดินทาง"; ObjectID = "Sc4-h5-KAh"; */
+"Sc4-h5-KAh.text" = "รายละเอียดการเดินทาง";
+
+/* Class = "UILabel"; text = "ข้อมูลรถยนต์"; ObjectID = "Sns-s2-EMb"; */
+"Sns-s2-EMb.text" = "ข้อมูลรถยนต์";
+
+/* Class = "UILabel"; text = "\"ไม่มีรายการ\""; ObjectID = "TMO-yu-BWl"; */
+"TMO-yu-BWl.text" = "\"ไม่มีรายการ\"";
+
+/* Class = "UILabel"; text = "ข้อมูลการสำรองที่นั่ง"; ObjectID = "TRV-DE-mZ6"; */
+"TRV-DE-mZ6.text" = "ข้อมูลการสำรองที่นั่ง";
+
+/* Class = "UILabel"; text = "ห้ามทานอาหาร"; ObjectID = "UAR-HA-oCg"; */
+"UAR-HA-oCg.text" = "ห้ามทานอาหาร";
+
+/* Class = "UILabel"; text = "(5 รีวิว)"; ObjectID = "UNc-2T-1pZ"; */
+"UNc-2T-1pZ.text" = "(5 รีวิว)";
+
+/* Class = "UILabel"; text = "45.6 กม."; ObjectID = "Uvz-tq-QjS"; */
+"Uvz-tq-QjS.text" = "45.6 กม.";
+
+/* Class = "UILabel"; text = "(5 รีวิว)"; ObjectID = "VA8-1M-bCc"; */
+"VA8-1M-bCc.text" = "(5 รีวิว)";
+
+/* Class = "UITextField"; placeholder = "นามสกุลของท่าน"; ObjectID = "VlE-j1-Ala"; */
+"VlE-j1-Ala.placeholder" = "นามสกุลของท่าน";
+
+/* Class = "UILabel"; text = "Condition\n\nConditionConditionConditionConditionConditionConditionConditionConditionConditionConditionConditionConditionConditionConditionConditionConditionConditionCondition"; ObjectID = "WQu-Hs-RFj"; */
+"WQu-Hs-RFj.text" = "Condition\n\nConditionConditionConditionConditionConditionConditionConditionConditionConditionConditionConditionConditionConditionConditionConditionConditionConditionCondition";
+
+/* Class = "UILabel"; text = "Hat Pattaya"; ObjectID = "WcL-OR-DWu"; */
+"WcL-OR-DWu.text" = "Hat Pattaya";
+
+/* Class = "UILabel"; text = "วันเดินทาง\n24 ต.ค. 2017"; ObjectID = "Wio-zj-muE"; */
+"Wio-zj-muE.text" = "วันเดินทาง\n24 ต.ค. 2017";
+
+/* Class = "UILabel"; text = "ยี่ห้อ : BMW  รุ่น : Sports Car i8\nป้ายทะเบียน : 4กฬ 743"; ObjectID = "WoG-bM-OCu"; */
+"WoG-bM-OCu.text" = "ยี่ห้อ : BMW  รุ่น : Sports Car i8\nป้ายทะเบียน : 4กฬ 743";
+
+/* Class = "UILabel"; text = "วิคตอร์ ลินเดเลิฟ"; ObjectID = "WvB-8i-fie"; */
+"WvB-8i-fie.text" = "วิคตอร์ ลินเดเลิฟ";
+
+/* Class = "UILabel"; text = "แก้ไขข้อมูล"; ObjectID = "XOT-yd-fvn"; */
+"XOT-yd-fvn.text" = "แก้ไขข้อมูล";
+
+/* Class = "UITextField"; text = "ฟรี"; ObjectID = "Xs6-2J-e6c"; */
+"Xs6-2J-e6c.text" = "ฟรี";
+
+/* Class = "UILabel"; text = "รายละเอียดการเดินทาง"; ObjectID = "Y5p-aZ-VHv"; */
+"Y5p-aZ-VHv.text" = "รายละเอียดการเดินทาง";
+
+/* Class = "UILabel"; text = "20"; ObjectID = "Y8V-M8-5gc"; */
+"Y8V-M8-5gc.text" = "20";
+
+/* Class = "UILabel"; text = "45.6 กม."; ObjectID = "YiG-Gw-bu4"; */
+"YiG-Gw-bu4.text" = "45.6 กม.";
+
+/* Class = "UILabel"; text = "บาท"; ObjectID = "YjP-bs-wNr"; */
+"YjP-bs-wNr.text" = "บาท";
+
+/* Class = "UIButton"; normalTitle = "แก้ไขข้อมูล"; ObjectID = "Yjc-l6-CW9"; */
+"Yjc-l6-CW9.normalTitle" = "แก้ไขข้อมูล";
+
+/* Class = "UILabel"; text = "Name Surname"; ObjectID = "ZFp-x6-11z"; */
+"ZFp-x6-11z.text" = "Name Surname";
+
+/* Class = "UILabel"; text = "(5 รีวิว)"; ObjectID = "ZKS-En-g78"; */
+"ZKS-En-g78.text" = "(5 รีวิว)";
+
+/* Class = "UITabBarItem"; title = "หน้าแรก"; ObjectID = "ZR1-62-KNI"; */
+"ZR1-62-KNI.title" = "หน้าแรก";
+
+/* Class = "UILabel"; text = "แก้ไขข้อมูลการเดินทาง"; ObjectID = "ZoE-45-zdQ"; */
+"ZoE-45-zdQ.text" = "แก้ไขข้อมูลการเดินทาง";
+
+/* Class = "UILabel"; text = "(5 รีวิว)"; ObjectID = "ZwY-dA-Bw9"; */
+"ZwY-dA-Bw9.text" = "(5 รีวิว)";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Zwc-uz-GmO"; */
+"Zwc-uz-GmO.text" = "Label";
+
+/* Class = "UILabel"; text = "ข้อมูลผู้ใช้เบื้องต้น"; ObjectID = "aSH-Ff-b07"; */
+"aSH-Ff-b07.text" = "ข้อมูลผู้ใช้เบื้องต้น";
+
+/* Class = "UILabel"; text = "ห้ามสูบบุหรี่"; ObjectID = "aZ3-Cv-DX7"; */
+"aZ3-Cv-DX7.text" = "ห้ามสูบบุหรี่";
+
+/* Class = "UILabel"; text = "16 มิถุนายน 2560 เวลา 18:30 น."; ObjectID = "acG-lW-INg"; */
+"acG-lW-INg.text" = "16 มิถุนายน 2560 เวลา 18:30 น.";
+
+/* Class = "UILabel"; text = "จำนวนที่ว่าง"; ObjectID = "ahH-q3-G0L"; */
+"ahH-q3-G0L.text" = "จำนวนที่ว่าง";
+
+/* Class = "UILabel"; text = "บัตรประชาชน"; ObjectID = "aqS-MY-e22"; */
+"aqS-MY-e22.text" = "บัตรประชาชน";
+
+/* Class = "UILabel"; text = "ห้าม สัตว์เลี้ยง"; ObjectID = "b4J-gY-C4R"; */
+"b4J-gY-C4R.text" = "ห้าม สัตว์เลี้ยง";
+
+/* Class = "UILabel"; text = "เบอร์โทรมือถือ"; ObjectID = "bHQ-FS-qof"; */
+"bHQ-FS-qof.text" = "เบอร์โทรมือถือ";
+
+/* Class = "UILabel"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "; ObjectID = "bhM-tL-Lcr"; */
+"bhM-tL-Lcr.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ";
+
+/* Class = "UILabel"; text = "20"; ObjectID = "c4E-Um-72v"; */
+"c4E-Um-72v.text" = "20";
+
+/* Class = "UILabel"; text = "เพศ"; ObjectID = "cmI-B7-nDb"; */
+"cmI-B7-nDb.text" = "เพศ";
+
+/* Class = "UILabel"; text = "อีเมลล์"; ObjectID = "csC-hK-l38"; */
+"csC-hK-l38.text" = "อีเมลล์";
+
+/* Class = "UILabel"; text = "จำนวนที่ว่าง"; ObjectID = "dJD-lv-BlN"; */
+"dJD-lv-BlN.text" = "จำนวนที่ว่าง";
+
+/* Class = "UILabel"; text = "เวลาออกเดินทาง"; ObjectID = "dZq-NA-S9k"; */
+"dZq-NA-S9k.text" = "เวลาออกเดินทาง";
+
+/* Class = "UITextField"; text = "19 มิ.ย. 2560"; ObjectID = "dn8-ma-rCD"; */
+"dn8-ma-rCD.text" = "19 มิ.ย. 2560";
+
+/* Class = "UITextField"; text = "เล็ก"; ObjectID = "e0T-hP-wFT"; */
+"e0T-hP-wFT.text" = "เล็ก";
+
+/* Class = "UILabel"; text = "กล่องข้อความ"; ObjectID = "eAN-q1-SLG"; */
+"eAN-q1-SLG.text" = "กล่องข้อความ";
+
+/* Class = "UILabel"; text = "ว่าง 4 ที่นั่ง"; ObjectID = "eQk-DT-6UN"; */
+"eQk-DT-6UN.text" = "ว่าง 4 ที่นั่ง";
+
+/* Class = "UILabel"; text = "บาท"; ObjectID = "eSM-pW-t1h"; */
+"eSM-pW-t1h.text" = "บาท";
+
+/* Class = "UILabel"; text = "20"; ObjectID = "fXF-uv-pCR"; */
+"fXF-uv-pCR.text" = "20";
+
+/* Class = "UILabel"; text = "6:45"; ObjectID = "fxY-vy-WU2"; */
+"fxY-vy-WU2.text" = "6:45";
+
+/* Class = "UILabel"; text = "16 มิถุนายน 2560 เวลา 18:30 น."; ObjectID = "fzj-aP-Piz"; */
+"fzj-aP-Piz.text" = "16 มิถุนายน 2560 เวลา 18:30 น.";
+
+/* Class = "UILabel"; text = "last chat message"; ObjectID = "gAJ-FD-hRo"; */
+"gAJ-FD-hRo.text" = "last chat message";
+
+/* Class = "UITextField"; text = "± 15"; ObjectID = "h2B-OQ-gPA"; */
+"h2B-OQ-gPA.text" = "± 15";
+
+/* Class = "UILabel"; text = "วิคตอร์ ลินเดเลิฟ"; ObjectID = "hBh-mj-rlG"; */
+"hBh-mj-rlG.text" = "วิคตอร์ ลินเดเลิฟ";
+
+/* Class = "UILabel"; text = "ระยะทางทั้งสิ้น : 13.1 กม.\nคำนวนตามขนส่งสาธารณะ : 30 บาท\nคำนวณตามมิเตอร์ เริ่มต้น : 108 บาท"; ObjectID = "hi3-YG-PfG"; */
+"hi3-YG-PfG.text" = "ระยะทางทั้งสิ้น : 13.1 กม.\nคำนวนตามขนส่งสาธารณะ : 30 บาท\nคำนวณตามมิเตอร์ เริ่มต้น : 108 บาท";
+
+/* Class = "UILabel"; text = "วิคตอร์ ลินเดเลิฟ"; ObjectID = "hpO-oy-9tJ"; */
+"hpO-oy-9tJ.text" = "วิคตอร์ ลินเดเลิฟ";
+
+/* Class = "UITextField"; text = "18:30"; ObjectID = "i8i-h9-8Vw"; */
+"i8i-h9-8Vw.text" = "18:30";
+
+/* Class = "UILabel"; text = "รายละเอียดการเดินทาง"; ObjectID = "iMx-9g-W7N"; */
+"iMx-9g-W7N.text" = "รายละเอียดการเดินทาง";
+
+/* Class = "UILabel"; text = "บาท"; ObjectID = "iXi-YE-hQm"; */
+"iXi-YE-hQm.text" = "บาท";
+
+/* Class = "UILabel"; text = "การยืนยันตัวตน"; ObjectID = "izP-LV-KPM"; */
+"izP-LV-KPM.text" = "การยืนยันตัวตน";
+
+/* Class = "UILabel"; text = "ยี่ห้อ : BMW  รุ่น : Sports Car i8\nป้ายทะเบียน : 4กฬ 743"; ObjectID = "j1f-3i-Dvh"; */
+"j1f-3i-Dvh.text" = "ยี่ห้อ : BMW  รุ่น : Sports Car i8\nป้ายทะเบียน : 4กฬ 743";
+
+/* Class = "UILabel"; text = "(5 รีวิว)"; ObjectID = "jgH-hW-NHg"; */
+"jgH-hW-NHg.text" = "(5 รีวิว)";
+
+/* Class = "UILabel"; text = "Hat Phattaya"; ObjectID = "jus-35-vYO"; */
+"jus-35-vYO.text" = "Hat Phattaya";
+
+/* Class = "UILabel"; text = "SME Bank Tower"; ObjectID = "kGN-5j-17N"; */
+"kGN-5j-17N.text" = "SME Bank Tower";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "kIO-ky-Egn"; */
+"kIO-ky-Egn.text" = "Label";
+
+/* Class = "UILabel"; text = "จุดรับ-ส่ง"; ObjectID = "l3l-EH-KMi"; */
+"l3l-EH-KMi.text" = "จุดรับ-ส่ง";
+
+/* Class = "UITextView"; text = "ใส่รายละเอียด..."; ObjectID = "m3x-Rm-NHL"; */
+"m3x-Rm-NHL.text" = "ใส่รายละเอียด...";
+
+/* Class = "UILabel"; text = "6:45"; ObjectID = "mb6-wn-zzF"; */
+"mb6-wn-zzF.text" = "6:45";
+
+/* Class = "UITextField"; placeholder = "จาก"; ObjectID = "mkd-Pi-36p"; */
+"mkd-Pi-36p.placeholder" = "จาก";
+
+/* Class = "UILabel"; text = "ข้อมูลการเสนอที่นั่ง"; ObjectID = "mzq-M2-r1U"; */
+"mzq-M2-r1U.text" = "ข้อมูลการเสนอที่นั่ง";
+
+/* Class = "UILabel"; text = "Hat Pattaya"; ObjectID = "nC8-M8-FFI"; */
+"nC8-M8-FFI.text" = "Hat Pattaya";
+
+/* Class = "UILabel"; text = "Male"; ObjectID = "naG-SK-A7k"; */
+"naG-SK-A7k.text" = "Male";
+
+/* Class = "UILabel"; text = "089 999 9999"; ObjectID = "oHo-0V-YXv"; */
+"oHo-0V-YXv.text" = "089 999 9999";
+
+/* Class = "UILabel"; text = "3 ที่นั่ง"; ObjectID = "ojV-eg-1pS"; */
+"ojV-eg-1pS.text" = "3 ที่นั่ง";
+
+/* Class = "UILabel"; text = "วันเดินทาง\n24 ต.ค. 2017"; ObjectID = "p6i-c6-E6H"; */
+"p6i-c6-E6H.text" = "วันเดินทาง\n24 ต.ค. 2017";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "q4p-AJ-73J"; */
+"q4p-AJ-73J.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "เสนอที่นั่ง"; ObjectID = "qDH-SV-Ss6"; */
+"qDH-SV-Ss6.title" = "เสนอที่นั่ง";
+
+/* Class = "UILabel"; text = "รายละเอียดการเดินทาง"; ObjectID = "qRc-Qk-mhk"; */
+"qRc-Qk-mhk.text" = "รายละเอียดการเดินทาง";
+
+/* Class = "UILabel"; text = "เสนอที่นั่ง 16 ครั้ง"; ObjectID = "qcY-8O-rAG"; */
+"qcY-8O-rAG.text" = "เสนอที่นั่ง 16 ครั้ง";
+
+/* Class = "UILabel"; text = "เบอร์โทรมือถือ"; ObjectID = "qcc-9D-QEo"; */
+"qcc-9D-QEo.text" = "เบอร์โทรมือถือ";
+
+/* Class = "UILabel"; text = "อัตราแนะนำ"; ObjectID = "rTQ-k1-ZsW"; */
+"rTQ-k1-ZsW.text" = "อัตราแนะนำ";
+
+/* Class = "UILabel"; text = "วิคเตอร์ ลินเดเลิฟ"; ObjectID = "rWn-KL-9nN"; */
+"rWn-KL-9nN.text" = "วิคเตอร์ ลินเดเลิฟ";
+
+/* Class = "UILabel"; text = "3 ที่นั่ง"; ObjectID = "rf8-QW-VP3"; */
+"rf8-QW-VP3.text" = "3 ที่นั่ง";
+
+/* Class = "UILabel"; text = "ว่าง 4 ที่นั่ง"; ObjectID = "rfb-B1-5oD"; */
+"rfb-B1-5oD.text" = "ว่าง 4 ที่นั่ง";
+
+/* Class = "UILabel"; text = "ไม่เปิดเพลง"; ObjectID = "rzq-wV-zD7"; */
+"rzq-wV-zD7.text" = "ไม่เปิดเพลง";
+
+/* Class = "UITextField"; text = "19 มิ.ย. 2560"; ObjectID = "sP9-qV-ucv"; */
+"sP9-qV-ucv.text" = "19 มิ.ย. 2560";
+
+/* Class = "UILabel"; text = "ใกล้เคียง"; ObjectID = "sVi-sF-i98"; */
+"sVi-sF-i98.text" = "ใกล้เคียง";
+
+/* Class = "UILabel"; text = "ข้อมูลการเสนอที่นั่ง"; ObjectID = "sb3-T3-cxy"; */
+"sb3-T3-cxy.text" = "ข้อมูลการเสนอที่นั่ง";
+
+/* Class = "UILabel"; text = "โพสต์เมื่อ 31 พฤษภาคม 2560\nการเจาะจงเวลาเดินทาง ± 15 (นาที)"; ObjectID = "sdq-bL-D8i"; */
+"sdq-bL-D8i.text" = "โพสต์เมื่อ 31 พฤษภาคม 2560\nการเจาะจงเวลาเดินทาง ± 15 (นาที)";
+
+/* Class = "UITextField"; text = "18:30"; ObjectID = "smU-C9-uqL"; */
+"smU-C9-uqL.text" = "18:30";
+
+/* Class = "UILabel"; text = "ค่าโดยสาร (ต่อท่าน)"; ObjectID = "tPy-Nr-JZ9"; */
+"tPy-Nr-JZ9.text" = "ค่าโดยสาร (ต่อท่าน)";
+
+/* Class = "UILabel"; text = "16 มิถุนายน 2560 เวลา 18:30 น."; ObjectID = "tlt-j3-7wC"; */
+"tlt-j3-7wC.text" = "16 มิถุนายน 2560 เวลา 18:30 น.";
+
+/* Class = "UILabel"; text = "(5 รีวิว)"; ObjectID = "tuI-gu-GiC"; */
+"tuI-gu-GiC.text" = "(5 รีวิว)";
+
+/* Class = "UILabel"; text = "อีเมลล์"; ObjectID = "uJa-nj-EGS"; */
+"uJa-nj-EGS.text" = "อีเมลล์";
+
+/* Class = "UILabel"; text = "วิคเตอร์ ลินเดเลิฟ"; ObjectID = "vT2-KQ-Cq8"; */
+"vT2-KQ-Cq8.text" = "วิคเตอร์ ลินเดเลิฟ";
+
+/* Class = "UILabel"; text = "ห้ามสัตว์เลี้ยงขึ้น"; ObjectID = "vT3-eZ-VVN"; */
+"vT3-eZ-VVN.text" = "ห้ามสัตว์เลี้ยงขึ้น";
+
+/* Class = "UILabel"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "; ObjectID = "vdl-xM-CMl"; */
+"vdl-xM-CMl.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ";
+
+/* Class = "UILabel"; text = "เป็นสมาชิกเมื่อ 1 เมษายน 2560"; ObjectID = "wZb-ND-ggj"; */
+"wZb-ND-ggj.text" = "เป็นสมาชิกเมื่อ 1 เมษายน 2560";
+
+/* Class = "UILabel"; text = "เพศ"; ObjectID = "woc-iO-m7g"; */
+"woc-iO-m7g.text" = "เพศ";
+
+/* Class = "UIButton"; normalTitle = "เสนอที่นั่ง"; ObjectID = "wyR-yf-6fd"; */
+"wyR-yf-6fd.normalTitle" = "เสนอที่นั่ง";
+
+/* Class = "UILabel"; text = "จุด รับ-ส่ง"; ObjectID = "x1h-9B-7Ft"; */
+"x1h-9B-7Ft.text" = "จุด รับ-ส่ง";
+
+/* Class = "UILabel"; text = "วันที่ออกเดินทาง"; ObjectID = "x1o-zU-PFg"; */
+"x1o-zU-PFg.text" = "วันที่ออกเดินทาง";
+
+/* Class = "UITextField"; placeholder = "ถึง"; ObjectID = "x8o-hW-hxF"; */
+"x8o-hW-hxF.placeholder" = "ถึง";
+
+/* Class = "UITextField"; text = "19 มิ.ย. 2560"; ObjectID = "xge-hZ-Bea"; */
+"xge-hZ-Bea.text" = "19 มิ.ย. 2560";
+
+/* Class = "UILabel"; text = "Facebook"; ObjectID = "xvl-0d-boN"; */
+"xvl-0d-boN.text" = "Facebook";
+
+/* Class = "UILabel"; text = "มหาวิทยาลัย*"; ObjectID = "y7a-5e-dO5"; */
+"y7a-5e-dO5.text" = "มหาวิทยาลัย*";
+
+/* Class = "UILabel"; text = "SME Bank Tower"; ObjectID = "yPz-XQ-dr1"; */
+"yPz-XQ-dr1.text" = "SME Bank Tower";
+
+/* Class = "UITextField"; placeholder = "จาก"; ObjectID = "yXC-eR-IH8"; */
+"yXC-eR-IH8.placeholder" = "จาก";

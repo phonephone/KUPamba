@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  PambaU
+
+  Created by Firststep Consulting on 9/9/18.
+  Copyright © 2018 TMA Digital Company Limited. All rights reserved.
+*/
+"KEY" = "CONTENT";
+"Terms" = "You like?";
+"Yesterday you sold %@ apps" = "Yesterday you sold %@ apps";

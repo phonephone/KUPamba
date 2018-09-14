@@ -1,0 +1,21 @@
+framework module KUPamba {
+    umbrella header "KUPamba.h"
+    
+    export *
+    module * { export * }
+}
+/*
+framework module GooglePlace {
+    umbrella header "GooglePlaces.h"
+    
+    export *
+    module * { export * }
+}
+
+framework module GoogleMapsBase {
+    umbrella header "GoogleMapsBase.h"
+    
+    export *
+    module * { export * }
+}
+*/
