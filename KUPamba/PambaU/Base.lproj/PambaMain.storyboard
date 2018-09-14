@@ -1276,7 +1276,7 @@ Rattanasuwan</string>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="ErF-11-fSw">
-                                        <rect key="frame" x="28" y="154" width="105" height="343"/>
+                                        <rect key="frame" x="28" y="154.5" width="105" height="342.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ประเภทรถ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4c-id-OSf">
                                                 <rect key="frame" x="41" y="0.0" width="64" height="18"/>
@@ -1285,7 +1285,7 @@ Rattanasuwan</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="วันที่ออกเดินทาง" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mnd-cm-ZNY">
-                                                <rect key="frame" x="4.5" y="46" width="100.5" height="18"/>
+                                                <rect key="frame" x="4.5" y="46.5" width="100.5" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                 <color key="textColor" red="0.28235294119999998" green="0.28235294119999998" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1315,13 +1315,13 @@ Rattanasuwan</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เพศผู้โดยสาร" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXU-4y-kZj">
-                                                <rect key="frame" x="22" y="278.5" width="83" height="18"/>
+                                                <rect key="frame" x="22" y="278" width="83" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                 <color key="textColor" red="0.28235294119999998" green="0.28235294119999998" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="สัมภาระ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DS7-l7-IBA">
-                                                <rect key="frame" x="55" y="325" width="50" height="18"/>
+                                                <rect key="frame" x="55" y="324.5" width="50" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                 <color key="textColor" red="0.28235294119999998" green="0.28235294119999998" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1341,7 +1341,7 @@ Rattanasuwan</string>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="รถยนต์" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gxc-UE-l2z">
-                                        <rect key="frame" x="173" y="147.5" width="162.5" height="30"/>
+                                        <rect key="frame" x="173" y="148" width="162.5" height="29.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -1351,22 +1351,22 @@ Rattanasuwan</string>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="19 มิ.ย. 2560" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sP9-qV-ucv">
-                                        <rect key="frame" x="173" y="194" width="162.5" height="30.5"/>
+                                        <rect key="frame" x="173" y="195" width="162.5" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="18:30" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="smU-C9-uqL">
-                                        <rect key="frame" x="173" y="241" width="162.5" height="30.5"/>
+                                        <rect key="frame" x="173" y="241.5" width="162.5" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" tag="99" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ฟรี" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1yV-K1-Esy">
-                                        <rect key="frame" x="173" y="334" width="162.5" height="29.5"/>
+                                        <rect key="frame" x="173" y="334.5" width="162.5" height="29.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="± 15" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h2B-OQ-gPA">
-                                        <rect key="frame" x="173" y="287.5" width="162.5" height="30"/>
+                                        <rect key="frame" x="173" y="288" width="162.5" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -1381,19 +1381,19 @@ Rattanasuwan</string>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="form_dropdown_gray" translatesAutoresizingMaskIntoConstraints="NO" id="F3E-hl-UdZ">
-                                        <rect key="frame" x="322" y="160" width="8.5" height="4.5"/>
+                                        <rect key="frame" x="322" y="160" width="8.5" height="5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="F3E-hl-UdZ" secondAttribute="height" multiplier="22:13" id="wnf-Lg-4Ti"/>
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="form_dropdown_gray" translatesAutoresizingMaskIntoConstraints="NO" id="0ha-b1-cgi">
-                                        <rect key="frame" x="322" y="301" width="9" height="5"/>
+                                        <rect key="frame" x="322" y="300.5" width="9" height="5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="0ha-b1-cgi" secondAttribute="height" multiplier="22:13" id="Bpd-Gu-gZx"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JiT-2e-TEC">
-                                        <rect key="frame" x="318" y="339.5" width="17.5" height="18"/>
+                                        <rect key="frame" x="318" y="340" width="17.5" height="18.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="JiT-2e-TEC" secondAttribute="height" multiplier="1:1" id="SMd-P4-xSe"/>
                                         </constraints>
@@ -1403,7 +1403,7 @@ Rattanasuwan</string>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="form_dropdown_gray" translatesAutoresizingMaskIntoConstraints="NO" id="pVX-Kc-0xc">
-                                        <rect key="frame" x="322" y="392.5" width="8.5" height="5"/>
+                                        <rect key="frame" x="322" y="392.5" width="8.5" height="5.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="pVX-Kc-0xc" secondAttribute="height" multiplier="22:13" id="ZrP-lu-cbY"/>
                                         </constraints>
@@ -1439,13 +1439,13 @@ Rattanasuwan</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ไปยัง" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxN-Cc-Pv9">
-                                        <rect key="frame" x="28" y="99" width="32.5" height="29.5"/>
+                                        <rect key="frame" x="28" y="99" width="32.5" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <color key="textColor" red="0.60392156860000001" green="0.58431372550000005" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="สวนสยาม" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vT8-Fd-F2u">
-                                        <rect key="frame" x="73" y="99" width="262.5" height="29.5"/>
+                                        <rect key="frame" x="73" y="99" width="262.5" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -3251,7 +3251,7 @@ Rattanasuwan</string>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ListCell" id="bsf-7F-Gwf" customClass="ListCell">
-                                        <rect key="frame" x="12.5" y="150" width="350" height="125"/>
+                                        <rect key="frame" x="12.5" y="20" width="350" height="125"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="125"/>
@@ -3385,7 +3385,7 @@ Rattanasuwan</string>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ManageCell" id="MFv-59-bYn" customClass="ListCell">
-                                        <rect key="frame" x="12.5" y="20" width="350" height="125"/>
+                                        <rect key="frame" x="12.5" y="150" width="350" height="125"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="125"/>
@@ -4389,13 +4389,13 @@ Rattanasuwan</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ไปยัง" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Pp-IG-UKr">
-                                        <rect key="frame" x="28" y="99.5" width="32.5" height="29.5"/>
+                                        <rect key="frame" x="28" y="99.5" width="32.5" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <color key="textColor" red="0.60392156860000001" green="0.58431372550000005" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="สวนสยาม" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jpn-7l-Qhz">
-                                        <rect key="frame" x="73" y="99.5" width="262.5" height="29.5"/>
+                                        <rect key="frame" x="73" y="99.5" width="262.5" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -4430,7 +4430,7 @@ Rattanasuwan</string>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="L00-Qv-eqm">
-                                        <rect key="frame" x="28" y="154.5" width="105" height="70"/>
+                                        <rect key="frame" x="28" y="155" width="105" height="70"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="วันที่ออกเดินทาง" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzd-NA-hs4">
                                                 <rect key="frame" x="4.5" y="0.0" width="100.5" height="18"/>
@@ -4450,27 +4450,27 @@ Rattanasuwan</string>
                                         </constraints>
                                     </stackView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="19 มิ.ย. 2560" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AZe-AS-J2q">
-                                        <rect key="frame" x="173" y="154" width="162.5" height="18.5"/>
+                                        <rect key="frame" x="173" y="154.5" width="162.5" height="18.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="18:30" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v7T-6I-0k2">
-                                        <rect key="frame" x="173" y="206" width="162.5" height="18"/>
+                                        <rect key="frame" x="173" y="206.5" width="162.5" height="18"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="รายละเอียดการเดินทาง" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1L7-Pn-9rK">
-                                        <rect key="frame" x="37.5" y="257.5" width="300" height="18"/>
+                                        <rect key="frame" x="37.5" y="258.5" width="300" height="18"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <color key="textColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XO4-LD-iTl">
-                                        <rect key="frame" x="34" y="282.5" width="307.5" height="34"/>
+                                        <rect key="frame" x="34" y="283.5" width="307.5" height="34"/>
                                         <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="กรอกรายละเอียดการเดินทาง" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UxD-13-iRV">
-                                        <rect key="frame" x="34" y="281.5" width="307.5" height="34"/>
+                                        <rect key="frame" x="34" y="282.5" width="307.5" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
