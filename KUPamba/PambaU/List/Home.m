@@ -20,7 +20,7 @@
 
 @implementation Home
 
-@synthesize headerView,headerTitle,headerLBtn,headerRBtn,rightAlert,toolBar,targetView;
+@synthesize showQR,headerView,headerTitle,headerLBtn,headerRBtn,rightAlert,toolBar,targetView;
 
 - (void)viewWillLayoutSubviews
 {
@@ -29,11 +29,9 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-     self.menuContainerViewController.panMode = YES;
-    
-    if (sharedManager.loginStatus) {
-    }
+    self.menuContainerViewController.panMode = YES;
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -74,7 +72,21 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    
+    if (showQR) {
+        showQR = NO;
+        
+        CCMPopupTransitioning *popup = [CCMPopupTransitioning sharedInstance];
+        popup.presentingController = self;
+        popup.backgroundViewAlpha = 0.7;
+        popup.backgroundViewColor = [UIColor blackColor];
+        popup.dismissableByTouchingBackground = YES;
+        popup.destinationBounds = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width*0.9, [[UIScreen mainScreen] bounds].size.height*0.7);
+        
+        UIViewController *pp = [self.storyboard instantiateViewControllerWithIdentifier:@"QRCode"];
+        popup.presentedController = pp;
+        
+        [self presentViewController:pp animated:YES completion:nil];
+    }
 }
 
 - (void)style {
@@ -157,13 +169,14 @@
 {
     NSMutableArray *newStack = [NSMutableArray arrayWithArray:[self.navigationController viewControllers]];
     [newStack removeLastObject];
-    [newStack removeLastObject];//อย่าลืมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมม
+    [newStack removeLastObject];
     [self.navigationController setViewControllers:newStack animated:YES];
     
     //[self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)showRightMenuPressed:(id)sender {
+    self.menuContainerViewController.panMode = MFSideMenuPanModeCenterViewController | MFSideMenuPanModeSideMenu;
     [self.menuContainerViewController toggleRightSideMenuCompletion:nil];
 }
 

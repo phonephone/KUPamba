@@ -420,6 +420,22 @@ didFailAutocompleteWithError:(NSError *)error {
         remark = remarkText.text;
     }
     
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"ยืนยันการเสนอที่นั่ง" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"ตกลง" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        [self loadWebView];
+    }];
+    [alertController addAction:ok];
+    
+    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"ยกเลิก" style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
+    }];
+    [alertController addAction:cancel];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)loadWebView
+{
     waypoint = @"";
     NSString *seperator;
     for (int i=0; i < [pickupArray count]; i++) {

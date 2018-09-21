@@ -67,7 +67,7 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
-         NSLog(@"profileJSON %@",responseObject);
+         //NSLog(@"profileJSON %@",responseObject);
          sharedManager.profileJSON = [[[responseObject objectForKey:@"data"] objectAtIndex:0] mutableCopy];
          [SVProgressHUD dismiss];
          
@@ -159,14 +159,43 @@
     profileR3.text = [sharedManager.profileJSON objectForKey:@"mobile"];
     
     profileL4.text = @"หมายเลขพร้อมเพย์";
-    //profileR4.text = [sharedManager.profileJSON objectForKey:@"XXX"];//อย่าลืมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมม
-    
+    int promptpayType = [[sharedManager.profileJSON objectForKey:@"promtpayType"] intValue];
+    switch (promptpayType) {
+        case 0:
+            profileR4.text = @"ไม่ระบุ";
+            break;
+        case 1://Mobile
+            profileR4.text = [sharedManager.profileJSON objectForKey:@"promtpayMobileNumber"];
+            break;
+        case 2://ID Card
+            profileR4.text = [sharedManager.profileJSON objectForKey:@"citizenID"];
+            break;
+        
+        default:
+            break;
+    }
     
     //CAR
     NSDictionary *carArray = [[sharedManager.profileJSON objectForKey:@"carDetail"] objectAtIndex:0];
     
     carL1.text = @"ประเภท";
-    carR1.text = @"รถยนต์ส่วนบุคคล";[carArray objectForKey:@"XXX"];//อย่าลืมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมม
+    int carType = [[carArray objectForKey:@"type"] intValue];
+    switch (carType) {
+        case 1:
+            carR1.text = @"รถยนต์";
+            break;
+        case 2:
+            carR1.text = @"รถตู้";
+            break;
+        case 3:
+            carR1.text = @"แท็กซี่";
+            break;
+        case 4:
+            carR1.text = @"จักรยานยนต์";
+            break;
+        default:
+            break;
+    }
     
     carL2.text = @"ยี่ห้อ";
     carR2.text = [carArray objectForKey:@"brand"];
@@ -191,7 +220,7 @@
         
         [imgView sd_setImageWithURL:[NSURL URLWithString:[[picArray objectAtIndex:i] objectForKey:@"pic"]] placeholderImage:[UIImage imageNamed:@"xicon1024.png"]];
         
-        imgView.contentMode = UIViewContentModeScaleAspectFill;
+        imgView.contentMode = UIViewContentModeScaleAspectFit;
         imgView.clipsToBounds = YES;
         [myScroll addSubview:imgView];
     }

@@ -17,7 +17,7 @@
 
 @implementation Singleton
 
-@synthesize homeExisted,reloadOffer,reloadRequest,clearOffer,clearRequest,loginStatus;
+@synthesize homeExisted,reloadOffer,reloadRequest,clearOffer,clearRequest,showQR,loginStatus;
 
 @synthesize fontSize,GoogleAPIKey,memberID,memberToken,filterMode,latitude,longitude,mainThemeColor,btnThemeColor,cancelThemeColor,fontRegular,fontMedium,profileJSON,mainRoot;
 

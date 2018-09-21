@@ -21,6 +21,13 @@ FOUNDATION_EXPORT const unsigned char KUPambaVersionString[];
 #import <KUPamba/Home.h>
 #import <KUPamba/PambaU-Bridging-Header.h>
 
+#import <KUPamba/PromptPay.h>
+#import <KUPamba/QRCode.h>
+#import <KUPamba/Review.h>
+#import <KUPamba/ReviewCell.h>
+#import <KUPamba/Search.h>
+#import <KUPamba/SearchResult.h>
+
 #import <KUPamba/ResultHeader.h>
 #import <KUPamba/CreatePopUp.h>
 #import <KUPamba/EditTrip.h>
@@ -32,7 +39,6 @@ FOUNDATION_EXPORT const unsigned char KUPambaVersionString[];
 #import <KUPamba/MainCell.h>
 #import <KUPamba/MenuCell.h>
 #import <KUPamba/NoCell.h>
-#import <KUPamba/NotFoundCell.h>
 #import <KUPamba/OfferDetail.h>
 #import <KUPamba/OfferForm.h>
 #import <KUPamba/OfferForm2.h>
@@ -47,5 +53,4 @@ FOUNDATION_EXPORT const unsigned char KUPambaVersionString[];
 #import <KUPamba/ReserveCell.h>
 #import <KUPamba/RightMenu.h>
 #import <KUPamba/Search.h>
-#import <KUPamba/SearchCell.h>
 #import <KUPamba/Web.h>

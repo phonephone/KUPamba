@@ -198,7 +198,7 @@
         
         [imgView sd_setImageWithURL:[NSURL URLWithString:[[picArray objectAtIndex:i] objectForKey:@"pic"]] placeholderImage:[UIImage imageNamed:@"xicon1024.png"]];
         
-        imgView.contentMode = UIViewContentModeScaleAspectFill;
+        imgView.contentMode = UIViewContentModeScaleAspectFit;
         imgView.clipsToBounds = YES;
         [myScroll addSubview:imgView];
     }
@@ -238,6 +238,11 @@
     [attrString appendAttributedString:attrString3];
     
     [carDetail setAttributedText:attrString];
+    
+    if ([[driverJSON objectForKey:@"mobile"] isEqualToString:@""]) {
+        [callBtn setBackgroundColor:[UIColor grayColor]];
+        callBtn.enabled = NO;
+    }
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -262,6 +267,13 @@
 - (IBAction)payBySCB:(id)sender
 {
     //[SCBPayHelper pay];
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:SCB_APP_URL]])
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:SCB_APP_URL]];
+    }
+    else{
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:SCB_STORE_URL]];
+    }
 }
 
 - (IBAction)back:(id)sender

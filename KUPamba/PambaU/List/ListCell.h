@@ -44,4 +44,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *acceptBtn;
 @property (weak, nonatomic) IBOutlet UIButton *rejectBtn;
 
+@property (weak, nonatomic) IBOutlet UIView *trashCell;
 @end

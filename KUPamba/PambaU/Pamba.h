@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Singleton.h"
+#import "RightMenu.h"
+
 @interface Pamba : UIViewController
 {
     Singleton *sharedManager;

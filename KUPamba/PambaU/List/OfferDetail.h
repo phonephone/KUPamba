@@ -25,6 +25,7 @@
 
 @property (retain, nonatomic) IBOutlet UITableView *myTable;
 @property (weak, nonatomic) IBOutlet UIButton *actionBtn;
+@property (weak, nonatomic) IBOutlet UIButton *scbBtn;
 
 @property (weak, nonatomic) IBOutlet UILabel *carTypeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;

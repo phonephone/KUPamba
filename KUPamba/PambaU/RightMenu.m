@@ -50,7 +50,7 @@
         expandedSections = [[NSMutableIndexSet alloc] init];
     }
     
-    [self loadProfile];
+    //[self loadProfile];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -65,8 +65,7 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString* url = [NSString stringWithFormat:@"%@viewProfile",HOST_DOMAIN];
     NSDictionary *parameters = @{@"uid":sharedManager.memberID,
-                                 @"me":@"1",
-                                 @"token":sharedManager.memberToken
+                                 @"me":@"0",
                                  };
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
@@ -125,7 +124,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 5;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -147,7 +146,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     int rowHeight;
-    int factor = 13;
+    int factor = 12;
     if ([self tableView:tableView canCollapseSection:indexPath.section])//Expandable
     {
         if (!indexPath.row)//Main
@@ -237,9 +236,6 @@
         }
         else if (indexPath.section == 3) {
             cell.menuLabel.text = @"สร้าง QR PromptPay เพื่อรับชำระเงิน";
-        }
-        else if (indexPath.section == 4) {
-            cell.menuLabel.text = @"ออกจากระบบ";
         }
         cell.menuArrow.hidden = YES;
     }
@@ -334,26 +330,25 @@
             [self.navigationController pushViewController:cl animated:YES];
         }
         else if (indexPath.section == 3) {//QR
+            CCMPopupTransitioning *popup = [CCMPopupTransitioning sharedInstance];
+            popup.presentingController = self;
+            popup.backgroundViewAlpha = 0.7;
+            popup.backgroundViewColor = [UIColor blackColor];
+            popup.dismissableByTouchingBackground = YES;
             
-        }
-        else if (indexPath.section == 4) {//ออกจากระบบ
-            
-            [self clearToken];
-            
-            sharedManager.homeExisted = NO;
-            sharedManager.loginStatus = NO;
-            sharedManager.memberID = @"";
-            sharedManager.memberToken = @"";
-            
-            NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-            [ud setBool:sharedManager.loginStatus forKey:@"loginStatus"];
-            [ud setObject:sharedManager.memberID forKey:@"memberID"];
-            [ud synchronize];
-            
-            NSMutableArray *newStack = [NSMutableArray arrayWithArray:[self.navigationController viewControllers]];
-            [newStack removeLastObject];
-            //[newStack removeLastObject];//อย่าลืมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมม
-            [self.navigationController setViewControllers:newStack animated:YES];
+            UIViewController *pp;
+            NSLog(@"asdf%@",sharedManager.profileJSON);
+            if ([[sharedManager.profileJSON objectForKey:@"promtpayType"] isEqualToString:@"00"]) {//No Promptpay
+                popup.destinationBounds = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width*0.9, [[UIScreen mainScreen] bounds].size.height*0.35);
+                pp = [self.storyboard instantiateViewControllerWithIdentifier:@"PromptPay"];
+                popup.presentedController = pp;
+            }
+            else{//QR
+                popup.destinationBounds = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width*0.9, [[UIScreen mainScreen] bounds].size.height*0.7);
+                pp = [self.storyboard instantiateViewControllerWithIdentifier:@"QRCode"];
+                popup.presentedController = pp;
+            }
+            [self presentViewController:pp animated:YES completion:nil];
         }
         [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
         [myTable deselectRowAtIndexPath:[myTable indexPathForSelectedRow] animated:YES];

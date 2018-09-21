@@ -10,6 +10,7 @@
 #import "MainCell.h"
 #import "DetailCell.h"
 #import <SDWebImage/UIButton+WebCache.h>
+#import "Profile.h"
 #import "DriverProfile.h"
 #import "Web.h"
 
@@ -123,16 +124,14 @@
     
     if ([[cellArray objectForKey:@"user"] isEqualToString:sharedManager.memberID]) {
         owner = YES;
-        [actionBtn setTitle:@"แก้ไขการสำรองที่นั่ง" forState:UIControlStateNormal];
+        [actionBtn setTitle:@"แก้ไขการหาเพื่อนร่วมทาง" forState:UIControlStateNormal];
         [actionBtn setBackgroundColor:sharedManager.btnThemeColor];
         actionBtn.enabled = YES;
         
         cell1.messageBtn.hidden = YES;
         cell1.callBtn.hidden = YES;
         
-        [actionBtn setTitle:@"การหาเพื่อนร่วมทางของคุณ" forState:UIControlStateNormal];
-        [actionBtn setBackgroundColor:sharedManager.btnThemeColor];
-        actionBtn.enabled = NO;//อย่าลืมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมม
+        [actionBtn.heightAnchor constraintEqualToConstant:0].active = YES;
         
         NSLog(@"เจ้าของทริป");
     }
@@ -144,9 +143,16 @@
         cell1.messageBtn.layer.masksToBounds = YES;
         cell1.messageBtn.backgroundColor = sharedManager.btnThemeColor;
         
+        if ([[cellArray objectForKey:@"mobile"] isEqualToString:@""]) {
+            [cell1.callBtn setBackgroundColor:[UIColor grayColor]];
+            cell1.callBtn.enabled = NO;
+        }
+        else{
+            cell1.callBtn.backgroundColor = sharedManager.btnThemeColor;
+            cell1.callBtn.enabled = YES;
+        }
         cell1.callBtn.layer.cornerRadius = 2;
         cell1.callBtn.layer.masksToBounds = YES;
-        cell1.callBtn.backgroundColor = sharedManager.btnThemeColor;
         
         /*
         [cell1.contactBtn addTarget:self action:@selector(contactClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -299,10 +305,17 @@
 }
 
 - (IBAction)profileClick:(id)sender {
-    DriverProfile *drp = [self.storyboard instantiateViewControllerWithIdentifier:@"DriverProfile"];
-    drp.userType = @"passenger";
-    drp.driverID = [[listJSON objectAtIndex:0] objectForKey:@"user"];
-    [self.navigationController pushViewController:drp animated:YES];
+    if(owner == YES)
+    {
+        Profile *pf = [self.storyboard instantiateViewControllerWithIdentifier:@"Profile"];
+        [self.navigationController pushViewController:pf animated:YES];
+    }
+    else{
+        DriverProfile *drp = [self.storyboard instantiateViewControllerWithIdentifier:@"DriverProfile"];
+        drp.userType = @"passenger";
+        drp.driverID = [[listJSON objectAtIndex:0] objectForKey:@"user"];
+        [self.navigationController pushViewController:drp animated:YES];
+    }
 }
 
 - (IBAction)messageClick:(id)sender {
@@ -358,6 +371,13 @@
 - (IBAction)payBySCB:(id)sender
 {
     //[SCBPayHelper pay];
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:SCB_APP_URL]])
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:SCB_APP_URL]];
+    }
+    else{
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:SCB_STORE_URL]];
+    }
 }
 
 - (UILabel *)shorttext:(UILabel *)originalLabel

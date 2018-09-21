@@ -7,11 +7,7 @@
 //
 
 #import "Search.h"
-#import "OfferDetail.h"
-#import "ListCell.h"
-#import "SearchCell.h"
-#import "NotFoundCell.h"
-#import "UIImageView+WebCache.h"
+#import "SearchResult.h"
 
 @interface Search () <GMSAutocompleteViewControllerDelegate>
 
@@ -23,37 +19,57 @@
     GMSAutocompleteResultsViewController *_resultsViewController;
 }
 
-@synthesize bgView,headerView,headerTitle,mycollectionView;
-
-- (void)viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
-    
-    [mycollectionView.collectionViewLayout collectionViewContentSize];
-    mycollectionView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0);
-    
-    [mycollectionView reloadData];
-}
+@synthesize headerView,headerTitle,headerLBtn,fromField,toField,targetBtn,swapBtn,nextBtn,dateLabel,dateField;
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    
+    self.menuContainerViewController.panMode = NO;
+    if (sharedManager.clearRequest == YES) {
+        [self clearValue];
+    }
 }
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     sharedManager = [Singleton sharedManager];
+    
+    //[[UINavigationBar appearance] setBarTintColor:sharedManager.mainThemeColor];
     
     _placesClient = [GMSPlacesClient sharedClient];
     
-    fromID = @"";
-    toID = @"";
-    notFound = NO;
+    headerView.backgroundColor = sharedManager.mainThemeColor;
+    //headerTitle.text = //NSLocalizedString(@"You like?", nil);
+    headerTitle.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    [headerLBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
     
-    [headerTitle setAttributedText:[self shorttext:headerTitle.text withFont:[UIFont fontWithName:@"Kanit-SemiBold" size:sharedManager.fontSize+4]]];
+    [swapBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
+    swapBtn.imageView.image = [swapBtn.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [swapBtn.imageView setTintColor:sharedManager.mainThemeColor];
+    
+    nextBtn.backgroundColor = sharedManager.btnThemeColor;
+    nextBtn.titleLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    
+    //[fromField setAttributedText:[self shorttext:fromField.text withFont:nil]];
+    //[toField setAttributedText:[self shorttext:toField.text withFont:nil]];
+    
+    [self addbottomBorder:fromField withColor:sharedManager.btnThemeColor];
+    [self addbottomBorder:toField withColor:nil];
+    [self addbottomBorder:dateField withColor:nil];
+    
+    [self clearValue];
+}
+
+-(void)clearValue
+{
+    fromField.text = @"";              fromID = @"";
+    toField.text = @"";                toID = @"";
+    
+    goDate = @"";
+    goDateEN = @"";
+    
+    //[dateLabel setAttributedText:[self shorttext:dateLabel.text withFont:nil]];
+    //[timeLabel setAttributedText:[self shorttext:timeLabel.text withFont:nil]];
     
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
@@ -73,229 +89,17 @@
     dayPicker.tag = 1;
     [dayPicker addTarget:self action:@selector(datePickerValueChanged:)forControlEvents:UIControlEventValueChanged];
     
+    dateField.inputView = dayPicker;
+    [df setDateFormat:@"dd MMM yyyy"];
+    dateField.text = [df stringFromDate:[NSDate date]];
+    
     [df setDateFormat:@"yyyy-MM-dd"];
-    //goDate = [df stringFromDate:[NSDate date]];
-    goDate = @"";
+    goDate = [df stringFromDate:[NSDate date]];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    SearchCell *searchCell = (SearchCell*)[mycollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-     [self addbottomBorder:searchCell.fromField withColor:[UIColor colorWithRed:75.0/255 green:195.0/255 blue:248.0/255 alpha:1]];
-     [self addbottomBorder:searchCell.toField withColor:nil];
-     [self addbottomBorder:searchCell.dateField withColor:nil];
-}
-
--(NSInteger)numberOfSectionsInCollectionView:
-(UICollectionView *)collectionView
-{
-    return 1;
-}
-
--(NSInteger)collectionView:(UICollectionView *)collectionView
-    numberOfItemsInSection:(NSInteger)section
-{
-    if (notFound == YES) {
-        return 2;
-    }
-    else
-    {
-        return [searchJSON count]+1;
-    }
-}
-
--(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    float width;
-    float height;
-    CGSize itemSize;
     
-    if (indexPath.row == 0) {//Search
-        width = (mycollectionView.frame.size.width)*0.936;
-        height = width*(0.85);
-        itemSize = CGSizeMake(width,height);
-    }
-    else {
-        if (notFound == YES) {
-            width = (mycollectionView.frame.size.width)*0.936;
-            height = width*0.3;
-            itemSize = CGSizeMake(width,height);
-        }
-        else{
-            width = (mycollectionView.frame.size.width)*0.936;
-            height = width*0.542;
-            itemSize = CGSizeMake(width,height);
-        }
-    }
-    
-    return itemSize;//mycollectionView.collectionViewLayout.collectionViewContentSize;
-}
-
-- (UIEdgeInsets)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(15, 0, 15, 0); // top, left, bottom, right
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    
-    return 15.0;
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView
-                   layout:(UICollectionViewLayout*)collectionViewLayout
-minimumLineSpacingForSectionAtIndex:(NSInteger)section
-{
-    return 15.0;
-}
-
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
-                 cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    UICollectionViewCell *mainCell = [[UICollectionViewCell alloc] init];
-    
-    SearchCell *cell0 = [collectionView dequeueReusableCellWithReuseIdentifier:@"SearchCell" forIndexPath:indexPath];
-    
-    NotFoundCell *noCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"NotFoundCell" forIndexPath:indexPath];
-    
-    ListCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ListCell" forIndexPath:indexPath];
-    
-    if (indexPath.row == 0){//Search
-        
-        cell0.fromField.tag = 101;
-        cell0.toField.tag = 102;
-        
-        [cell0.targetBtn addTarget:self action:@selector(locationClick:) forControlEvents:UIControlEventTouchUpInside];
-        
-        [cell0.swapBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
-        [cell0.swapBtn.titleLabel setAttributedText:[self shorttext:cell0.swapBtn.titleLabel.text withFont:[UIFont fontWithName:@"Kanit-Medium" size:sharedManager.fontSize+4]]];
-        [cell0.swapBtn addTarget:self action:@selector(swapClick:) forControlEvents:UIControlEventTouchUpInside];
-        
-        [cell0.dateLabel setAttributedText:[self shorttext:cell0.dateLabel.text withFont:nil]];
-        
-        cell0.dateField.inputView = dayPicker;
-        [df setDateFormat:@"dd MMM yyyy"];
-        //cell0.dateField.text = [df stringFromDate:[NSDate date]];
-        cell0.dateField.text = @"ไม่กำหนดวัน";
-        cell0.dateField.tag = 999;
-        
-        [cell0.searchBtn addTarget:self action:@selector(searchClick:) forControlEvents:UIControlEventTouchUpInside];
-        
-        //[self addbottomBorder:cell0.fromField withColor:[UIColor colorWithRed:75.0/255 green:195.0/255 blue:248.0/255 alpha:1]];
-        //[self addbottomBorder:cell0.toField withColor:nil];
-        //[self addbottomBorder:cell0.dateField withColor:nil];
-        
-        mainCell = cell0;
-    }
-    
-    if (indexPath.row > 0)
-    {
-        if (notFound == YES) {
-            noCell.notLabel.font = [UIFont fontWithName:@"Kanit-Medium" size:sharedManager.fontSize+4];
-            [self shorttext:noCell.notLabel];
-            [noCell.notBtn addTarget:self action:@selector(requestClick:) forControlEvents:UIControlEventTouchUpInside];
-            
-            mainCell = noCell;
-        }
-        else{
-            NSDictionary *cellArray = [searchJSON objectAtIndex:indexPath.row-1];
-            
-            [cell.userPic sd_setImageWithURL:[NSURL URLWithString:[cellArray objectForKey:@"pic"]] placeholderImage:[UIImage imageNamed:@"icon1024.png"]];
-            
-            //cell.carType.image = [UIImage imageNamed:[NSString stringWithFormat:@"car%@",[cellArray objectForKey:@"type"]]];
-            
-            cell.userPic.layer.cornerRadius = cell.userPic.frame.size.width/2;
-            cell.userPic.layer.masksToBounds = YES;
-            
-            /*
-            [cell.moreBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
-            [cell.moreBtn addTarget:self action:@selector(moreClick:) forControlEvents:UIControlEventTouchUpInside];
-            cell.moreBtn.tag = indexPath.row;
-            */
-             
-            cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@",[cellArray objectForKey:@"forename"],[cellArray objectForKey:@"surname"]];
-            
-            cell.startLabel.text = [cellArray objectForKey:@"From"];
-            cell.endLabel.text = [cellArray objectForKey:@"To"];
-            cell.priceLabel.text = [cellArray objectForKey:@"price"];
-            cell.dateLabel.text = [NSString stringWithFormat:@"%@ เวลา %@:%@ น.",[cellArray objectForKey:@"goDate"],[cellArray objectForKey:@"goH"],[cellArray objectForKey:@"goM"]];
-            cell.seatLabel.text = [NSString stringWithFormat:@"%@ ที่นั่ง",[cellArray objectForKey:@"now_seat"]];
-            
-            cell.reviewCount.text = [NSString stringWithFormat:@"(%@ รีวิว)",[[[cellArray objectForKey:@"rate"]objectAtIndex:0] objectForKey:@"total_review"]];
-            
-            int star = [[[[cellArray objectForKey:@"rate"] objectAtIndex:0] objectForKey:@"rate"] intValue];
-            
-            UIImage *starON = [UIImage imageNamed:@"cell_star"];
-            UIImage *starOFF = [UIImage imageNamed:@"cell_star_off"];
-            cell.star1.image = starOFF;
-            cell.star2.image = starOFF;
-            cell.star3.image = starOFF;
-            cell.star4.image = starOFF;
-            cell.star5.image = starOFF;
-            
-            switch (star) {
-                case 0:
-                    break;
-                    
-                case 1:
-                    cell.star1.image = starON;
-                    break;
-                    
-                case 2:
-                    cell.star1.image = starON;
-                    cell.star2.image = starON;
-                    break;
-                    
-                case 3:
-                    cell.star1.image = starON;
-                    cell.star2.image = starON;
-                    cell.star3.image = starON;
-                    break;
-                    
-                case 4:
-                    cell.star1.image = starON;
-                    cell.star2.image = starON;
-                    cell.star3.image = starON;
-                    cell.star4.image = starON;
-                    break;
-                    
-                case 5:
-                    cell.star1.image = starON;
-                    cell.star2.image = starON;
-                    cell.star3.image = starON;
-                    cell.star4.image = starON;
-                    cell.star5.image = starON;
-                    break;
-                    
-                default:
-                    cell.star1.image = starON;
-                    cell.star2.image = nil;
-                    cell.star3.image = starON;
-                    cell.star4.image = nil;
-                    cell.star5.image = starON;
-                    break;
-            }
-        }
-    }
-    
-    return mainCell;
-}
-
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.row == 0){//Search
-        
-    }
-    else{
-        if (notFound == YES) {
-        }
-        else{
-            OfferDetail *ofd = [self.storyboard instantiateViewControllerWithIdentifier:@"OfferDetail"];
-            ofd.offerID = [[searchJSON objectAtIndex:indexPath.row-1] objectForKey:@"id"];
-            [self.navigationController pushViewController:ofd animated:YES];
-        }
-    }
-    
-    //[self.menuContainerViewController.centerViewController pushViewController:ofd animated:YES];
-    //NSLog(@"Click %d",indexPath.row);
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
@@ -319,25 +123,54 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
 - (BOOL)textFieldDidChange:(UITextField *)textField
 {
     NSLog(@"Change %@", textField.text);
-    [textField setAttributedText:[self shorttext:textField.text withFont:nil]];
-    
-    
     return YES;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     NSLog(@"End");
-    
-    if (textField.tag == 999) {
-        SearchCell *searchCell = (SearchCell*)[mycollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-        
-        [df setDateFormat:@"dd MMM yyyy"];
-        searchCell.dateField.text = [df stringFromDate:dayPicker.date];
-        
-        [df setDateFormat:@"yyyy-MM-dd"];
-        goDate = [df stringFromDate:dayPicker.date];
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@"กรอกรายละเอียดการเดินทาง"]) {
+        textView.text = @"";
+        textView.textColor = [UIColor blackColor]; //optional
     }
+    [textView becomeFirstResponder];
+}
+/*
+ - (void)textViewDidChange:(UITextView *)textView
+ {
+ NSUInteger maxNumberOfLines = 5;
+ NSUInteger numLines = textView.contentSize.height/textView.font.lineHeight;
+ if (numLines > maxNumberOfLines)
+ {
+ textView.text = [textView.text substringToIndex:textView.text.length - 1];
+ }
+ }
+ */
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    NSUInteger maxNumberOfLines = 5;
+    NSUInteger numLines = textView.contentSize.height/textView.font.lineHeight;
+    if (numLines >= maxNumberOfLines)
+    {
+        if([text isEqualToString:@"\n"]) {
+            //[textView resignFirstResponder];
+            return NO;
+        }
+    }
+    return YES;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@""]) {
+        textView.text = @"กรอกรายละเอียดการเดินทาง";
+        textView.textColor = [UIColor lightGrayColor]; //optional
+    }
+    [textView resignFirstResponder];
 }
 
 // Handle the user's selection.
@@ -351,20 +184,18 @@ didAutocompleteWithPlace:(GMSPlace *)place {
     NSLog(@"Place address %@", place.formattedAddress);
     NSLog(@"Place attributions %@", place.attributions.string);
     
-    SearchCell *searchCell = (SearchCell*)[mycollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    
     if (nowEdit == 101) {
-        searchCell.fromField.text = place.name;
+        fromField.text = place.name;
         fromID = place.placeID;
     }
     if (nowEdit == 102) {
-        searchCell.toField.text = place.name;
+        toField.text = place.name;
         toID = place.placeID;
     }
     
-    [searchJSON removeAllObjects];
-    notFound = NO;
-    [mycollectionView reloadData];
+    if (![toField.text isEqualToString:@""] && ![fromField.text isEqualToString:@""]) {
+        
+    }
 }
 
 - (void)viewController:(GMSAutocompleteViewController *)viewController
@@ -388,37 +219,31 @@ didFailAutocompleteWithError:(NSError *)error {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
-- (void)moreClick:(id)sender
-{
-    UIButton *button = (UIButton *)sender;
-    [self collectionView:mycollectionView didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:button.tag inSection:1]];
-}
-
 - (void)datePickerValueChanged:(UIDatePicker *)datePicker
 {
-    SearchCell *searchCell = (SearchCell*)[mycollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    
-    [df setDateFormat:@"dd MMM yyyy"];
-    searchCell.dateField.text = [df stringFromDate:datePicker.date];
-    
-    [df setDateFormat:@"yyyy-MM-dd"];
-    goDate = [df stringFromDate:datePicker.date];
+    switch (datePicker.tag) {
+        case 1://Date
+            [df setDateFormat:@"dd MMM yyyy"];
+            dateField.text = [df stringFromDate:datePicker.date];
+            
+            [df setDateFormat:@"yyyy-MM-dd"];
+            goDate = [df stringFromDate:datePicker.date];
+            break;
+    }
 }
 
 - (UITextField*)addbottomBorder:(UITextField*)textField withColor:(UIColor*)color
 {
-    SearchCell *searchCell = (SearchCell*)[mycollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    
     textField.delegate = self;
     CALayer *bottomBorder = [CALayer layer];
-    bottomBorder.frame = CGRectMake(0.0f, textField.frame.size.height - 1, textField.frame.size.width, 1.0f);
+    bottomBorder.frame = CGRectMake(0.0f, textField.frame.size.height+1, textField.frame.size.width*1.1, 1.0f);
     
     if (color == nil) {
         bottomBorder.backgroundColor = [UIColor colorWithRed:204.0/255 green:204.0/255 blue:204.0/255 alpha:1].CGColor;
     }
     else{
         bottomBorder.backgroundColor = color.CGColor;
-        UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0,searchCell.targetBtn.frame.size.width, 20)];
+        UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, targetBtn.frame.size.width, 20)];
         textField.rightView = paddingView;
         textField.rightViewMode = UITextFieldViewModeAlways;
     }
@@ -429,7 +254,7 @@ didFailAutocompleteWithError:(NSError *)error {
     textField.leftView = paddingView;
     textField.leftViewMode = UITextFieldViewModeAlways;
     
-    textField.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+2];
+    //textField.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+2];
     
     return textField;
 }
@@ -437,7 +262,6 @@ didFailAutocompleteWithError:(NSError *)error {
 - (IBAction)locationClick:(id)sender
 {
     //UIButton *button = (UIButton *)sender;
-    SearchCell *searchCell = (SearchCell*)[mycollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     
     [SVProgressHUD showWithStatus:@"Loading"];
     
@@ -454,14 +278,14 @@ didFailAutocompleteWithError:(NSError *)error {
             [SVProgressHUD dismiss];
             return;
         }
-        searchCell.fromField.text = @"ไม่พบชื่อสถานที่ปัจจุบัน";
+        fromField.text = @"ไม่พบชื่อสถานที่ปัจจุบัน";
         //toField.text = @"";
         
         if (placeLikelihoodList != nil) {
             GMSPlace *place = [[[placeLikelihoodList likelihoods] firstObject] place];
             if (place != nil) {
                 fromID = place.placeID;
-                searchCell.fromField.text = place.name;
+                fromField.text = place.name;
                 //toField.text = [[place.formattedAddress componentsSeparatedByString:@", "] componentsJoinedByString:@"\n"];
                 [SVProgressHUD dismiss];
             }
@@ -471,25 +295,24 @@ didFailAutocompleteWithError:(NSError *)error {
 
 - (IBAction)swapClick:(id)sender
 {
-    SearchCell *searchCell = (SearchCell*)[mycollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    
     //UIButton *button = (UIButton *)sender;
-    NSString *fromText = searchCell.fromField.text;
-    NSString *toText = searchCell.toField.text;
+    NSString *fromText = fromField.text;
+    NSString *toText = toField.text;
     NSString *beforeFromID = fromID;
     NSString *beforeToID = toID;
     
-    searchCell.fromField.text = toText;
-    searchCell.toField.text = fromText;
+    fromField.text = toText;
+    toField.text = fromText;
     fromID = beforeToID;
     toID = beforeFromID;
+    if (![fromField.text isEqualToString:@""]||![toField.text isEqualToString:@""]) {
+        
+    }
 }
 
 - (IBAction)searchClick:(id)sender
 {
-    SearchCell *searchCell = (SearchCell*)[mycollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    
-    if ([searchCell.fromField.text isEqualToString:@""]||[searchCell.toField.text isEqualToString:@""]) {
+    if ([fromField.text isEqualToString:@""]||[toField.text isEqualToString:@""]) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"ยังไม่ได้กำหนดจุดเริ่มต้นหรือปลายทาง" message:@"กรุณากำหนดจุดเริ่มต้นและปลายทางให้เรียบร้อย" preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
@@ -500,35 +323,33 @@ didFailAutocompleteWithError:(NSError *)error {
         [self presentViewController:alertController animated:YES completion:nil];
     }
     else{
-        if (![goDate isEqualToString:@""]) {
-            NSDateFormatter *df1 = [[NSDateFormatter alloc] init];
-            [df1 setLocale:localeTH];
-            [df1 setDateFormat:@"yyyy-MM-dd"];
-            NSDate *ceYear = [df1 dateFromString:goDate];
-            
-            localeEN = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
-            NSDateFormatter *df2 = [[NSDateFormatter alloc] init];
-            [df2 setLocale:localeEN];
-            [df2 setDateFormat:@"yyyy-MM-dd"];
-            goDateEN = [df2 stringFromDate:ceYear];
-        }
-        else{
-            goDateEN = @"";
-        }
-        
-        NSLog(@"userID:%@\n From:%@\n To:%@\n origin:%@\n destination:%@\n goDate:%@",sharedManager.memberID,searchCell.fromField.text,searchCell.toField.text,fromID,toID,goDateEN);
-        
-        [SVProgressHUD showWithStatus:@"Loading"];
-        
-        UIWebView *myWebview = [[UIWebView alloc]init];
-        NSString* strUrl = [NSString stringWithFormat:@"%@webApi/findLatLng?user=%@&ori=%@&des=%@",HOST_DOMAIN_INDEX,sharedManager.memberID,fromID,toID];
-        NSURL *url = [NSURL URLWithString:strUrl];
-        myWebview.delegate = self;
-        requestURL = [[NSURLRequest alloc] initWithURL:url];
-        [myWebview loadRequest:requestURL];
-        [self.view addSubview:myWebview];
-        myWebview.hidden = YES;
+        [self loadWebView];
     }
+}
+
+- (void)loadWebView
+{
+    NSDateFormatter *df1 = [[NSDateFormatter alloc] init];
+    [df1 setLocale:localeTH];
+    [df1 setDateFormat:@"yyyy-MM-dd"];
+    NSDate *ceYear = [df1 dateFromString:goDate];
+    
+    localeEN = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    NSDateFormatter *df2 = [[NSDateFormatter alloc] init];
+    [df2 setLocale:localeEN];
+    [df2 setDateFormat:@"yyyy-MM-dd"];
+    goDateEN = [df2 stringFromDate:ceYear];
+    
+    [SVProgressHUD showWithStatus:@"Loading"];
+    
+    UIWebView *myWebview = [[UIWebView alloc]init];
+    NSString* strUrl = [NSString stringWithFormat:@"%@webApi/findLatLng?user=%@&ori=%@&des=%@",HOST_DOMAIN_INDEX,sharedManager.memberID,fromID,toID];
+    NSURL *url = [NSURL URLWithString:strUrl];
+    myWebview.delegate = self;
+    requestURL = [[NSURLRequest alloc] initWithURL:url];
+    [myWebview loadRequest:requestURL];
+    [self.view addSubview:myWebview];
+    myWebview.hidden = YES;
 }
 
 #pragma mark - UIWebViewDelegate
@@ -560,6 +381,7 @@ didFailAutocompleteWithError:(NSError *)error {
     NSLog(@"!DidFailLoadWithError: %@", [error description]);
     //self.view.alpha = 1.f;
     [SVProgressHUD dismiss];
+    
     [self alertTitle:@"เกิดข้อผิดพลาด" detail:@"กรุณาตรวจสอบ Internet ของท่านแล้วลองใหม่อีกครั้ง"];
 }
 
@@ -577,13 +399,13 @@ didFailAutocompleteWithError:(NSError *)error {
          
          searchJSON = [[responseObject objectForKey:@"data"] mutableCopy];
          if ([searchJSON count] == 0) {
-             notFound = YES;
+             [self alertTitle:@"ไม่พบผลลัพธ์ที่ใก้ลเคียง" detail:@""];
          }
          else{
-             notFound = NO;
+             SearchResult *scr = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchResult"];
+             scr.listJSON = [searchJSON mutableCopy];
+             [self.navigationController pushViewController:scr animated:YES];
          }
-         
-         [mycollectionView reloadData];
          
          [SVProgressHUD dismiss];
      }
@@ -596,34 +418,21 @@ didFailAutocompleteWithError:(NSError *)error {
     webLoaded = NO;
 }
 
-- (IBAction)requestClick:(id)sender
+- (IBAction)payBySCB:(id)sender
 {
-    [self.tabBarController setSelectedIndex:2];
-}
-
-- (UILabel *)shorttext:(UILabel *)originalLabel
-{
-    if (originalLabel.text) {
-        NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:originalLabel.text];
-        [text addAttribute:NSKernAttributeName value:[NSNumber numberWithDouble:-0.5] range:NSMakeRange(0, text.length)];
-        [originalLabel setAttributedText:text];
-    }
-    return originalLabel;
-}
-
-- (NSAttributedString *)shorttext:(NSString *)originalText withFont:(UIFont*)fontName
-{
-    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:originalText];
-    [text addAttribute:NSKernAttributeName value:[NSNumber numberWithDouble:-0.5] range:NSMakeRange(0, text.length)];
-    
-    if (fontName == nil) {
-        [text setAttributes:@{ NSFontAttributeName:[UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+2] } range:NSMakeRange(0, text.length)];
+    //[SCBPayHelper pay];
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:SCB_APP_URL]])
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:SCB_APP_URL]];
     }
     else{
-        [text setAttributes:@{ NSFontAttributeName:fontName } range:NSMakeRange(0, text.length)];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:SCB_STORE_URL]];
     }
-    
-    return text;
+}
+
+- (IBAction)back:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)alertTitle:(NSString*)title detail:(NSString*)alertDetail
@@ -635,6 +444,8 @@ didFailAutocompleteWithError:(NSError *)error {
     
     [self presentViewController:alertController animated:YES completion:nil];
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

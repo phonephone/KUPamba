@@ -10,22 +10,17 @@
 #import "Singleton.h"
 #import <CoreLocation/CoreLocation.h>
 
-@interface Search : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITextFieldDelegate,CLLocationManagerDelegate,UIWebViewDelegate>
+@interface Search : UIViewController <CLLocationManagerDelegate,UITextFieldDelegate,UITextViewDelegate,UIWebViewDelegate>
+
 {
     Singleton *sharedManager;
-    float previousScrollViewYOffset;
-    float startScrollViewYOffset;
     NSMutableArray *searchJSON;
-    
     CLLocationManager * locationManager;
     
     UIDatePicker *dayPicker;
-    UIDatePicker *timePicker;
     NSDateFormatter *df;
     
     long nowEdit;
-    
-    BOOL notFound;
     
     NSString *fromID;
     NSString *toID;
@@ -40,10 +35,19 @@
     BOOL webLoaded;
 }
 
-@property(weak, nonatomic) IBOutlet UIView *bgView;
 @property(weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UILabel *headerTitle;
+@property (weak, nonatomic) IBOutlet UIButton *headerLBtn;
 
-@property (weak, nonatomic) IBOutlet UICollectionView *mycollectionView;
+@property (weak, nonatomic) IBOutlet UITextField *fromField;
+@property (weak, nonatomic) IBOutlet UITextField *toField;
+
+@property (weak, nonatomic) IBOutlet UIButton *targetBtn;
+@property (weak, nonatomic) IBOutlet UIButton *swapBtn;
+@property (weak, nonatomic) IBOutlet UIButton *nextBtn;
+
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+
+@property (weak, nonatomic) IBOutlet UITextField *dateField;
 
 @end

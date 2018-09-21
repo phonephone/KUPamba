@@ -13,6 +13,7 @@
 #import <SDWebImage/UIButton+WebCache.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "DriverProfile.h"
+#import "Profile.h"
 #import "Web.h"
 #import "EditTrip.h"
 
@@ -22,7 +23,7 @@
 
 @implementation OfferDetail
 
-@synthesize offerID,headerView,headerTitle,headerLBtn,myTable,actionBtn,carTypeLabel,priceLabel;
+@synthesize offerID,headerView,headerTitle,headerLBtn,myTable,actionBtn,scbBtn,carTypeLabel,priceLabel;
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -180,9 +181,7 @@
         cell1.messageBtn.hidden = YES;
         cell1.callBtn.hidden = YES;
         
-        [actionBtn setTitle:@"การเสนอที่นั่งของคุณ" forState:UIControlStateNormal];
-        [actionBtn setBackgroundColor:sharedManager.btnThemeColor];
-        actionBtn.enabled = NO;//อย่าลืมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมม
+        [actionBtn.heightAnchor constraintEqualToConstant:0].active = YES;
         
         NSLog(@"เจ้าของทริป");
     }
@@ -213,9 +212,16 @@
         cell1.messageBtn.layer.masksToBounds = YES;
         cell1.messageBtn.backgroundColor = sharedManager.btnThemeColor;
         
+        if ([[cellArray objectForKey:@"mobile"] isEqualToString:@""]) {
+            [cell1.callBtn setBackgroundColor:[UIColor grayColor]];
+            cell1.callBtn.enabled = NO;
+        }
+        else{
+            cell1.callBtn.backgroundColor = sharedManager.btnThemeColor;
+            cell1.callBtn.enabled = YES;
+        }
         cell1.callBtn.layer.cornerRadius = 2;
         cell1.callBtn.layer.masksToBounds = YES;
-        cell1.callBtn.backgroundColor = sharedManager.btnThemeColor;
         
         cell1.nameLabel.text = [cellArray objectForKey:@"name"];
         cell1.startLabelR.text = [cellArray objectForKey:@"From"];
@@ -458,10 +464,17 @@
 }
 
 - (IBAction)profileClick:(id)sender {
-    DriverProfile *drp = [self.storyboard instantiateViewControllerWithIdentifier:@"DriverProfile"];
-    drp.userType = @"driver";
-    drp.driverID = [[listJSON objectAtIndex:0] objectForKey:@"user"];
-    [self.navigationController pushViewController:drp animated:YES];
+    if(owner == YES)
+    {
+        Profile *pf = [self.storyboard instantiateViewControllerWithIdentifier:@"Profile"];
+        [self.navigationController pushViewController:pf animated:YES];
+    }
+    else{
+        DriverProfile *drp = [self.storyboard instantiateViewControllerWithIdentifier:@"DriverProfile"];
+        drp.userType = @"driver";
+        drp.driverID = [[listJSON objectAtIndex:0] objectForKey:@"user"];
+        [self.navigationController pushViewController:drp animated:YES];
+    }
 }
 
 - (IBAction)messageClick:(id)sender {
@@ -536,6 +549,13 @@
 - (IBAction)payBySCB:(id)sender
 {
     //[SCBPayHelper pay];
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:SCB_APP_URL]])
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:SCB_APP_URL]];
+    }
+    else{
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:SCB_STORE_URL]];
+    }
 }
 
 - (UILabel *)shorttext:(UILabel *)originalLabel

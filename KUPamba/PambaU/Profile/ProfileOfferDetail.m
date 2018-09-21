@@ -163,9 +163,9 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
         cell.priceLabel.textColor = sharedManager.mainThemeColor;
         cell.priceLabel.text = [cellArray objectForKey:@"price"];
         cell.bahtLabel.textColor = sharedManager.mainThemeColor;
-        cell.bahtLabel.text = @"บาท/คน";//อย่าลืมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมม
+        cell.bahtLabel.text = @"บาท/คน";
         
-        int carType = [[cellArray objectForKey:@"type"] intValue];//อย่าลืมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมม
+        int carType = [[cellArray objectForKey:@"type"] intValue];
         
         switch (carType) {
             case 1:
@@ -181,7 +181,6 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
                 cell.carTypeLabel.text = @"จักรยานยนต์";
                 break;
             default:
-                cell.carTypeLabel.text = @"รถยนต์";
                 break;
         }
         
@@ -344,17 +343,18 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
         //[self presentViewController:web animated:YES completion:nil];
         
         // Chat button tappped.
-        
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"โทรศัพท์" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        
-        NSString *telNumber = [NSString stringWithFormat:@"tel:%@",[[[[listJSON objectForKey:@"JoinUser"] objectAtIndex:0] objectAtIndex:button.tag-1] objectForKey:@"mobile"]];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:telNumber]];
-        
-        // Call button tappped.
-        
-    }]];
+    NSString *telNumber = [NSString stringWithFormat:@"tel:%@",[[[[listJSON objectForKey:@"JoinUser"] objectAtIndex:0] objectAtIndex:button.tag-1] objectForKey:@"mobile"]];
+    if ([telNumber isEqualToString:@"tel:"]) {
+    }
+    else{
+        [actionSheet addAction:[UIAlertAction actionWithTitle:@"โทรศัพท์" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:telNumber]];
+            // Call button tappped.
+        }]];
+    }
     
     [actionSheet addAction:[UIAlertAction actionWithTitle:@"ยกเลิก" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
         

@@ -16,6 +16,8 @@
     Singleton *sharedManager;
     CarbonTabSwipeNavigation *carbon;
 }
+@property (nonatomic) BOOL showQR;
+
 @property(weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UILabel *headerTitle;
 @property (weak, nonatomic) IBOutlet UIButton *headerLBtn;

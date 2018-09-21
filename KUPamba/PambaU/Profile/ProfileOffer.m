@@ -12,6 +12,7 @@
 #import "ReserveCell.h"
 #import "OfferDetail.h"
 #import "RequestDetail.h"
+#import "Review.h"
 #import "UIImageView+WebCache.h"
 #import <CCMPopup/CCMPopupSegue.h>
 #import "RightMenu.h"
@@ -96,7 +97,6 @@
     [SVProgressHUD showWithStatus:@"Loading"];
     
     NSString* url;
-    
     if ([mode isEqualToString:@"Offer"]) {
         url = [NSString stringWithFormat:@"%@ActiveOffer",HOST_DOMAIN];
     }
@@ -156,7 +156,16 @@
         rowNo = [listJSON count];
     }
     
-    if (rowNo == 0) { noresultLabel.hidden = NO; }
+    if (rowNo == 0) {
+        noresultLabel.hidden = NO;
+        if ([mode isEqualToString:@"Offer"]) {
+            noresultLabel.text = @"คุณยังไม่เคยมีประวัติการเสนอที่นั่ง";
+        }
+        
+        if ([mode isEqualToString:@"Reserve"]) {
+            noresultLabel.text = @"คุณยังไม่เคยมีประวัติการขอร่วมทาง";
+        }
+    }
     else{ noresultLabel.hidden = YES; }
     
     return rowNo;
@@ -201,7 +210,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
         cell.priceLabel.textColor = sharedManager.mainThemeColor;
         cell.priceLabel.text = [cellArray objectForKey:@"price"];
         cell.bahtLabel.textColor = sharedManager.mainThemeColor;
-        cell.bahtLabel.text = @"บาท/คน";//อย่าลืมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมม
+        cell.bahtLabel.text = @"บาท/คน";
         
         int carType = [[cellArray objectForKey:@"type"] intValue];
         switch (carType) {
@@ -244,14 +253,42 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
         cell.dateLabel.text = [NSString stringWithFormat:@"%@ เวลา %@:%@ น.",[cellArray objectForKey:@"goDate"],[cellArray objectForKey:@"goH"],[cellArray objectForKey:@"goM"]];
         cell.seatLabel.text = [NSString stringWithFormat:@"เหลือ %@ ที่นั่ง",[cellArray objectForKey:@"now_seat"]];
         
+        [cell.trashBtn removeTarget:nil
+                             action:NULL
+                   forControlEvents:UIControlEventAllEvents];
+        NSString *statusText;
+        int statusID = [[[cellArray objectForKey:@"offer_status"] objectForKey:@"status_id"] intValue];
+        statusText = [[cellArray objectForKey:@"offer_status"] objectForKey:@"status_text"];
+        switch (statusID) {
+            case 1://แจ้งเตือน
+                [cell.trashBtn setTitle:@"" forState:UIControlStateNormal];
+                [cell.trashBtn setImage:[UIImage imageNamed:@"icon_bin"] forState:UIControlStateNormal];
+                [cell.trashBtn addTarget:self action:@selector(trashClick:) forControlEvents:UIControlEventTouchUpInside];
+                break;
+            case 2://จบการเดินทาง
+                [cell.trashBtn setTitle:@"ให้คะแนน" forState:UIControlStateNormal];
+                [cell.trashBtn setImage:nil forState:UIControlStateNormal];
+                [cell.trashBtn addTarget:self action:@selector(reviewClick:) forControlEvents:UIControlEventTouchUpInside];
+                break;
+            default:
+                break;
+        }
+        
+        detailFontL = [UIFont fontWithName:cell.statusLabel.font.fontName size:15];
+        detailDictL = [NSDictionary dictionaryWithObject: detailFontL forKey:NSFontAttributeName];
+        
+        detailFontR = [UIFont fontWithName:cell.statusLabel.font.fontName size:15];
+        detailDictR = [NSDictionary dictionaryWithObject:detailFontR forKey:NSFontAttributeName];
+        
         attrStringL = [[NSMutableAttributedString alloc] initWithString:@"สถานะ : " attributes: detailDictL];
         [attrStringL addAttribute:NSForegroundColorAttributeName value:leftColor range:(NSMakeRange(0, attrStringL.length))];
         
-        attrStringR = [[NSMutableAttributedString alloc] initWithString:@"รอการตอบรับ" attributes: detailDictR];
+        attrStringR = [[NSMutableAttributedString alloc] initWithString:statusText attributes: detailDictR];
         [attrStringR addAttribute:NSForegroundColorAttributeName value:rightColor range:(NSMakeRange(0, attrStringR.length))];
         
         [attrStringL appendAttributedString:attrStringR];
-        cell.statusLabel.attributedText = attrStringL;//อย่าลืมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมม
+        cell.statusLabel.attributedText = attrStringL;
+        
         if ([[cellArray objectForKey:@"notification"] isEqualToString:@"0"])
         {
             cell.statusAlert.hidden = YES;
@@ -266,7 +303,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
         cell.duplicateBtn.tag = indexPath.row;
         
         [cell.trashBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
-        [cell.trashBtn addTarget:self action:@selector(trashClick:) forControlEvents:UIControlEventTouchUpInside];
+        
         cell.trashBtn.tag = indexPath.row;
         
         cell.moreBtn.backgroundColor = sharedManager.btnThemeColor;
@@ -286,7 +323,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
         cell.priceLabel.textColor = sharedManager.mainThemeColor;
         cell.priceLabel.text = [cellArray objectForKey:@"price"];
         cell.bahtLabel.textColor = sharedManager.mainThemeColor;
-        cell.bahtLabel.text = @"บาท/คน";//อย่าลืมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมม
+        cell.bahtLabel.text = @"บาท/คน";
         
         int carType = [[cellArray objectForKey:@"type"] intValue];
         switch (carType) {
@@ -325,27 +362,46 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
         [attrStringL appendAttributedString:attrStringR];
         cell.carTypeLabel.attributedText = attrStringL;
         
-        
         cell.dateLabel.text = [NSString stringWithFormat:@"%@ เวลา %@:%@ น.",[cellArray objectForKey:@"goDate"],[cellArray objectForKey:@"goH"],[cellArray objectForKey:@"goM"]];
         
-        NSString *statusID = [[cellArray objectForKey:@"request_status"] objectForKey:@"status_id"];
+        
+        [cell.trashBtn setTitle:@"" forState:UIControlStateNormal];
+        [cell.trashBtn setImage:[UIImage imageNamed:@"icon_bin"] forState:UIControlStateNormal];
+        [cell.trashBtn removeTarget:nil
+                           action:NULL
+                 forControlEvents:UIControlEventAllEvents];
+        
         NSString *statusText;
-        if ([statusID isEqualToString:@"1"]) {
-            statusText = @"รอการตอบรับ";
-            rightColor = [UIColor blackColor];
+        int statusID = [[[cellArray objectForKey:@"request_status"] objectForKey:@"status_id"] intValue];
+        statusText = [[cellArray objectForKey:@"request_status"] objectForKey:@"status_text"];
+        switch (statusID) {
+            case 1://รอ
+                rightColor = [UIColor blackColor];
+                [cell.trashBtn addTarget:self action:@selector(trashClick:) forControlEvents:UIControlEventTouchUpInside];
+                break;
+            case 2://ยอมรับ
+                rightColor = sharedManager.mainThemeColor;
+                [cell.trashBtn addTarget:self action:@selector(trashClick:) forControlEvents:UIControlEventTouchUpInside];
+                break;
+            case 3://ปฏิเสธ
+                rightColor = sharedManager.cancelThemeColor;
+                [cell.trashBtn addTarget:self action:@selector(trashClick:) forControlEvents:UIControlEventTouchUpInside];
+                break;
+            case 4://จบการเดินทาง
+                rightColor = [UIColor grayColor];
+                [cell.trashBtn setTitle:@"ให้คะแนน" forState:UIControlStateNormal];
+                [cell.trashBtn setImage:nil forState:UIControlStateNormal];
+                [cell.trashBtn addTarget:self action:@selector(reviewClick:) forControlEvents:UIControlEventTouchUpInside];
+                break;
+            default:
+                break;
         }
-        if ([statusID isEqualToString:@"2"]) {
-            statusText = @"ยอมรับ";
-            rightColor = sharedManager.mainThemeColor;
-        }
-        if ([statusID isEqualToString:@"3"]) {
-            statusText = @"ปฏิเสธ";
-            rightColor = sharedManager.cancelThemeColor;
-        }
-        if ([statusID isEqualToString:@"4"]) {
-            statusText = @"จบการเดินทาง";
-            rightColor = [UIColor colorWithRed:154.0/255 green:149.0/255 blue:152.0/255 alpha:1];
-        }
+        
+        detailFontL = [UIFont fontWithName:cell.statusLabel.font.fontName size:15];
+        detailDictL = [NSDictionary dictionaryWithObject: detailFontL forKey:NSFontAttributeName];
+        
+        detailFontR = [UIFont fontWithName:cell.statusLabel.font.fontName size:18];
+        detailDictR = [NSDictionary dictionaryWithObject:detailFontR forKey:NSFontAttributeName];
         
         attrStringL = [[NSMutableAttributedString alloc] initWithString:@"สถานะ : " attributes: detailDictL];
         [attrStringL addAttribute:NSForegroundColorAttributeName value:leftColor range:(NSMakeRange(0, attrStringL.length))];
@@ -354,10 +410,9 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
         [attrStringR addAttribute:NSForegroundColorAttributeName value:rightColor range:(NSMakeRange(0, attrStringR.length))];
         
         [attrStringL appendAttributedString:attrStringR];
-        cell.statusLabel.attributedText = attrStringL;//อย่าลืมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมม
+        cell.statusLabel.attributedText = attrStringL;
         
         [cell.trashBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
-        [cell.trashBtn addTarget:self action:@selector(trashClick:) forControlEvents:UIControlEventTouchUpInside];
         cell.trashBtn.tag = indexPath.row;
         
         cell.moreBtn.backgroundColor = sharedManager.btnThemeColor;
@@ -382,7 +437,6 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     if ([mode isEqualToString:@"Reserve"]) {
 
     }
-    
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
@@ -474,6 +528,33 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     NSLog(@"Trash %ld",(long)button.tag);
     selectID = [[listJSON objectAtIndex:button.tag] objectForKey:@"id"];
     
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"ยืนยันการลบข้อมูล" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"ตกลง" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        [self loadDelete];
+    }];
+    [alertController addAction:ok];
+    
+    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"ยกเลิก" style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
+    }];
+    [alertController addAction:cancel];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)reviewClick:(id)sender
+{
+    UIButton *button = (UIButton *)sender;
+    NSLog(@"Review %ld",(long)button.tag);
+    
+    Review *rev = [self.storyboard instantiateViewControllerWithIdentifier:@"Review"];
+    rev.mode = mode;
+    rev.reViewID = [[listJSON objectAtIndex:button.tag] objectForKey:@"id"];
+    [self.navigationController pushViewController:rev animated:YES];
+}
+
+- (void)loadDelete
+{
     [SVProgressHUD showWithStatus:@"Deleting"];
     
     NSString* url;

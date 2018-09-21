@@ -48,19 +48,10 @@
     acceptBtn.backgroundColor = sharedManager.btnThemeColor;
     acceptBtn.titleLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
     
-    if (!userID) {
-        userID = @"1";//อย่าลืมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมม
-    }
+    //[self loadDemo];//อย่าลืมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมม
     
-    sharedManager.loginStatus = NO;//อย่าลืมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมม
-    
-    sharedManager.memberID = userID;
-    
-    if (sharedManager.loginStatus == YES)
-    {
-        [self loadHome];
-    }
-    
+    [self loadLogin];
+    [self loadHome];
     /*
     ISMessages* alert = [ISMessages cardAlertWithTitle:@"This is custom alert with callback"
                                                message:@"This is your message!!"
@@ -90,6 +81,67 @@
      
      //[ISMessages hideAlertAnimated:YES];
      */
+    
+}
+
+- (void)loadDemo
+{
+    studentCode = @"123456789";
+    firstNameTh = @"นรุตม์ศรณ์";
+    lastNameTh = @"พรหมศิริ";
+    firstNameEn = @"Test";
+    lastNameEn = @"Data";
+    facultyNameTh = @"คอมพิวเตอร์ธุระกิจ";
+    facultyNameEn = @"Bissness infomation Thecnology";
+    profileImageUrl = @"https://pambashare.com/v2/images/userPic/female_logo.png?134916";
+    gender = @"M";
+    isSharewayAccepted = @"Y";
+    rqDTTM = @"1";
+    deviceID = @"1";
+    appID = @"1";
+    funcCode = @"1";
+    userToken = @"1";
+    xAuthorization = @"1";
+    language = @"TH";
+}
+
+- (void)loadLogin
+{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSString* url = [NSString stringWithFormat:@"%@login_uApp",HOST_DOMAIN];
+    NSDictionary *parameters = @{@"studentCode":studentCode,
+                                 @"firstNameTh":firstNameTh,
+                                 @"lastNameTh":lastNameTh,
+                                 @"firstNameEn":firstNameEn,
+                                 @"lastNameEn":lastNameEn,
+                                 @"facultyNameTh":facultyNameTh,
+                                 @"facultyNameEn":facultyNameEn,
+                                 @"profileImageUrl":profileImageUrl,
+                                 @"gender":gender,
+                                 @"isSharewayAccepted":isSharewayAccepted,
+                                 @"rqDTTM":rqDTTM,
+                                 @"deviceID":deviceID,
+                                 @"appID":appID,
+                                 @"funcCode":funcCode,
+                                 @"gender":gender,
+                                 @"userToken":userToken,
+                                 @"xAuthorization":xAuthorization,
+                                 @"appLanguage":language,
+                                 };
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    [manager GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         //NSLog(@"UAapp %@",responseObject);
+         sharedManager.memberID = [[[responseObject objectForKey:@"data"] objectAtIndex:0] objectForKey:@"user_id"];
+         
+         //sharedManager.memberID = @"1";//อย่าลืมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมม
+         RightMenu *rm = (RightMenu*)[sharedManager.mainRoot.childViewControllers objectAtIndex:0];
+         [rm loadProfile];
+     }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error)
+     {
+         NSLog(@"Error %@",error);
+     }];
 }
 
 - (IBAction)termClick:(id)sender

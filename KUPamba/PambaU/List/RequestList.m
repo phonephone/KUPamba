@@ -9,6 +9,7 @@
 #import "RequestList.h"
 #import "RequestDetail.h"
 #import "RequestForm.h"
+#import "Search.h"
 #import "ListCell.h"
 #import "ResultHeader.h"
 #import "UIImageView+WebCache.h"
@@ -316,12 +317,24 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
 
 - (IBAction)searchClick:(id)sender
 {
-    searchResult = YES;
-    [mycollectionView reloadData];
+    Search *sch = [self.storyboard instantiateViewControllerWithIdentifier:@"Search"];
+    [self.navigationController pushViewController:sch animated:YES];
 }
 
 - (IBAction)filterClick:(id)sender
 {
+    /*
+     if(searchResult == YES)
+     {
+     searchResult = NO;
+     }
+     else
+     {
+     searchResult = YES;
+     }
+     [mycollectionView reloadData];
+     */
+    
     //UIButton *button = (UIButton *)sender;
     //NSLog(@"Action %ld",button.tag);
     
@@ -421,6 +434,13 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
 - (IBAction)payBySCB:(id)sender
 {
     //[SCBPayHelper pay];
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:SCB_APP_URL]])
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:SCB_APP_URL]];
+    }
+    else{
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:SCB_STORE_URL]];
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

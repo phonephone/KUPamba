@@ -388,7 +388,7 @@ didFailAutocompleteWithError:(NSError *)error {
         [self presentViewController:alertController animated:YES completion:nil];
     }
     else{
-        if ([remarkText.text isEqualToString:@"ใส่รายละเอียด..."]) {
+        if ([remarkText.text isEqualToString:@"กรอกรายละเอียดการเดินทาง"]) {
             remark = @"";
         }
         else
@@ -396,30 +396,46 @@ didFailAutocompleteWithError:(NSError *)error {
             remark = remarkText.text;
         }
         
-        NSDateFormatter *df1 = [[NSDateFormatter alloc] init];
-        [df1 setLocale:localeTH];
-        [df1 setDateFormat:@"yyyy-MM-dd"];
-        NSDate *ceYear = [df1 dateFromString:goDate];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"ยืนยันการขอร่วมทาง" message:@"" preferredStyle:UIAlertControllerStyleAlert];
         
-        localeEN = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
-        NSDateFormatter *df2 = [[NSDateFormatter alloc] init];
-        [df2 setLocale:localeEN];
-        [df2 setDateFormat:@"yyyy-MM-dd"];
-        goDateEN = [df2 stringFromDate:ceYear];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"ตกลง" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            [self loadWebView];
+        }];
+        [alertController addAction:ok];
         
-        NSLog(@"userID:%@\n From:%@\n To:%@\n distance:%@\n duration:%@\n origin:%@\n destination:%@\n goDate:%@\n goH:%@\n goM:%@\n remark:%@",sharedManager.memberID,fromField.text,toField.text,distance,duration,fromID,toID,goDateEN,goH,goM,remark);
+        UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"ยกเลิก" style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
+        }];
+        [alertController addAction:cancel];
         
-         [SVProgressHUD showWithStatus:@"Loading"];
-         
-         UIWebView *myWebview = [[UIWebView alloc]init];
-         NSString* strUrl = [NSString stringWithFormat:@"%@webApi/findLatLng?user=%@&ori=%@&des=%@",HOST_DOMAIN_INDEX,sharedManager.memberID,fromID,toID];
-         NSURL *url = [NSURL URLWithString:strUrl];
-         myWebview.delegate = self;
-         requestURL = [[NSURLRequest alloc] initWithURL:url];
-         [myWebview loadRequest:requestURL];
-         [self.view addSubview:myWebview];
-         myWebview.hidden = YES;
+        [self presentViewController:alertController animated:YES completion:nil];
     }
+}
+
+- (void)loadWebView
+{
+    NSDateFormatter *df1 = [[NSDateFormatter alloc] init];
+    [df1 setLocale:localeTH];
+    [df1 setDateFormat:@"yyyy-MM-dd"];
+    NSDate *ceYear = [df1 dateFromString:goDate];
+    
+    localeEN = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    NSDateFormatter *df2 = [[NSDateFormatter alloc] init];
+    [df2 setLocale:localeEN];
+    [df2 setDateFormat:@"yyyy-MM-dd"];
+    goDateEN = [df2 stringFromDate:ceYear];
+    
+    NSLog(@"userID:%@\n From:%@\n To:%@\n distance:%@\n duration:%@\n origin:%@\n destination:%@\n goDate:%@\n goH:%@\n goM:%@\n remark:%@",sharedManager.memberID,fromField.text,toField.text,distance,duration,fromID,toID,goDateEN,goH,goM,remark);
+    
+    [SVProgressHUD showWithStatus:@"Loading"];
+    
+    UIWebView *myWebview = [[UIWebView alloc]init];
+    NSString* strUrl = [NSString stringWithFormat:@"%@webApi/findLatLng?user=%@&ori=%@&des=%@",HOST_DOMAIN_INDEX,sharedManager.memberID,fromID,toID];
+    NSURL *url = [NSURL URLWithString:strUrl];
+    myWebview.delegate = self;
+    requestURL = [[NSURLRequest alloc] initWithURL:url];
+    [myWebview loadRequest:requestURL];
+    [self.view addSubview:myWebview];
+    myWebview.hidden = YES;
 }
 
 #pragma mark - UIWebViewDelegate
@@ -478,7 +494,7 @@ didFailAutocompleteWithError:(NSError *)error {
      {
          NSLog(@"Request %@",responseObject);
          
-         [SVProgressHUD showSuccessWithStatus:@"ความต้องการที่นั่งถูกบันทึกแล้ว"];
+         [SVProgressHUD showSuccessWithStatus:@"หาเพื่อนร่วมทางถูกบันทึกแล้ว"];
          
          sharedManager.reloadRequest = YES;
          sharedManager.clearRequest = YES;

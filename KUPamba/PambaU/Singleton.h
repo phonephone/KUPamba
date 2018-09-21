@@ -12,13 +12,21 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <ISMessages/ISMessages.h>
 #import <CCMPopup/CCMPopupSegue.h>
+#import <CCMPopup/CCMPopupTransitioning.h>
 
 @import GooglePlaces;
 @import SCBPay;
 
+#define HOST_DOMAIN @"https://pambashare.com/kuV1/index.php/webApi_new/"
+#define HOST_DOMAIN_INDEX @"https://pambashare.com/kuV1/index.php/"
+#define HOST_DOMAIN_HOME @"https://pambashare.com/kuV1/"
+/*
 #define HOST_DOMAIN @"https://pambashare.com/v2/index.php/webApi_new/"
 #define HOST_DOMAIN_INDEX @"https://pambashare.com/v2/index.php/"
 #define HOST_DOMAIN_HOME @"https://pambashare.com/v2/"
+*/
+#define SCB_APP_URL @"scbeasy://scan/camera"
+#define SCB_STORE_URL @"https://itunes.apple.com/th/app/scb-easy/id568388474"
 
 @interface Singleton : NSObject
 
@@ -36,6 +44,8 @@
 
 @property (nonatomic) BOOL clearOffer;
 @property (nonatomic) BOOL clearRequest;
+
+@property (nonatomic) BOOL showQR;
 
 @property (nonatomic) BOOL loginStatus;
 @property (strong, nonatomic) NSString *memberID;

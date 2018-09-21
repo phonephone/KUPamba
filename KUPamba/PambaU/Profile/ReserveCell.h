@@ -23,4 +23,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *trashBtn;
 @property (weak, nonatomic) IBOutlet UIButton *moreBtn;
 
+@property (weak, nonatomic) IBOutlet UIView *trashCell;
 @end
