@@ -70,7 +70,7 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
-         NSLog(@"reviewJSON %@",responseObject);
+         //NSLog(@"reviewJSON %@",responseObject);
          listJSON = [[responseObject objectForKey:@"data"] mutableCopy];
          
          [SVProgressHUD dismiss];
@@ -196,7 +196,7 @@
 - (void)star1Click:(id)sender
 {
     UIButton *button = (UIButton *)sender;
-    NSLog(@"Star %ld",(long)button.tag);
+    //NSLog(@"Star %ld",(long)button.tag);
     [self setStarAtIndexRow:button.tag score:1];
     [self submitReviewIndexRow:button.tag score:1];
 }
@@ -204,7 +204,7 @@
 - (void)star2Click:(id)sender
 {
     UIButton *button = (UIButton *)sender;
-    NSLog(@"Star %ld",(long)button.tag);
+    //NSLog(@"Star %ld",(long)button.tag);
     [self setStarAtIndexRow:button.tag score:2];
     [self submitReviewIndexRow:button.tag score:2];
 }
@@ -212,7 +212,7 @@
 - (void)star3Click:(id)sender
 {
     UIButton *button = (UIButton *)sender;
-    NSLog(@"Star %ld",(long)button.tag);
+    //NSLog(@"Star %ld",(long)button.tag);
     [self setStarAtIndexRow:button.tag score:3];
     [self submitReviewIndexRow:button.tag score:3];
 }
@@ -220,7 +220,7 @@
 - (void)star4Click:(id)sender
 {
     UIButton *button = (UIButton *)sender;
-    NSLog(@"Star %ld",(long)button.tag);
+    //NSLog(@"Star %ld",(long)button.tag);
     [self setStarAtIndexRow:button.tag score:4];
     [self submitReviewIndexRow:button.tag score:4];
 }
@@ -228,14 +228,14 @@
 - (void)star5Click:(id)sender
 {
     UIButton *button = (UIButton *)sender;
-    NSLog(@"Star %ld",(long)button.tag);
+    //NSLog(@"Star %ld",(long)button.tag);
     [self setStarAtIndexRow:button.tag score:5];
     [self submitReviewIndexRow:button.tag score:5];
 }
 
 - (void)setStarAtIndexRow:(long)row score:(int)star
 {
-    NSLog(@"index %ld score %d",row,star);
+    //NSLog(@"index %ld score %d",row,star);
     
     UIImage *starON = [UIImage imageNamed:@"cell_star"];
     UIImage *starOFF = [UIImage imageNamed:@"cell_star_off"];
@@ -290,11 +290,10 @@
                                  @"user_id_review":[cellArray objectForKey:@"user_id_review"],
                                  @"rate":[NSString stringWithFormat:@"%d",star]
                                  };
-    NSLog(@"Dict %@",parameters);
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
-         NSLog(@"Response %@",responseObject);
+         //NSLog(@"Response %@",responseObject);
          [SVProgressHUD dismiss];
      }
          failure:^(AFHTTPRequestOperation *operation, NSError *error)

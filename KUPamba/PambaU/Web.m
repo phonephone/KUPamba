@@ -48,7 +48,6 @@
 #pragma mark - UIWebViewDelegate
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    NSLog(@"Did start loading: %@", [[request URL] absoluteString]);
     return YES;
 }
 

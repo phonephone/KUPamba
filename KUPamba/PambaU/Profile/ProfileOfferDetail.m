@@ -58,7 +58,7 @@
 
 -(void)handleRefresh : (id)sender
 {
-    NSLog (@"Pull To Refresh Method Called");
+    //NSLog (@"Pull To Refresh Method Called");
     [self loadList];
 }
 
@@ -73,7 +73,7 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
-         NSLog(@"listJSON %@",responseObject);
+         //NSLog(@"listJSON %@",responseObject);
          
          listJSON = [[[responseObject objectForKey:@"data"] objectAtIndex:0] mutableCopy];
          [mycollectionView reloadData];
@@ -328,7 +328,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
 - (void)chatClick:(id)sender
 {
     UIButton *button = (UIButton *)sender;
-    NSLog(@"Chat %ld",(long)button.tag);
+    //NSLog(@"Chat %ld",(long)button.tag);
     
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
@@ -391,7 +391,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
 - (void)acceptClick:(id)sender
 {
     UIButton *button = (UIButton *)sender;
-    NSLog(@"Accept %ld",(long)button.tag);
+    //NSLog(@"Accept %ld",(long)button.tag);
     
     [self setAcceptOrRejectAtIndex:button.tag status:@"2"];
     
@@ -401,7 +401,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
 - (void)rejectClick:(id)sender
 {
     UIButton *button = (UIButton *)sender;
-    NSLog(@"Reject %ld",(long)button.tag);
+    //NSLog(@"Reject %ld",(long)button.tag);
     
     [self setAcceptOrRejectAtIndex:button.tag status:@"3"];
     
@@ -417,7 +417,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
-         NSLog(@"Response %@",responseObject);
+         //NSLog(@"Response %@",responseObject);
          
          [self loadList];
          [refreshController endRefreshing];

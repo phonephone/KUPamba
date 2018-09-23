@@ -41,7 +41,7 @@
     sharedManager.mainRoot = (MFSideMenuContainerViewController *)self.parentViewController;
     homePage = [sharedManager.mainRoot.childViewControllers objectAtIndex:1];
     
-    NSLog(@"Right %@",[sharedManager.mainRoot.childViewControllers objectAtIndex:1]);
+    //NSLog(@"Right %@",[sharedManager.mainRoot.childViewControllers objectAtIndex:1]);
     
     bgView.backgroundColor = sharedManager.mainThemeColor;
     
@@ -337,7 +337,6 @@
             popup.dismissableByTouchingBackground = YES;
             
             UIViewController *pp;
-            NSLog(@"asdf%@",sharedManager.profileJSON);
             if ([[sharedManager.profileJSON objectForKey:@"promtpayType"] isEqualToString:@"00"]) {//No Promptpay
                 popup.destinationBounds = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width*0.9, [[UIScreen mainScreen] bounds].size.height*0.35);
                 pp = [self.storyboard instantiateViewControllerWithIdentifier:@"PromptPay"];

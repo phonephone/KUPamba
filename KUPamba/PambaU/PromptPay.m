@@ -26,8 +26,6 @@
     
     promptPayBtn.backgroundColor = sharedManager.btnThemeColor;
     promptPayBtn.titleLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
-    
-    NSLog(@"ZXC %@",self.presentingViewController);
 }
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField
@@ -64,7 +62,7 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
-         NSLog(@"promptPayJSON %@",responseObject);
+         //NSLog(@"promptPayJSON %@",responseObject);
          if ([[responseObject objectForKey:@"status"] isEqualToString:@"success"]) {
              [self dismissViewControllerAnimated:YES completion:^{}];
              homePage = [sharedManager.mainRoot.childViewControllers objectAtIndex:1];

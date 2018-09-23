@@ -57,8 +57,6 @@
 {
     [SVProgressHUD showWithStatus:@"Loading"];
     
-    NSLog(@"offid %@",offerID);
-    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString* url = [NSString stringWithFormat:@"%@viewOffer",HOST_DOMAIN];
     NSDictionary *parameters = @{@"oid":offerID,
@@ -71,22 +69,24 @@
          
          NSDictionary *cellArray = [listJSON objectAtIndex:0];
          int carType = [[cellArray objectForKey:@"type"] intValue];
+         NSString *carTypeStr;
          switch (carType) {
              case 1:
-                 carTypeLabel.text = @"รถยนต์";
+                 carTypeStr = @"รถยนต์";
                  break;
              case 2:
-                 carTypeLabel.text = @"รถตู้";
+                 carTypeStr = @"รถตู้";
                  break;
              case 3:
-                 carTypeLabel.text = @"แท็กซี่";
+                 carTypeStr = @"แท็กซี่";
                  break;
              case 4:
-                 carTypeLabel.text = @"จักรยานยนต์";
+                 carTypeStr = @"จักรยานยนต์";
                  break;
              default:
                  break;
          }
+         carTypeLabel.text = [NSString stringWithFormat:@"ประเภท : %@",carTypeStr];
          
          ////Price
          UIColor *leftColor = [UIColor colorWithRed:72.0/255 green:72.0/255 blue:72.0/255 alpha:1.0];
@@ -446,7 +446,7 @@
 #pragma mark - UIWebViewDelegate
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    NSLog(@"Did start loading: %@", [[request URL] absoluteString]);
+    //NSLog(@"Did start loading: %@", [[request URL] absoluteString]);
     return YES;
 }
 

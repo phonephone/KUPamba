@@ -17,15 +17,13 @@
 
 @implementation Pamba
 
-@synthesize userID,rqDTTM,deviceID,appID,funcCode,userToken,xAuthorization,inquiryUserProfile,firstNameTh,firstNameEn,lastNameTh,lastNameEn,facultyNameTh,facultyNameEn,profileImageUrl,gender,studentCode,isSharewayAccepted,language;
+@synthesize userID,rqDTTM,deviceID,appID,funcCode,userToken,xAuthorization,firstNameTh,firstNameEn,lastNameTh,lastNameEn,facultyNameTh,facultyNameEn,profileImageUrl,gender,studentCode,isSharewayAccepted,language;
 
 @synthesize headerView,headerTitle,headerLBtn,termLabel,checkBtn,checkLabel,acceptBtn;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    NSLog(@"USER ID = %@",userID);
     
     sharedManager = [Singleton sharedManager];
     
@@ -131,10 +129,10 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
-         //NSLog(@"UAapp %@",responseObject);
+         NSLog(@"UAapp %@",responseObject);
          sharedManager.memberID = [[[responseObject objectForKey:@"data"] objectAtIndex:0] objectForKey:@"user_id"];
          
-         //sharedManager.memberID = @"1";//อย่าลืมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมม
+         //sharedManager.memberID = @"3";//อย่าลืมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมม
          RightMenu *rm = (RightMenu*)[sharedManager.mainRoot.childViewControllers objectAtIndex:0];
          [rm loadProfile];
      }

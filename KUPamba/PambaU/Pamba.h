@@ -24,7 +24,6 @@
 @property (strong, nonatomic) NSString *userToken;
 @property (strong, nonatomic) NSString *xAuthorization;
 
-@property (strong, nonatomic) NSString *inquiryUserProfile;
 @property (strong, nonatomic) NSString *firstNameTh;
 @property (strong, nonatomic) NSString *firstNameEn;
 @property (strong, nonatomic) NSString *lastNameTh;

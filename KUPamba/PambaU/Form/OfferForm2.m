@@ -50,7 +50,7 @@
     [df setLocale:locale];
     goDate = [df stringFromDate:ceYear];
     
-    NSLog(@"userID:%@\n From:%@\n FromID:%@\n To:%@\n ToID:%@\n distance:%@\n duration:%@\n goDate:%@\n goH:%@\n goM:%@\n exTime:%@\n seats:%@\n gender:%@\n luggage:%@\n price:%@",sharedManager.memberID,fromName,fromID,toName,toID,distance,duration,goDate,goH,goM,exTime,seats,gender,luggage,price);
+    //NSLog(@"userID:%@\n From:%@\n FromID:%@\n To:%@\n ToID:%@\n distance:%@\n duration:%@\n goDate:%@\n goH:%@\n goM:%@\n exTime:%@\n seats:%@\n gender:%@\n luggage:%@\n price:%@",sharedManager.memberID,fromName,fromID,toName,toID,distance,duration,goDate,goH,goM,exTime,seats,gender,luggage,price);
     
     smoke = YES;
     food = YES;
@@ -468,7 +468,7 @@ didFailAutocompleteWithError:(NSError *)error {
 #pragma mark - UIWebViewDelegate
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    NSLog(@"Did start loading: %@", [[request URL] absoluteString]);
+    //NSLog(@"Did start loading: %@", [[request URL] absoluteString]);
     
     NSString *chkStr = [NSString stringWithFormat:@"%@ajax/echo_java.php",HOST_DOMAIN_HOME];
     
@@ -483,7 +483,7 @@ didFailAutocompleteWithError:(NSError *)error {
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    NSLog(@"Web Finish Load");
+    //NSLog(@"Web Finish Load");
     //self.view.alpha = 1.f;
     if (webLoaded == YES)
     {
@@ -527,7 +527,7 @@ didFailAutocompleteWithError:(NSError *)error {
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
-         NSLog(@"Offer %@",responseObject);
+         //NSLog(@"Offer %@",responseObject);
          
          [SVProgressHUD showSuccessWithStatus:@"การเสนอที่นั่งถูกบันทึกแล้ว"];
          

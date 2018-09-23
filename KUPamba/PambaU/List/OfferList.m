@@ -70,7 +70,7 @@
 
 - (void)handleRefresh : (id)sender
 {
-    NSLog (@"Pull To Refresh Method Called");
+    //NSLog (@"Pull To Refresh Method Called");
     [self loadList];
 }
 
@@ -398,7 +398,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     [alertController addAction:settingAction];
     
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"Canelled");
+        
     }];
     [alertController addAction:cancelAction];
     
@@ -422,7 +422,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
         //sharedManager.latitude = @"13.8699978";
         //sharedManager.longitude = @"100.4672951";
         
-        NSLog(@"X = %@\nY = %@",sharedManager.latitude,sharedManager.longitude);
+        //NSLog(@"X = %@\nY = %@",sharedManager.latitude,sharedManager.longitude);
         
         [self loadList];
     }

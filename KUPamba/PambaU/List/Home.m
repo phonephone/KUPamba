@@ -38,14 +38,6 @@
     
     sharedManager = [Singleton sharedManager];
     
-    NSLog(@"Home %@",self.menuContainerViewController.childViewControllers);
-    NSLog(@"Root %@",sharedManager.mainRoot);
-    for (UIViewController *controller in self.navigationController.viewControllers) {
-        NSLog(@"Back %@",controller);
-        if ([controller isKindOfClass:[MFSideMenuContainerViewController class]]) {
-        }
-    }
-    
     sharedManager.homeExisted = YES;
     rightAlert.hidden = YES;
     

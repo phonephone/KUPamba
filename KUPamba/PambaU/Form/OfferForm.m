@@ -205,8 +205,6 @@
     
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    NSLog(@"Start");
-    
     if (textField.tag == 101||textField.tag == 102) {
         nowEdit = textField.tag;
         
@@ -232,8 +230,6 @@
     
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    NSLog(@"End");
-    
     if (textField.tag == 99) {
         if ([textField.text intValue] == 0) {
             price = @"0";

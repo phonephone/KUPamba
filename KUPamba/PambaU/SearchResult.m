@@ -38,6 +38,11 @@
     // Do any additional setup after loading the view.
     sharedManager = [Singleton sharedManager];
     
+    headerView.backgroundColor = sharedManager.mainThemeColor;
+    //headerTitle.text = //NSLocalizedString(@"You like?", nil);
+    headerTitle.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    [headerLBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
+    
     [mycollectionView addSubview:refreshController];
 }
 

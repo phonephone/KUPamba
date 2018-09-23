@@ -54,12 +54,10 @@
     
     if ([mode isEqualToString:@"Offer"]) {
         headerTitle.text = @"การเสนอที่นั่งของคุณ";
-        NSLog(@"Your Offer");
     }
     
     if ([mode isEqualToString:@"Reserve"]) {
         headerTitle.text = @"การขอร่วมทางของคุณ";
-        NSLog(@"Your Booking");
     }
     
     refreshController = [[UIRefreshControl alloc] init];
@@ -88,7 +86,7 @@
 
 -(void)handleRefresh : (id)sender
 {
-    NSLog (@"Pull To Refresh Method Called");
+    //NSLog (@"Pull To Refresh Method Called");
     [self loadList];
 }
 
@@ -441,8 +439,6 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    NSLog(@"End");
-    
     NSDateFormatter *df1 = [[NSDateFormatter alloc] init];
     [df1 setLocale:localeTH];
     [df1 setDateFormat:@"yyyy-MM-dd"];
@@ -482,7 +478,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
 - (void)alertClick:(id)sender
 {
     UIButton *button = (UIButton *)sender;
-    NSLog(@"Alert %ld",(long)button.tag);
+    //NSLog(@"Alert %ld",(long)button.tag);
     selectID = [[listJSON objectAtIndex:button.tag] objectForKey:@"id"];
     [self performSegueWithIdentifier:@"manageOffer" sender:nil];
 }
@@ -490,7 +486,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
 - (void)copyClick:(id)sender
 {
     UIButton *button = (UIButton *)sender;
-    NSLog(@"Copy %ld",(long)button.tag);
+    //NSLog(@"Copy %ld",(long)button.tag);
     selectID = [[listJSON objectAtIndex:button.tag] objectForKey:@"id"];
     [dateField becomeFirstResponder];
 }
@@ -509,7 +505,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
-         NSLog(@"copyJSON %@",responseObject);
+         //NSLog(@"copyJSON %@",responseObject);
          [SVProgressHUD showSuccessWithStatus:@"การเสนอที่นั่งถูกบันทึกแล้ว"];
          
          [self loadList];
@@ -525,7 +521,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
 - (void)trashClick:(id)sender
 {
     UIButton *button = (UIButton *)sender;
-    NSLog(@"Trash %ld",(long)button.tag);
+    //NSLog(@"Trash %ld",(long)button.tag);
     selectID = [[listJSON objectAtIndex:button.tag] objectForKey:@"id"];
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"ยืนยันการลบข้อมูล" message:@"" preferredStyle:UIAlertControllerStyleAlert];
@@ -545,7 +541,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
 - (void)reviewClick:(id)sender
 {
     UIButton *button = (UIButton *)sender;
-    NSLog(@"Review %ld",(long)button.tag);
+    //NSLog(@"Review %ld",(long)button.tag);
     
     Review *rev = [self.storyboard instantiateViewControllerWithIdentifier:@"Review"];
     rev.mode = mode;
@@ -573,7 +569,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
-         NSLog(@"deleteJSON %@",responseObject);
+         //NSLog(@"deleteJSON %@",responseObject);
          
          [SVProgressHUD showSuccessWithStatus:@"ยกเลิกเรียบร้อย"];
          

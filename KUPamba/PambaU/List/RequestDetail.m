@@ -51,8 +51,6 @@
 {
     [SVProgressHUD showWithStatus:@"Loading"];
     
-    NSLog(@"reqid %@",requestID);
-    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString* url = [NSString stringWithFormat:@"%@viewRequest",HOST_DOMAIN];
     NSDictionary *parameters = @{@"oid":requestID,};

@@ -104,8 +104,6 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    NSLog(@"Start");
-    
     if (textField.tag == 101||textField.tag == 102) {
         nowEdit = textField.tag;
         
@@ -122,13 +120,13 @@
 
 - (BOOL)textFieldDidChange:(UITextField *)textField
 {
-    NSLog(@"Change %@", textField.text);
+    //NSLog(@"Change %@", textField.text);
     return YES;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    NSLog(@"End");
+    
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
@@ -355,7 +353,7 @@ didFailAutocompleteWithError:(NSError *)error {
 #pragma mark - UIWebViewDelegate
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    NSLog(@"Did start loading: %@", [[request URL] absoluteString]);
+    //NSLog(@"Did start loading: %@", [[request URL] absoluteString]);
     
     NSString *chkStr = [NSString stringWithFormat:@"%@ajax/echo_java.php",HOST_DOMAIN_HOME];
     
@@ -369,7 +367,7 @@ didFailAutocompleteWithError:(NSError *)error {
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    NSLog(@"Web Finish Load");
+    //NSLog(@"Web Finish Load");
     //self.view.alpha = 1.f;
     if (webLoaded == YES)
     {
@@ -395,7 +393,7 @@ didFailAutocompleteWithError:(NSError *)error {
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
-         NSLog(@"Search %@",responseObject);
+         //NSLog(@"Search %@",responseObject);
          
          searchJSON = [[responseObject objectForKey:@"data"] mutableCopy];
          if ([searchJSON count] == 0) {

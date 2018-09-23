@@ -131,8 +131,6 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    NSLog(@"Start");
-    
     if (textField.tag == 101||textField.tag == 102) {
         nowEdit = textField.tag;
         
@@ -149,14 +147,14 @@
 
 - (BOOL)textFieldDidChange:(UITextField *)textField
 {
-    NSLog(@"Change %@", textField.text);
+    //NSLog(@"Change %@", textField.text);
     [textField setAttributedText:[self shorttext:textField.text withFont:nil]];
     return YES;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    NSLog(@"End");
+    
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
@@ -259,7 +257,7 @@ didFailAutocompleteWithError:(NSError *)error {
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
-         NSLog(@"distance %@",responseObject);
+         //NSLog(@"distance %@",responseObject);
          distance = [[[responseObject objectForKey:@"data"] objectAtIndex:0] objectForKey:@"allKm"];
          distance = [NSString stringWithFormat:@"%.1f กม.",[distance floatValue]];
          
@@ -292,7 +290,6 @@ didFailAutocompleteWithError:(NSError *)error {
             NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:datePicker.date];
             goH = [NSString stringWithFormat:@"%ld",(long)[components hour]];
             goM = [NSString stringWithFormat:@"%ld",(long)[components minute]];
-            NSLog(@"%@:%@",goH,goM);
             break;
     }
 }
@@ -424,7 +421,7 @@ didFailAutocompleteWithError:(NSError *)error {
     [df2 setDateFormat:@"yyyy-MM-dd"];
     goDateEN = [df2 stringFromDate:ceYear];
     
-    NSLog(@"userID:%@\n From:%@\n To:%@\n distance:%@\n duration:%@\n origin:%@\n destination:%@\n goDate:%@\n goH:%@\n goM:%@\n remark:%@",sharedManager.memberID,fromField.text,toField.text,distance,duration,fromID,toID,goDateEN,goH,goM,remark);
+    //NSLog(@"userID:%@\n From:%@\n To:%@\n distance:%@\n duration:%@\n origin:%@\n destination:%@\n goDate:%@\n goH:%@\n goM:%@\n remark:%@",sharedManager.memberID,fromField.text,toField.text,distance,duration,fromID,toID,goDateEN,goH,goM,remark);
     
     [SVProgressHUD showWithStatus:@"Loading"];
     
@@ -441,7 +438,7 @@ didFailAutocompleteWithError:(NSError *)error {
 #pragma mark - UIWebViewDelegate
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    NSLog(@"Did start loading: %@", [[request URL] absoluteString]);
+    //NSLog(@"Did start loading: %@", [[request URL] absoluteString]);
     
     NSString *chkStr = [NSString stringWithFormat:@"%@ajax/echo_java.php",HOST_DOMAIN_HOME];
     
@@ -455,7 +452,7 @@ didFailAutocompleteWithError:(NSError *)error {
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    NSLog(@"Web Finish Load");
+    //NSLog(@"Web Finish Load");
     //self.view.alpha = 1.f;
     if (webLoaded == YES)
     {

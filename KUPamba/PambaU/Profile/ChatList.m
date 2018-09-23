@@ -18,7 +18,7 @@
 
 @implementation ChatList
 
-@synthesize headerView,headerTitle,headerLBtn,myTable;
+@synthesize headerView,headerTitle,headerLBtn,myTable,noresultLabel;
 
 - (void)viewDidLayoutSubviews
 {
@@ -57,7 +57,7 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
-         NSLog(@"listJSON %@",responseObject);
+         //NSLog(@"listJSON %@",responseObject);
          listJSON = [[responseObject objectForKey:@"data"] mutableCopy];
          
          [SVProgressHUD dismiss];
@@ -91,8 +91,12 @@
 {
     int rowNo;
     
-    if ([[[listJSON objectAtIndex:0] allKeys] containsObject:@"status"]) {rowNo = 0;}
+    if (listJSON.count == 0) {
+        noresultLabel.hidden = NO;
+        rowNo = 0;
+    }
     else{
+        noresultLabel.hidden = YES;
         rowNo = [listJSON count];
     }
     return rowNo;

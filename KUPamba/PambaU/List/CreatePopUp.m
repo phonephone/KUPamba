@@ -34,7 +34,6 @@
 
 - (IBAction)addOffer:(id)sender
 {
-    NSLog(@"Create Offer");
     OfferForm *of = [self.storyboard instantiateViewControllerWithIdentifier:@"OfferForm"];
     UINavigationController *navi = (UINavigationController *)self.presentingViewController;
     [navi pushViewController:of animated:NO];
@@ -45,7 +44,6 @@
 
 - (IBAction)addRequest:(id)sender
 {
-    NSLog(@"Create Request");
     RequestForm *rf = [self.storyboard instantiateViewControllerWithIdentifier:@"RequestForm"];
     UINavigationController *navi = (UINavigationController *)self.presentingViewController;
     [navi pushViewController:rf animated:NO];

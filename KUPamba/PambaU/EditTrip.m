@@ -154,7 +154,6 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    NSLog(@"Start");
     if (textField.tag == 99) {
         if ([textField.text isEqualToString:@"ฟรี"]) {
             priceField.text = @"0";
@@ -167,8 +166,6 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    NSLog(@"End");
-    
     if (textField.tag == 99) {
         if ([textField.text intValue] == 0) {
             price = @"0";
@@ -322,8 +319,6 @@
     NSLog(@"%@\n%@\n%@:%@\n%@\n%@\n%@",offerID,goDate,goH,goM,seats,price,remark);
     
     [SVProgressHUD showWithStatus:@"Loading"];
-    
-    NSLog(@"offid %@",offerID);
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString* url = [NSString stringWithFormat:@"%@updateOffer",HOST_DOMAIN];

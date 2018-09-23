@@ -21,5 +21,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *headerLBtn;
 
 @property (retain, nonatomic) IBOutlet UITableView *myTable;
+@property (weak, nonatomic) IBOutlet UILabel *noresultLabel;
 
 @end
