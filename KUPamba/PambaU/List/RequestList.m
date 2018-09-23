@@ -13,7 +13,6 @@
 #import "ListCell.h"
 #import "ResultHeader.h"
 #import "UIImageView+WebCache.h"
-#import "FTPopOverMenu.h"
 
 @interface RequestList ()
 
@@ -337,40 +336,6 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     
     //UIButton *button = (UIButton *)sender;
     //NSLog(@"Action %ld",button.tag);
-    
-    FTPopOverMenuConfiguration *configuration = [FTPopOverMenuConfiguration defaultConfiguration];
-    configuration.menuRowHeight = self.view.frame.size.width*0.1;
-    configuration.menuWidth = self.view.frame.size.width*0.25;
-    configuration.textColor = [UIColor darkGrayColor];
-    configuration.textFont = [UIFont fontWithName:sharedManager.fontRegular size:13];
-    configuration.tintColor = [UIColor whiteColor];
-    configuration.borderColor = [UIColor colorWithRed:222.0/255 green:222.0/255 blue:222.0/255 alpha:1];
-    /*
-    configuration.borderWidth = 1;
-    configuration.shadowOffsetX = 2;
-    configuration.shadowOpacity = 2;
-    configuration.shadowColor = [UIColor darkGrayColor];
-    configuration.shadowRadius = 2;
-    configuration.shadowOpacity = 0.6;
-     */
-    //configuration.textAlignment = ...
-    //configuration.ignoreImageOriginalColor = ...;// set 'ignoreImageOriginalColor' to YES, images color will be same as textColor
-    ///configuration.allowRoundedArrow = ...;// Default is 'NO', if sets to 'YES', the arrow will be drawn with round corner.
-    
-    [FTPopOverMenu showForSender:sender withMenuArray:@[@"  ระยะทาง",@"  วันเดินทาง"] doneBlock:^(NSInteger selectedIndex) {
-        //NSLog(@"Action %ld Menu %ld",button.tag,(long)selectedIndex);
-        
-        if (selectedIndex == 0) {
-            sharedManager.filterMode = @"nearby";
-            [self checkLocationPermission];
-        }
-        else if (selectedIndex == 1) {
-            sharedManager.filterMode = @"date";
-            [self loadList];
-        }
-    } dismissBlock:^{
-        NSLog(@"Close");
-    }];
 }
 
 - (void)checkLocationPermission
