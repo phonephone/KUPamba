@@ -13,6 +13,7 @@
 #import "ListCell.h"
 #import "ResultHeader.h"
 #import "UIImageView+WebCache.h"
+#import "FTPopOverMenu.h"
 
 @interface OfferList ()
 
@@ -62,7 +63,7 @@
     //addBtn.layer.borderWidth = 3.0f;
     //addBtn.layer.borderColor = sharedManager.mainThemeColor.CGColor;
     
-    //searchResult = YES;
+    showFilter = YES;
     
     [self loadList];
 }
@@ -82,6 +83,7 @@
     NSString* url;
     NSDictionary *parameters;
     if ([sharedManager.filterMode isEqualToString:@"nearby"]) {
+        NSLog(@"AAAA %@ %@",sharedManager.latitude,sharedManager.longitude);
         url = [NSString stringWithFormat:@"%@searchNearMe",HOST_DOMAIN];
         parameters = @{@"lat":sharedManager.latitude,
                        @"lng":sharedManager.longitude
@@ -140,6 +142,8 @@
     //headerView.resultTitle.text = @"Popular Tracks";
     [headerView.fiterBtn addTarget:self action:@selector(filterClick:) forControlEvents:UIControlEventTouchUpInside];
     headerView.fiterBtn.tag = indexPath.row;
+    [headerView.arrowBtn addTarget:self action:@selector(filterClick:) forControlEvents:UIControlEventTouchUpInside];
+    headerView.arrowBtn.tag = indexPath.row;
     
     if ([sharedManager.filterMode isEqualToString:@"nearby"]) {
         [headerView.fiterBtn setTitle:@"  ระยะทาง" forState:UIControlStateNormal];
@@ -153,8 +157,8 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    if (searchResult) {
-        return CGSizeMake(collectionView.frame.size.width,30);
+    if (showFilter) {
+        return CGSizeMake(collectionView.frame.size.width,25);
     }else {
         return CGSizeZero;
     }
@@ -351,6 +355,38 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     
     //UIButton *button = (UIButton *)sender;
     //NSLog(@"Action %ld",button.tag);
+    
+    FTPopOverMenuConfiguration *configuration = [FTPopOverMenuConfiguration defaultConfiguration];
+    configuration.menuRowHeight = self.view.frame.size.width*0.1;
+    configuration.menuWidth = self.view.frame.size.width*0.25;
+    configuration.textColor = [UIColor darkGrayColor];
+    configuration.textFont = [UIFont fontWithName:sharedManager.fontRegular size:13];
+    configuration.backgroundColor = [UIColor whiteColor];
+    configuration.borderColor = [UIColor colorWithRed:222.0/255 green:222.0/255 blue:222.0/255 alpha:1];
+    /*
+     configuration.borderWidth = 1;
+     configuration.shadowOffsetX = 2;
+     configuration.shadowOpacity = 2;
+     configuration.shadowColor = [UIColor darkGrayColor];
+     configuration.shadowRadius = 2;
+     configuration.shadowOpacity = 0.6;
+     */
+    //configuration.textAlignment = ...
+    //configuration.ignoreImageOriginalColor = ...;// set 'ignoreImageOriginalColor' to YES, images color will be same as textColor
+    ///configuration.allowRoundedArrow = ...;// Default is 'NO', if sets to 'YES', the arrow will be drawn with round corner.
+    
+    [FTPopOverMenu showForSender:sender withMenuArray:@[@"  ระยะทาง",@"  วันเดินทาง"] imageArray:nil configuration:configuration doneBlock:^(NSInteger selectedIndex) {
+        if (selectedIndex == 0) {
+            sharedManager.filterMode = @"nearby";
+            [self checkLocationPermission];
+        }
+        else if (selectedIndex == 1) {
+            sharedManager.filterMode = @"date";
+            [self loadList];
+        }
+    } dismissBlock:^{
+        NSLog(@"Close");
+    }];
 }
 
 - (void)checkLocationPermission

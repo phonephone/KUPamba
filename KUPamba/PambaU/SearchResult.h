@@ -19,7 +19,6 @@
     
     UIRefreshControl *refreshController;
     CLLocationManager * locationManager;
-    BOOL searchResult;
 }
 @property (nonatomic) NSMutableArray *listJSON;
 

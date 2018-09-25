@@ -9,6 +9,7 @@
 #import "SearchResult.h"
 #import "OfferDetail.h"
 #import "ListCell.h"
+#import "ResultHeader.h"
 #import "UIImageView+WebCache.h"
 
 @interface SearchResult ()
@@ -52,13 +53,20 @@
     return 1;
 }
 
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
+           viewForSupplementaryElementOfKind:(NSString *)kind
+                                 atIndexPath:(NSIndexPath *)indexPath
+{
+    ResultHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:
+                                UICollectionElementKindSectionHeader withReuseIdentifier:@"ResultHeader" forIndexPath:indexPath];
+    //headerView.resultTitle.text = @"Popular Tracks";
+    
+    return headerView;
+}
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    if (searchResult) {
-        return CGSizeMake(collectionView.frame.size.width,30);
-    }else {
-        return CGSizeZero;
-    }
+    return CGSizeMake(collectionView.frame.size.width,30);
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView
