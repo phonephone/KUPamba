@@ -361,7 +361,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     configuration.menuWidth = self.view.frame.size.width*0.25;
     configuration.textColor = [UIColor darkGrayColor];
     configuration.textFont = [UIFont fontWithName:sharedManager.fontRegular size:13];
-    configuration.backgroundColor = [UIColor whiteColor];
+    configuration.tintColor = [UIColor whiteColor];
     configuration.borderColor = [UIColor colorWithRed:222.0/255 green:222.0/255 blue:222.0/255 alpha:1];
     /*
      configuration.borderWidth = 1;
@@ -374,8 +374,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     //configuration.textAlignment = ...
     //configuration.ignoreImageOriginalColor = ...;// set 'ignoreImageOriginalColor' to YES, images color will be same as textColor
     ///configuration.allowRoundedArrow = ...;// Default is 'NO', if sets to 'YES', the arrow will be drawn with round corner.
-    
-    [FTPopOverMenu showForSender:sender withMenuArray:@[@"  ระยะทาง",@"  วันเดินทาง"] imageArray:nil configuration:configuration doneBlock:^(NSInteger selectedIndex) {
+    [FTPopOverMenu showForSender:sender withMenuArray:@[@"  ระยะทาง",@"  วันเดินทาง"]  doneBlock:^(NSInteger selectedIndex) {
         if (selectedIndex == 0) {
             sharedManager.filterMode = @"nearby";
             [self checkLocationPermission];

@@ -28,7 +28,7 @@ s.dependency "SDWebImage"
 s.dependency 'SVProgressHUD'
 s.dependency 'IQKeyboardManager'
 s.dependency "CCMPopup"
-s.dependency 'FTPopOverMenu', '~>2.0.0'
+s.dependency 'FTPopOverMenu', '~>1.3.4'
 s.dependency 'ISMessages'
 s.dependency 'GooglePlaces'
 s.dependency 'SCBPay', '~>1.0.1'
