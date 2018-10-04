@@ -17,72 +17,40 @@
     NSArray *seatArray;
 }
 
-@synthesize bgView,headerView,headerTitle,nextBtn,dateLabel,timeLabel,priceLabel,seatLabel,dateField,timeField,priceField,seatField,offerID,goDate,goH,goM,seats,price,remark,remarkTitle,remarkText,orangeBtn,backBtn;
+@synthesize headerView,headerTitle,headerLBtn,dateLabel,timeLabel,priceLabel,seatLabel,dateField,timeField,priceField,seatField,offerID,goDate,goH,goM,seats,price,remark,remarkTitle,remarkText,editBtn;
 
 - (void)viewWillAppear:(BOOL)animated
 {
     self.menuContainerViewController.panMode = NO;
 }
 
-- (void)viewWillLayoutSubviews
-{
-    
-}
-
-- (void)viewDidLayoutSubviews
-{
-    if (!firstRender) {
-        firstRender = YES;
-    }
-    else{
-         [self addbottomBorder:dateField withColor:nil];
-         [self addbottomBorder:timeField withColor:nil];
-         [self addbottomBorder:priceField withColor:nil];
-         [self addbottomBorder:seatField withColor:nil];
-    }
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    seatArray = @[@"0",@"1",@"2",@"3",@"4",@"5",@"6",@"7"];
+    seatArray = @[@"1",@"2",@"3",@"4",@"5",@"6",@"7"];
     
     sharedManager = [Singleton sharedManager];
     
     //[[UINavigationBar appearance] setBarTintColor:sharedManager.mainThemeColor];
     
-    //NSLog(@"What %@",[tab.childViewControllers objectAtIndex:0]);
+    headerView.backgroundColor = sharedManager.mainThemeColor;
+    //headerTitle.text = //NSLocalizedString(@"You like?", nil);
+    headerTitle.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    [headerLBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
     
-    [headerTitle setAttributedText:[self shorttext:headerTitle.text withFont:[UIFont fontWithName:@"Kanit-SemiBold" size:sharedManager.fontSize+4]]];
-    
-    remarkTitle.font = [UIFont fontWithName:@"Kanit-Medium" size:sharedManager.fontSize+3];
-    [self shorttext:remarkTitle];
+    [self addbottomBorder:dateField withColor:nil];
+    [self addbottomBorder:timeField withColor:nil];
+    [self addbottomBorder:priceField withColor:nil];
+    [self addbottomBorder:seatField withColor:nil];
     
     remarkText.delegate = self;
-    remarkText.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+2];
-    remarkText.layer.borderWidth = 1.0f;
-    remarkText.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    
-    [orangeBtn.titleLabel setFont:[UIFont fontWithName:@"Kanit-Medium" size:sharedManager.fontSize+6]];
     
     [self clearValue];
 }
 
 -(void)clearValue
 {
-    [dateLabel setAttributedText:[self shorttext:dateLabel.text withFont:nil]];
-    [timeLabel setAttributedText:[self shorttext:timeLabel.text withFont:nil]];
-    
-    NSString *detect = @"ค่าโดยสาร";
-    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:priceLabel.text];
-    [attrString setAttributes:@{ NSFontAttributeName:[UIFont fontWithName:@"Kanit-LightItalic" size:sharedManager.fontSize+2] } range:NSMakeRange(0, priceLabel.text.length)];
-    [attrString setAttributes:@{ NSFontAttributeName:[UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+2] } range:NSMakeRange(0, detect.length)];
-    [attrString addAttribute:NSKernAttributeName value:[NSNumber numberWithDouble:-0.5] range:NSMakeRange(0, priceLabel.text.length)];
-    [priceLabel setAttributedText:attrString];
-    
-    [seatLabel setAttributedText:[self shorttext:seatLabel.text withFont:nil]];
-    
     NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"th"];
     df = [[NSDateFormatter alloc] init];
     //df.dateStyle = NSDateFormatterShortStyle;
@@ -136,14 +104,18 @@
     seatField.text = seats;
     for (int i=0; i<[seatArray count]; i++)
     {
-        if ([seats intValue] == i) {
+        if ([seats intValue] == i+1) {
             [seatPicker selectRow:i inComponent:0 animated:YES];
         }
     }
     
     remarkText.text = remark;
     if ([remarkText.text isEqualToString:@""]) {
-        remarkText.text = @"ใส่รายละเอียด...";
+        remarkText.text = sharedManager.detailPlaceholder;
+    }
+    else
+    {
+        remarkText.textColor = [UIColor blackColor];
     }
     
     /*
@@ -255,18 +227,33 @@
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
-    if ([textView.text isEqualToString:@"ใส่รายละเอียด..."]) {
+    if ([textView.text isEqualToString:sharedManager.detailPlaceholder]) {
         textView.text = @"";
         //textView.textColor = [UIColor blackColor]; //optional
     }
+    textView.textColor = [UIColor blackColor];
     [textView becomeFirstResponder];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    NSUInteger maxNumberOfLines = 5;
+    NSUInteger numLines = textView.contentSize.height/textView.font.lineHeight;
+    if (numLines >= maxNumberOfLines)
+    {
+        if([text isEqualToString:@"\n"]) {
+            //[textView resignFirstResponder];
+            return NO;
+        }
+    }
+    return YES;
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
     if ([textView.text isEqualToString:@""]) {
-        textView.text = @"ใส่รายละเอียด...";
-        //textView.textColor = [UIColor lightGrayColor]; //optional
+        textView.text = sharedManager.detailPlaceholder;
+        textView.textColor = [UIColor lightGrayColor]; //optional
     }
     [textView resignFirstResponder];
 }
@@ -275,10 +262,13 @@
 {
     textField.delegate = self;
     CALayer *bottomBorder = [CALayer layer];
-    bottomBorder.frame = CGRectMake(0.0f, textField.frame.size.height - 1, textField.frame.size.width, 1.0f);
+    bottomBorder.frame = CGRectMake(0.0f, textField.frame.size.height+1, textField.frame.size.width*1.1, 1.0f);
     
     if (color == nil) {
         bottomBorder.backgroundColor = [UIColor colorWithRed:204.0/255 green:204.0/255 blue:204.0/255 alpha:1].CGColor;
+    }
+    else{
+        bottomBorder.backgroundColor = color.CGColor;
     }
     
     [textField.layer addSublayer:bottomBorder];
@@ -287,13 +277,12 @@
     textField.leftView = paddingView;
     textField.leftViewMode = UITextFieldViewModeAlways;
     
-    textField.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+2];
+    //textField.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+2];
     
     return textField;
 }
 
-
-- (IBAction)orangeClick:(id)sender
+- (IBAction)editClick:(id)sender
 {
     sharedManager.reloadOffer = YES;
     
@@ -309,7 +298,7 @@
     goH = [NSString stringWithFormat:@"%ld",(long)[components hour]];
     goM = [NSString stringWithFormat:@"%ld",(long)[components minute]];
     
-    if ([remarkText.text isEqualToString:@"ใส่รายละเอียด..."]) {
+    if ([remarkText.text isEqualToString:sharedManager.detailPlaceholder]) {
         remark = @"";
     }
     else
@@ -335,6 +324,8 @@
          //NSLog(@"listJSON %@",responseObject);
          //listJSON = [[responseObject objectForKey:@"data"] mutableCopy];
          [SVProgressHUD showSuccessWithStatus:@"การแก้ไขถูกบันทึกแล้ว"];
+         [SVProgressHUD dismissWithDelay:3];
+         
          [self.navigationController popViewControllerAnimated:YES];
      }
          failure:^(AFHTTPRequestOperation *operation, NSError *error)
@@ -345,30 +336,6 @@
      }];
 }
 
-- (NSAttributedString *)shorttext:(NSString *)originalText withFont:(UIFont*)fontName
-{
-    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:originalText];
-    [text addAttribute:NSKernAttributeName value:[NSNumber numberWithDouble:-0.5] range:NSMakeRange(0, text.length)];
-    
-    if (fontName == nil) {
-        [text setAttributes:@{ NSFontAttributeName:[UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+2] } range:NSMakeRange(0, text.length)];
-    }
-    else{
-        [text setAttributes:@{ NSFontAttributeName:fontName } range:NSMakeRange(0, text.length)];
-    }
-    
-    return text;
-}
-
-- (UILabel *)shorttext:(UILabel *)originalLabel
-{
-    if (originalLabel.text) {
-        NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:originalLabel.text];
-        [text addAttribute:NSKernAttributeName value:[NSNumber numberWithDouble:-0.5] range:NSMakeRange(0, text.length)];
-        [originalLabel setAttributedText:text];
-    }
-    return originalLabel;
-}
 
 - (IBAction)back:(id)sender
 {

@@ -129,47 +129,6 @@
     
 }
 
-- (void)textViewDidBeginEditing:(UITextView *)textView
-{
-    if ([textView.text isEqualToString:@"กรอกรายละเอียดการเดินทาง"]) {
-        textView.text = @"";
-        textView.textColor = [UIColor blackColor]; //optional
-    }
-    [textView becomeFirstResponder];
-}
-/*
- - (void)textViewDidChange:(UITextView *)textView
- {
- NSUInteger maxNumberOfLines = 5;
- NSUInteger numLines = textView.contentSize.height/textView.font.lineHeight;
- if (numLines > maxNumberOfLines)
- {
- textView.text = [textView.text substringToIndex:textView.text.length - 1];
- }
- }
- */
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
-{
-    NSUInteger maxNumberOfLines = 5;
-    NSUInteger numLines = textView.contentSize.height/textView.font.lineHeight;
-    if (numLines >= maxNumberOfLines)
-    {
-        if([text isEqualToString:@"\n"]) {
-            //[textView resignFirstResponder];
-            return NO;
-        }
-    }
-    return YES;
-}
-
-- (void)textViewDidEndEditing:(UITextView *)textView
-{
-    if ([textView.text isEqualToString:@""]) {
-        textView.text = @"กรอกรายละเอียดการเดินทาง";
-        textView.textColor = [UIColor lightGrayColor]; //optional
-    }
-    [textView resignFirstResponder];
-}
 
 // Handle the user's selection.
 - (void)viewController:(GMSAutocompleteViewController *)viewController

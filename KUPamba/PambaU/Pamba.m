@@ -17,7 +17,7 @@
 
 @implementation Pamba
 
-@synthesize userID,rqDTTM,deviceID,appID,funcCode,userToken,xAuthorization,firstNameTh,firstNameEn,lastNameTh,lastNameEn,facultyNameTh,facultyNameEn,profileImageUrl,gender,studentCode,isSharewayAccepted,language;
+@synthesize userID,rqDTTM,deviceID,appID,funcCode,userToken,xAuthorization,firstNameTh,firstNameEn,lastNameTh,lastNameEn,facultyNameTh,facultyNameEn,profileImageUrl,gender,studentCode,isSharewayAccepted,language,push_ios;
 
 @synthesize headerView,headerTitle,headerLBtn,termLabel,checkBtn,checkLabel,acceptBtn;
 
@@ -101,10 +101,16 @@
     userToken = @"1";
     xAuthorization = @"1";
     language = @"TH";
+    push_ios = @"1a2b3c4d5e6f7g8h9i10j11k12l13m14n15o";
 }
 
 - (void)loadLogin
 {
+    if(!push_ios)
+    {
+        push_ios = @"";
+    }
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString* url = [NSString stringWithFormat:@"%@login_uApp",HOST_DOMAIN];
     NSDictionary *parameters = @{@"studentCode":studentCode,
@@ -125,6 +131,7 @@
                                  @"userToken":userToken,
                                  @"xAuthorization":xAuthorization,
                                  @"appLanguage":language,
+                                 @"push_ios":push_ios
                                  };
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)

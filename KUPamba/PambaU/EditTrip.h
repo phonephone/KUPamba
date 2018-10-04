@@ -31,11 +31,9 @@
 @property (nonatomic) NSString *price;
 @property (nonatomic) NSString *remark;
 
-@property(weak, nonatomic) IBOutlet UIView *bgView;
 @property(weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UILabel *headerTitle;
-
-@property (weak, nonatomic) IBOutlet UIButton *nextBtn;
+@property (weak, nonatomic) IBOutlet UIButton *headerLBtn;
 
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
@@ -50,8 +48,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *remarkTitle;
 @property (weak, nonatomic) IBOutlet UITextView *remarkText;
 
-@property (weak, nonatomic) IBOutlet UIButton *orangeBtn;
-
-@property (weak, nonatomic) IBOutlet UIButton *backBtn;
+@property (weak, nonatomic) IBOutlet UIButton *editBtn;
 
 @end

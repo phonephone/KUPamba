@@ -19,7 +19,7 @@
 
 @synthesize homeExisted,reloadOffer,reloadRequest,clearOffer,clearRequest,showQR,loginStatus;
 
-@synthesize fontSize,GoogleAPIKey,memberID,memberToken,filterMode,latitude,longitude,mainThemeColor,btnThemeColor,cancelThemeColor,fontRegular,fontMedium,profileJSON,mainRoot;
+@synthesize fontSize,GoogleAPIKey,memberID,memberToken,filterMode,latitude,longitude,mainThemeColor,btnThemeColor,cancelThemeColor,fontRegular,fontMedium,detailPlaceholder,profileJSON,mainRoot;
 
 #pragma mark Singleton Methods
 
@@ -70,6 +70,8 @@
         fontMedium = @"Thonburi-Bold";
         //[self loadFontWithName:fontRegular];
         //[self loadFontWithName:fontMedium];
+        
+        detailPlaceholder = @"กรอกรายละเอียดการเดินทาง";
         
         memberID = @"";
         memberToken = @"";

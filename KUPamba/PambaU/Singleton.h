@@ -58,6 +58,8 @@
 @property (nonatomic) NSString *fontRegular;
 @property (nonatomic) NSString *fontMedium;
 
+@property (nonatomic) NSString *detailPlaceholder;
+
 @property (strong, nonatomic) NSMutableDictionary *profileJSON;
 
 @property (strong, nonatomic) MFSideMenuContainerViewController *mainRoot;

@@ -117,8 +117,8 @@
     
     NSDictionary *cellArray = [listJSON objectAtIndex:0];
     
-    cell1.messageBtn.hidden = NO;
-    cell1.callBtn.hidden = NO;
+    cell1.messageBtn.hidden = YES;
+    cell1.callBtn.hidden = YES;
     
     if ([[cellArray objectForKey:@"user"] isEqualToString:sharedManager.memberID]) {
         owner = YES;

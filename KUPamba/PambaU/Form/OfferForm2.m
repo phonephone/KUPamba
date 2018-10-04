@@ -166,7 +166,7 @@
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
-    if ([textView.text isEqualToString:@"กรอกรายละเอียดการเดินทาง"]) {
+    if ([textView.text isEqualToString:sharedManager.detailPlaceholder]) {
         textView.text = @"";
         textView.textColor = [UIColor blackColor]; //optional
     }
@@ -200,7 +200,7 @@
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
     if ([textView.text isEqualToString:@""]) {
-        textView.text = @"กรอกรายละเอียดการเดินทาง";
+        textView.text = sharedManager.detailPlaceholder;
         textView.textColor = [UIColor lightGrayColor]; //optional
     }
     [textView resignFirstResponder];
@@ -412,7 +412,7 @@ didFailAutocompleteWithError:(NSError *)error {
 
 - (IBAction)createClick:(id)sender
 {
-    if ([remarkText.text isEqualToString:@"กรอกรายละเอียดการเดินทาง"]) {
+    if ([remarkText.text isEqualToString:sharedManager.detailPlaceholder]) {
         remark = @"";
     }
     else

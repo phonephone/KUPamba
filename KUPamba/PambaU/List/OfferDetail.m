@@ -28,6 +28,10 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     self.menuContainerViewController.panMode = NO;
+    
+    owner = NO;
+    
+    [self loadList];
 }
 
 - (void)viewDidLoad {
@@ -47,10 +51,6 @@
     
     //carTypeLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:13];
     //priceLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:13];
-    
-    owner = NO;
-    
-    [self loadList];
 }
 
 - (void)loadList
@@ -170,18 +170,18 @@
     NSDictionary *cellArray = [listJSON objectAtIndex:0];
     
     cell1.messageBtn.hidden = NO;
-    cell1.callBtn.hidden = NO;
+    cell1.callBtn.hidden = YES;
     
     if ([[cellArray objectForKey:@"user"] isEqualToString:sharedManager.memberID]) {
         owner = YES;
-        [actionBtn setTitle:@"แก้ไขการเสนอที่นั่ง" forState:UIControlStateNormal];
+        [actionBtn setTitle:@"แก้ไขข้อมูล" forState:UIControlStateNormal];
         [actionBtn setBackgroundColor:sharedManager.btnThemeColor];
         actionBtn.enabled = YES;
         
         cell1.messageBtn.hidden = YES;
         cell1.callBtn.hidden = YES;
         
-        [actionBtn.heightAnchor constraintEqualToConstant:0].active = YES;
+        //[actionBtn.heightAnchor constraintEqualToConstant:0].active = YES;
         
         NSLog(@"เจ้าของทริป");
     }
@@ -190,6 +190,10 @@
         [actionBtn setBackgroundColor:[UIColor grayColor]];
         actionBtn.enabled = NO;
         NSLog(@"จองแล้ว");
+        
+        if ([[cellArray objectForKey:@"userReserveStatus"] isEqualToString:@"ยอมรับ"]) {
+            cell1.callBtn.hidden = NO;
+        }
     }
     else if ([[cellArray objectForKey:@"now_seat"] intValue] == 0) {
         [actionBtn setTitle:@"ที่นั่งเต็ม" forState:UIControlStateNormal];
@@ -230,8 +234,6 @@
         cell1.distanceLabelR.text = [cellArray objectForKey:@"distance"];
         cell1.timeLabelR.text = [NSString stringWithFormat:@"%@:%@ น.",[cellArray objectForKey:@"goH"],[cellArray objectForKey:@"goM"]];
         
-        cell1.seatLabelL.hidden = YES;
-        cell1.seatLabelR.hidden = YES;
         cell1.seatLabelR.text = [NSString stringWithFormat:@"%@ ที่นั่ง",[cellArray objectForKey:@"now_seat"]];
         
         cell1.reviewCount.text = [NSString stringWithFormat:@"(%@ รีวิว)",[[[cellArray objectForKey:@"rate"]objectAtIndex:0] objectForKey:@"total_review"]];
@@ -520,6 +522,7 @@
              NSLog(@"detailJSON %@",responseObject);
              
              [SVProgressHUD showSuccessWithStatus:[[[[responseObject objectForKey:@"data"] objectAtIndex:0] objectForKey:@"status"] objectAtIndex:1]];
+             [SVProgressHUD dismissWithDelay:3];
              
              [actionBtn setTitle:@"จองที่นั่งแล้ว" forState:UIControlStateNormal];
              [actionBtn setBackgroundColor:[UIColor grayColor]];

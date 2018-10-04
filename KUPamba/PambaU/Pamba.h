@@ -36,6 +36,8 @@
 @property (strong, nonatomic) NSString *isSharewayAccepted;
 @property (strong, nonatomic) NSString *language;
 
+@property (strong, nonatomic) NSString *push_ios;
+
 @property(weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UILabel *headerTitle;
 @property (weak, nonatomic) IBOutlet UIButton *headerLBtn;
