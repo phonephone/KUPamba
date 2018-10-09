@@ -43,6 +43,7 @@
             break;
     }
     nameLabel.text = [NSString stringWithFormat:@"ชื่อ %@\nหมายเลขพร้อมเพย์ %@",[sharedManager.profileJSON objectForKey:@"name"],promptpayStr];
+    nameLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@myQrPayment?user_id=%@",HOST_DOMAIN,sharedManager.memberID]];
     myWebview.delegate = self;

@@ -39,6 +39,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *headerTitle;
 @property (weak, nonatomic) IBOutlet UIButton *headerLBtn;
 
+@property (weak, nonatomic) IBOutlet UILabel *fromLabel;
+@property (weak, nonatomic) IBOutlet UILabel *toLabel;
 @property (weak, nonatomic) IBOutlet UITextField *fromField;
 @property (weak, nonatomic) IBOutlet UITextField *toField;
 

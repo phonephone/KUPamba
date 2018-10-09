@@ -18,5 +18,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *extimeLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *mapHeadLabel;
 @property (weak, nonatomic) IBOutlet UIWebView *mapWeb;
 @end

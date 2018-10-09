@@ -47,7 +47,7 @@
     if ([mode isEqualToString:@"Reserve"]) {
         headerTitle.text = @"ให้คะแนนผู้ขับ";
     }
-    headerTitle.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    headerTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
     [headerLBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
 }
 
@@ -126,6 +126,7 @@
     cell.reviewUserPic.layer.cornerRadius = (myTable.frame.size.width*0.16)/2;
     cell.reviewUserPic.layer.masksToBounds = YES;
     
+    cell.reviewNameLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
     cell.reviewNameLabel.text = [NSString stringWithFormat:@"%@ %@",[cellArray objectForKey:@"forename"],[cellArray objectForKey:@"surname"]];
     
     

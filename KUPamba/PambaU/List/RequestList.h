@@ -19,7 +19,7 @@
     NSMutableArray *listJSON;
     UIRefreshControl *refreshController;
     CLLocationManager * locationManager;
-    BOOL searchResult;
+    BOOL showFilter;
 }
 
 @property (weak, nonatomic) IBOutlet UICollectionView *mycollectionView;

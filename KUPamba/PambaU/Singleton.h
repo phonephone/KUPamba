@@ -59,8 +59,8 @@
 @property (strong, nonatomic) UIColor *btnThemeColor;
 @property (strong, nonatomic) UIColor *cancelThemeColor;
 
-@property (nonatomic) NSString *fontRegular;
-@property (nonatomic) NSString *fontMedium;
+@property (nonatomic) NSString *fontNameRegular;
+@property (nonatomic) NSString *fontNameMedium;
 
 @property (nonatomic) NSString *detailPlaceholder;
 

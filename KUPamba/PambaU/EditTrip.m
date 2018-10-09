@@ -36,15 +36,30 @@
     
     headerView.backgroundColor = sharedManager.mainThemeColor;
     //headerTitle.text = //NSLocalizedString(@"You like?", nil);
-    headerTitle.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    headerTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
     [headerLBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
+    
+    editBtn.backgroundColor = sharedManager.btnThemeColor;
+    editBtn.titleLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
+    
+    dateLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    timeLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    priceLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    seatLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    
+    dateField.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    timeField.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    priceField.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    seatField.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    
+    remarkTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    remarkText.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    remarkText.delegate = self;
     
     [self addbottomBorder:dateField withColor:nil];
     [self addbottomBorder:timeField withColor:nil];
     [self addbottomBorder:priceField withColor:nil];
     [self addbottomBorder:seatField withColor:nil];
-    
-    remarkText.delegate = self;
     
     [self clearValue];
 }
@@ -284,6 +299,22 @@
 
 - (IBAction)editClick:(id)sender
 {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"ยืนยันการแก้ไขข้อมูลการเดินทาง" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"ตกลง" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        [self loadEdit];
+    }];
+    [alertController addAction:ok];
+    
+    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"ยกเลิก" style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
+    }];
+    [alertController addAction:cancel];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)loadEdit
+{
     sharedManager.reloadOffer = YES;
     
     NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en"];
@@ -335,7 +366,6 @@
          [self alertTitle:@"เกิดข้อผิดพลาด" detail:@"กรุณาตรวจสอบ Internet ของท่านแล้วลองใหม่อีกครั้ง"];
      }];
 }
-
 
 - (IBAction)back:(id)sender
 {

@@ -44,9 +44,10 @@
     
     headerView.backgroundColor = sharedManager.mainThemeColor;
     //headerTitle.text = //NSLocalizedString(@"You like?", nil);
-    headerTitle.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    headerTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
     [headerLBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
     
+    noresultLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
     noresultLabel.hidden = YES;
     
     refreshController = [[UIRefreshControl alloc] init];
@@ -133,19 +134,19 @@
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(15, 0, 15, 0); // top, left, bottom, right
+    return UIEdgeInsetsMake(sharedManager.fontSize15, 0, sharedManager.fontSize15, 0); // top, left, bottom, right
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     
-    return 15.0;
+    return sharedManager.fontSize15;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView
                    layout:(UICollectionViewLayout*)collectionViewLayout
 minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
-    return 15.0;
+    return sharedManager.fontSize15;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
@@ -156,6 +157,17 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     if (indexPath.row == 0) {
         NSDictionary *cellArray = listJSON;
         ListCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ListCell" forIndexPath:indexPath];
+        
+        cell.startTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        cell.startLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        cell.endTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        cell.endLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        
+        cell.priceLabel.font = [UIFont systemFontOfSize:(sharedManager.fontSize15+5)*2 weight:UIFontWeightMedium];
+        cell.bahtLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
+        
+        cell.dateLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize13-1 weight:UIFontWeightMedium];
+        cell.seatLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize13-1 weight:UIFontWeightMedium];
         
         cell.startLabel.text = [cellArray objectForKey:@"From"];
         cell.endLabel.text = [cellArray objectForKey:@"To"];
@@ -188,10 +200,10 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
         UIColor *leftColor = [UIColor colorWithRed:72.0/255 green:72.0/255 blue:72.0/255 alpha:1.0];
         UIColor *rightColor = [UIColor blackColor];
         
-        UIFont *detailFontL = [UIFont fontWithName:cell.carTypeLabel.font.fontName size:13];
+        UIFont *detailFontL = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
         NSDictionary *detailDictL = [NSDictionary dictionaryWithObject: detailFontL forKey:NSFontAttributeName];
         
-        UIFont *detailFontR = [UIFont fontWithName:cell.carTypeLabel.font.fontName size:15];
+        UIFont *detailFontR = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
         NSDictionary *detailDictR = [NSDictionary dictionaryWithObject:detailFontR forKey:NSFontAttributeName];
         
         NSMutableAttributedString *attrStringL = [[NSMutableAttributedString alloc] initWithString:@"ประเภท " attributes: detailDictL];
@@ -218,6 +230,14 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
         
         cell.userPic.layer.cornerRadius = ((mycollectionView.frame.size.width-25)*0.15)/2;
         cell.userPic.layer.masksToBounds = YES;
+        
+        cell.nameLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
+        cell.reviewCount.font = [UIFont systemFontOfSize:sharedManager.fontSize11 weight:UIFontWeightRegular];
+        
+        cell.acceptBtn.titleLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        cell.rejectBtn.titleLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        
+        cell.chatBtn.titleLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
         
         cell.nameLabel.text = [cellArray objectForKey:@"name"];
         

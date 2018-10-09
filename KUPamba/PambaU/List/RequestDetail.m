@@ -36,11 +36,11 @@
     
     headerView.backgroundColor = sharedManager.mainThemeColor;
     //headerTitle.text = //NSLocalizedString(@"You like?", nil);
-    headerTitle.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    headerTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
     [headerLBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
     
     actionBtn.backgroundColor = sharedManager.btnThemeColor;
-    actionBtn.titleLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    actionBtn.titleLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
     
     owner = NO;
     
@@ -119,6 +119,8 @@
     
     cell1.messageBtn.hidden = YES;
     cell1.callBtn.hidden = YES;
+    cell1.messageBtn.titleLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize11 weight:UIFontWeightRegular];
+    cell1.callBtn.titleLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize11 weight:UIFontWeightRegular];
     
     if ([[cellArray objectForKey:@"user"] isEqualToString:sharedManager.memberID]) {
         owner = YES;
@@ -152,13 +154,23 @@
         cell1.callBtn.layer.cornerRadius = 2;
         cell1.callBtn.layer.masksToBounds = YES;
         
-        /*
-        [cell1.contactBtn addTarget:self action:@selector(contactClick:) forControlEvents:UIControlEventTouchUpInside];
-        cell1.contactBtn.tag = indexPath.row;
+        cell1.nameLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        cell1.reviewCount.font = [UIFont systemFontOfSize:sharedManager.fontSize11 weight:UIFontWeightRegular];
         
-        [cell1.detailBtn addTarget:self action:@selector(detailClick:) forControlEvents:UIControlEventTouchUpInside];
-        cell1.detailBtn.tag = indexPath.row;
-        */
+        cell1.startLabelL.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        cell1.endLabelL.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        cell1.dateLabelL.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        cell1.distanceLabelL.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        cell1.timeLabelL.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        //cell1.seatLabelL.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        
+        cell1.startLabelR.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        cell1.endLabelR.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        cell1.dateLabelR.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        cell1.distanceLabelR.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        cell1.timeLabelR.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        //cell1.seatLabelR.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        
         cell1.nameLabel.text = [cellArray objectForKey:@"name"];
         cell1.startLabelR.text = [cellArray objectForKey:@"From"];
         cell1.endLabelR.text = [cellArray objectForKey:@"To"];
@@ -224,31 +236,16 @@
                 cell1.star5.image = starON;
                 break;
         }
-        
-        /*
-        cell1.nameLabel.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+4];
-        cell1.reviewCount.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+1];
-        cell1.startLabel.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+1];
-        cell1.endLabel.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+1];
-        cell1.dateLabel.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize-2];
-        NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
-        paragraph.alignment = NSTextAlignmentCenter;
-        paragraph.lineSpacing = 1.0f;
-        paragraph.lineHeightMultiple = 0.7;     // Reduce this value !!!
-        NSMutableAttributedString* attrText = [[NSMutableAttributedString alloc] initWithString:cell1.dateLabel.text];
-        [attrText addAttribute:NSParagraphStyleAttributeName value:paragraph range:NSMakeRange(0, cell1.dateLabel.text.length)];
-        [cell1.dateLabel setAttributedText:attrText];
-        cell1.timeLabel.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize-2];
-        cell1.distanceLabel.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize-2];
-        */
-        //cell1.seatPic.image = nil;
-        //cell1.seatLabel.text = @"";
-    
         cell = cell1;
     }
     
-    if (indexPath.row == 1) {
-        //DETAIL
+    if (indexPath.row == 1) { //DETAIL
+        
+        cell2.detailHeadLabel.textColor = sharedManager.mainThemeColor;
+        cell2.detailHeadLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        cell2.detailLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
+        cell2.extimeLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
+        
         NSString *routeDetail = [cellArray objectForKey:@"remark"];
         if ([routeDetail isEqualToString:@""])
         {

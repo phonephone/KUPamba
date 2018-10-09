@@ -22,8 +22,8 @@
     
     sharedManager = [Singleton sharedManager];
     
-    titleInfo.font = [UIFont fontWithName:sharedManager.fontMedium size:20];
-    detailInfo.font = [UIFont fontWithName:sharedManager.fontMedium size:18];
+    titleInfo.font = [UIFont systemFontOfSize:sharedManager.fontSize17+3 weight:UIFontWeightMedium];
+    detailInfo.font = [UIFont systemFontOfSize:sharedManager.fontSize17+1 weight:UIFontWeightMedium];
     detailInfo.text = [NSString stringWithFormat:@"ระยะทางทั้งสิ้น : %@ กม.\nคำนวณตามขนส่งสาธารณะ : %@ บาท\nคำนวณตามมิเตอร์ เริ่มต้น : %@ บาท",distanceInfo,publicPrice,meterPrice];
 }
 

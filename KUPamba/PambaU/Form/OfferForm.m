@@ -25,7 +25,7 @@
     NSArray *bagArray;
 }
 
-@synthesize carType,headerView,headerTitle,headerLBtn,fromField,toField,targetBtn,swapBtn,infoBtn,nextBtn,typeLabel,dateLabel,timeLabel,priceLabel,extimeLabel,seatLabel,genderLabel,bagLabel,typeField,dateField,timeField,priceField,extimeField,seatField,genderField,bagField;
+@synthesize carType,headerView,headerTitle,headerLBtn,fromLabel,toLabel,fromField,toField,targetBtn,swapBtn,infoBtn,nextBtn,typeLabel,dateLabel,timeLabel,priceLabel,extimeLabel,seatLabel,genderLabel,bagLabel,typeField,dateField,timeField,priceField,extimeField,seatField,genderField,bagField;
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -60,7 +60,7 @@
     
     headerView.backgroundColor = sharedManager.mainThemeColor;
     //headerTitle.text = //NSLocalizedString(@"You like?", nil);
-    headerTitle.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    headerTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
     [headerLBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
     
     [swapBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
@@ -68,7 +68,30 @@
     [swapBtn.imageView setTintColor:sharedManager.mainThemeColor];
     
     nextBtn.backgroundColor = sharedManager.btnThemeColor;
-    nextBtn.titleLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    nextBtn.titleLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
+    
+    fromLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    toLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    fromField.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    toField.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    
+    typeLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    dateLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    timeLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    priceLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    extimeLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    seatLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    genderLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    bagLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    
+    typeField.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    dateField.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    timeField.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    priceField.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    extimeField.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    seatField.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    genderField.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    bagField.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
     
     [self addbottomBorder:fromField withColor:sharedManager.btnThemeColor];
     [self addbottomBorder:toField withColor:nil];
@@ -486,8 +509,6 @@ didFailAutocompleteWithError:(NSError *)error {
     UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
     textField.leftView = paddingView;
     textField.leftViewMode = UITextFieldViewModeAlways;
-    
-    //textField.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+2];
     
     return textField;
 }

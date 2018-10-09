@@ -43,7 +43,8 @@
     
     headerView.backgroundColor = sharedManager.mainThemeColor;
     //headerTitle.text = //NSLocalizedString(@"You like?", nil);
-    //headerTitle.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    
+    headerTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
     [headerLBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
     [headerRBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
 
@@ -101,7 +102,7 @@
                                                          toItem:nil
                                                       attribute:NSLayoutAttributeNotAnAttribute
                                                      multiplier:1.0
-                                                       constant:45];
+                                                       constant:sharedManager.fontSize15*3];
     
     [self.view addConstraint:carbonTabSwipeNavigation.toolbarHeight];
     
@@ -112,8 +113,8 @@
     [carbonTabSwipeNavigation.carbonSegmentedControl setWidth:width forSegmentAtIndex:1];
     
     // Custimize segmented control
-    [carbonTabSwipeNavigation setNormalColor:[UIColor colorWithRed:154.0/255 green:149.0/255 blue:152.0/255 alpha:1] font:[UIFont fontWithName:sharedManager.fontMedium size:15]];
-    [carbonTabSwipeNavigation setSelectedColor:[UIColor colorWithRed:0.0/255 green:0.0/255 blue:0.0/255 alpha:1] font:[UIFont fontWithName:sharedManager.fontMedium size:15]];
+    [carbonTabSwipeNavigation setNormalColor:[UIColor colorWithRed:154.0/255 green:149.0/255 blue:152.0/255 alpha:1] font:[UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium]];
+    [carbonTabSwipeNavigation setSelectedColor:[UIColor colorWithRed:0.0/255 green:0.0/255 blue:0.0/255 alpha:1] font:[UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium]];
     [carbonTabSwipeNavigation setCurrentTabIndex:0];
 }
 

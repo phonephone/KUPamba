@@ -174,6 +174,8 @@
     bgColorView.backgroundColor = [UIColor colorWithRed:188.0/255 green:188.0/255 blue:188.0/255 alpha:1];;
     [cell setSelectedBackgroundView:bgColorView];
     
+    cell.menuLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
+    
     cell.menuAlert.hidden = YES;
     
     if ([self tableView:tableView canCollapseSection:indexPath.section])//Expandable

@@ -10,6 +10,8 @@
 
 @interface ReserveCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *startTitle;
+@property (weak, nonatomic) IBOutlet UILabel *endTitle;
 @property (weak, nonatomic) IBOutlet UILabel *startLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;

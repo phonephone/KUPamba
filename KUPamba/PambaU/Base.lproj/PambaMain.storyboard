@@ -540,6 +540,7 @@ Rattanasuwan</string>
                                             <outlet property="carTypeTitle" destination="89e-HY-sA4" id="S5S-fE-oiw"/>
                                             <outlet property="dateLabel" destination="fzj-aP-Piz" id="ZVR-Rj-XiA"/>
                                             <outlet property="endLabel" destination="A8D-wG-lVA" id="Clw-fc-J57"/>
+                                            <outlet property="endTitle" destination="eym-9p-Rac" id="6hj-lE-AcC"/>
                                             <outlet property="leftCell" destination="8CX-xY-xNC" id="rHA-8C-gNT"/>
                                             <outlet property="nameLabel" destination="vT2-KQ-Cq8" id="R64-gW-XE0"/>
                                             <outlet property="priceLabel" destination="Y8V-M8-5gc" id="eOu-1x-gIp"/>
@@ -552,6 +553,7 @@ Rattanasuwan</string>
                                             <outlet property="star4" destination="nFw-2a-No7" id="Zot-Wl-a9H"/>
                                             <outlet property="star5" destination="dHs-yc-mPZ" id="Lgf-Vm-xao"/>
                                             <outlet property="startLabel" destination="kGN-5j-17N" id="0Fk-Zp-Be3"/>
+                                            <outlet property="startTitle" destination="KIb-XM-CLy" id="GBQ-xf-qNz"/>
                                             <outlet property="topCell" destination="9Os-Ja-lup" id="rge-0y-dRH"/>
                                             <outlet property="userPic" destination="0fa-WX-CIR" id="W8d-ay-345"/>
                                         </connections>
@@ -655,6 +657,7 @@ Rattanasuwan</string>
                     <connections>
                         <outlet property="addBtn" destination="uNa-24-M8v" id="o7O-fP-tsL"/>
                         <outlet property="mycollectionView" destination="3Lb-EY-oZI" id="FaZ-Iq-jcm"/>
+                        <outlet property="searchBox" destination="AaV-8v-obt" id="Gd4-D2-OBj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rLt-9w-Sow" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1567,6 +1570,7 @@ Rattanasuwan</string>
                         <outlet property="extimeField" destination="h2B-OQ-gPA" id="4TW-sJ-uFG"/>
                         <outlet property="extimeLabel" destination="Cbm-mi-dGq" id="ePc-rw-VNg"/>
                         <outlet property="fromField" destination="M8W-x1-w07" id="q7j-te-UPv"/>
+                        <outlet property="fromLabel" destination="ZgF-WI-Xcy" id="Bio-BH-J7q"/>
                         <outlet property="genderField" destination="VHh-Sn-iU8" id="LSe-0b-EGK"/>
                         <outlet property="genderLabel" destination="IXU-4y-kZj" id="aMs-ZQ-A1h"/>
                         <outlet property="headerLBtn" destination="eVW-JI-Xo7" id="Bya-dj-W3B"/>
@@ -1583,6 +1587,7 @@ Rattanasuwan</string>
                         <outlet property="timeField" destination="smU-C9-uqL" id="ZqY-Lj-wA2"/>
                         <outlet property="timeLabel" destination="dZq-NA-S9k" id="yP2-UR-ruU"/>
                         <outlet property="toField" destination="vT8-Fd-F2u" id="hiT-Jz-pra"/>
+                        <outlet property="toLabel" destination="ZxN-Cc-Pv9" id="RZe-LT-WLY"/>
                         <outlet property="typeField" destination="Gxc-UE-l2z" id="pCh-qm-S7l"/>
                         <outlet property="typeLabel" destination="c4c-id-OSf" id="9RD-4z-sm5"/>
                     </connections>
@@ -1942,6 +1947,7 @@ Rattanasuwan</string>
                         <outlet property="headerLBtn" destination="Mgn-19-tLD" id="nfK-eC-kmI"/>
                         <outlet property="headerTitle" destination="9ef-eg-a5e" id="Xnx-cL-JVl"/>
                         <outlet property="headerView" destination="Dza-Ho-89F" id="8Aq-3g-crc"/>
+                        <outlet property="infoLabel" destination="syf-GI-1Ia" id="he9-6Q-QoC"/>
                         <outlet property="myTable" destination="r1d-lO-zd0" id="cIp-jt-1jp"/>
                         <outlet property="pickTitle" destination="l3l-EH-KMi" id="xJp-Si-ZE7"/>
                         <outlet property="remarkText" destination="QLE-9I-4Ki" id="6gY-Lq-hHU"/>
@@ -2054,8 +2060,8 @@ Rattanasuwan</string>
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(0 รีวิว)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNc-2T-1pZ">
-                                        <rect key="frame" x="201" y="118" width="42" height="16"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                        <rect key="frame" x="201" y="118" width="41" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.60392156860000001" green="0.58431372550000005" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -2382,7 +2388,7 @@ Rattanasuwan</string>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(0 รีวิว)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jg-xg-92W">
                                         <rect key="frame" x="201" y="146.5" width="164" height="16"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.60392156860000001" green="0.58431372550000005" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -2471,14 +2477,14 @@ Rattanasuwan</string>
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_chat" translatesAutoresizingMaskIntoConstraints="NO" id="YJu-ed-SWP">
-                                                <rect key="frame" x="157.5" y="14" width="27.5" height="27.5"/>
+                                                <rect key="frame" x="125" y="14" width="27.5" height="27.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="YJu-ed-SWP" secondAttribute="height" multiplier="1:1" id="dfb-Ph-RAS"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ส่งข้อความ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Me7-f3-ksl">
-                                                <rect key="frame" x="195.5" y="19.5" width="59" height="16"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                                <rect key="frame" x="163" y="18.5" width="68" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -2493,7 +2499,7 @@ Rattanasuwan</string>
                                             <constraint firstItem="0Bm-MF-ROx" firstAttribute="leading" secondItem="9eL-sh-iT7" secondAttribute="leading" id="JEd-Lf-eGb"/>
                                             <constraint firstAttribute="trailing" secondItem="lcH-30-ngv" secondAttribute="trailing" id="Jdc-gJ-ZSo"/>
                                             <constraint firstItem="DUe-hT-LR2" firstAttribute="top" secondItem="0Bm-MF-ROx" secondAttribute="bottom" id="Q13-Nv-fB6"/>
-                                            <constraint firstItem="Me7-f3-ksl" firstAttribute="centerX" secondItem="0Bm-MF-ROx" secondAttribute="centerX" multiplier="1.2" id="QEw-fT-RfT"/>
+                                            <constraint firstItem="Me7-f3-ksl" firstAttribute="centerX" secondItem="0Bm-MF-ROx" secondAttribute="centerX" multiplier="1.05" id="QEw-fT-RfT"/>
                                             <constraint firstItem="lcH-30-ngv" firstAttribute="leading" secondItem="0Bm-MF-ROx" secondAttribute="trailing" id="QP4-Ut-mKA"/>
                                             <constraint firstItem="0Bm-MF-ROx" firstAttribute="top" secondItem="9eL-sh-iT7" secondAttribute="top" id="S0b-KI-zmE"/>
                                             <constraint firstItem="JnH-Oe-eBh" firstAttribute="centerY" secondItem="Mna-Eq-SxC" secondAttribute="centerY" id="WsK-M7-Kwo"/>
@@ -2955,10 +2961,12 @@ Rattanasuwan</string>
                                             <outlet property="dateLabel" destination="acG-lW-INg" id="Bkx-ce-0pi"/>
                                             <outlet property="duplicateBtn" destination="nez-Tr-yo7" id="WFo-LH-x8s"/>
                                             <outlet property="endLabel" destination="IHc-l9-Y8f" id="t0H-fd-RVv"/>
+                                            <outlet property="endTitle" destination="81t-jx-daT" id="dZT-II-nDd"/>
                                             <outlet property="moreBtn" destination="xba-Ae-2Fg" id="jtR-v1-3GQ"/>
                                             <outlet property="priceLabel" destination="fXF-uv-pCR" id="LkW-LK-u1Q"/>
                                             <outlet property="seatLabel" destination="DsF-C4-sQZ" id="a7C-dK-dc5"/>
                                             <outlet property="startLabel" destination="pho-xQ-O0G" id="fgZ-N2-ADx"/>
+                                            <outlet property="startTitle" destination="P79-8i-RIT" id="vEk-tV-Ieo"/>
                                             <outlet property="statusAlert" destination="JHw-95-LnX" id="12Y-rX-1Ee"/>
                                             <outlet property="statusLabel" destination="5qY-6V-Zvt" id="Gqj-YU-f1e"/>
                                             <outlet property="trashBtn" destination="UNh-ed-a1F" id="Mzz-kz-xXR"/>
@@ -3164,9 +3172,11 @@ Rattanasuwan</string>
                                             <outlet property="carTypeLabel" destination="EqS-nj-TNk" id="dsy-1w-tWX"/>
                                             <outlet property="dateLabel" destination="gIV-M5-oEC" id="dj0-1b-glH"/>
                                             <outlet property="endLabel" destination="Kce-eD-beb" id="89W-4V-CkC"/>
+                                            <outlet property="endTitle" destination="jEG-Z1-Tim" id="Qir-qe-T7o"/>
                                             <outlet property="moreBtn" destination="gKO-qF-Xh8" id="G7Y-Oe-ZKs"/>
                                             <outlet property="priceLabel" destination="qoD-8J-LdI" id="bFE-no-Iq5"/>
                                             <outlet property="startLabel" destination="L31-6C-2Vd" id="tF8-2a-VcM"/>
+                                            <outlet property="startTitle" destination="T0O-Z2-HJm" id="Jet-JU-g2k"/>
                                             <outlet property="statusLabel" destination="YNt-C1-P4X" id="nxT-HH-poW"/>
                                             <outlet property="trashBtn" destination="zgf-xt-tqV" id="aVT-XV-ijL"/>
                                             <outlet property="trashCell" destination="YsO-Q7-Pxz" id="Yzm-bb-fjf"/>
@@ -3394,9 +3404,11 @@ Rattanasuwan</string>
                                             <outlet property="carTypeLabel" destination="V5Y-K8-tnl" id="kax-gR-RLn"/>
                                             <outlet property="dateLabel" destination="sHx-fm-ixQ" id="cAi-m7-VWh"/>
                                             <outlet property="endLabel" destination="BFF-4x-5di" id="87e-3A-42q"/>
+                                            <outlet property="endTitle" destination="qQd-na-0I8" id="sFI-80-15p"/>
                                             <outlet property="priceLabel" destination="GWf-er-wjC" id="seY-TL-RN9"/>
                                             <outlet property="seatLabel" destination="doZ-b1-CGO" id="TZT-tH-gB4"/>
                                             <outlet property="startLabel" destination="qCD-xT-h0G" id="vpZ-lQ-pJm"/>
+                                            <outlet property="startTitle" destination="2FN-GJ-Hao" id="kB8-AD-FxD"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ManageCell" id="MFv-59-bYn" customClass="ListCell">
@@ -3416,14 +3428,14 @@ Rattanasuwan</string>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ZT-YB-ZoI">
-                                                            <rect key="frame" x="80.5" y="17" width="154.5" height="36"/>
+                                                            <rect key="frame" x="80.5" y="7.5" width="154.5" height="41"/>
                                                             <string key="text">Cookie 
 Rattanasuwan</string>
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="HWo-Ad-7Ra">
-                                                            <rect key="frame" x="80" y="58" width="60.5" height="10.5"/>
+                                                            <rect key="frame" x="80" y="53.5" width="60.5" height="10.5"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell_star" translatesAutoresizingMaskIntoConstraints="NO" id="npf-xJ-73C">
                                                                     <rect key="frame" x="0.0" y="0.0" width="11.5" height="10.5"/>
@@ -3458,7 +3470,7 @@ Rattanasuwan</string>
                                                             </subviews>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(5 รีวิว)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9Z-Vs-04e">
-                                                            <rect key="frame" x="147.5" y="56.5" width="35.5" height="13.5"/>
+                                                            <rect key="frame" x="147.5" y="52" width="35.5" height="13.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -3491,7 +3503,7 @@ Rattanasuwan</string>
                                                         <constraint firstItem="HWo-Ad-7Ra" firstAttribute="height" secondItem="qRR-Z2-RRE" secondAttribute="height" multiplier="0.2" id="Da8-HG-94D"/>
                                                         <constraint firstItem="0ZT-YB-ZoI" firstAttribute="leading" secondItem="qRR-Z2-RRE" secondAttribute="trailing" constant="10" id="DcN-Yp-9XT"/>
                                                         <constraint firstItem="qRR-Z2-RRE" firstAttribute="centerY" secondItem="O63-hd-6NS" secondAttribute="centerY" id="Pcv-5x-5Dr"/>
-                                                        <constraint firstItem="0ZT-YB-ZoI" firstAttribute="bottom" secondItem="qRR-Z2-RRE" secondAttribute="centerY" multiplier="1.2" id="SjV-vB-vdv"/>
+                                                        <constraint firstItem="0ZT-YB-ZoI" firstAttribute="bottom" secondItem="qRR-Z2-RRE" secondAttribute="centerY" multiplier="1.1" id="SjV-vB-vdv"/>
                                                         <constraint firstAttribute="width" secondItem="O63-hd-6NS" secondAttribute="height" multiplier="4:1" id="Wrh-ad-OYw"/>
                                                         <constraint firstItem="SuR-r7-6iX" firstAttribute="trailing" secondItem="O63-hd-6NS" secondAttribute="centerX" multiplier="1.9" id="ZHU-9z-KHb"/>
                                                         <constraint firstItem="qRR-Z2-RRE" firstAttribute="leading" secondItem="O63-hd-6NS" secondAttribute="centerX" multiplier="0.1" id="gbP-84-khn"/>
@@ -3875,7 +3887,6 @@ Rattanasuwan</string>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <state key="normal" title="แก้ไขข้อมูล"/>
                                         <connections>
-                                            <action selector="createClick:" destination="h8Q-AD-wEa" eventType="touchUpInside" id="FtE-ip-adi"/>
                                             <action selector="editClick:" destination="eu2-nZ-D4E" eventType="touchUpInside" id="c69-NL-4oD"/>
                                         </connections>
                                     </button>
@@ -4217,6 +4228,7 @@ Rattanasuwan</string>
                                             <outlet property="carTypeTitle" destination="T4G-rj-2HB" id="i8R-fQ-SXM"/>
                                             <outlet property="dateLabel" destination="Aar-cW-hqP" id="23c-RO-ecc"/>
                                             <outlet property="endLabel" destination="lHg-fZ-CZV" id="f1b-bM-SDL"/>
+                                            <outlet property="endTitle" destination="gTp-bj-utU" id="lcC-fr-p0j"/>
                                             <outlet property="leftCell" destination="68x-Dr-KV2" id="X1C-FS-bk9"/>
                                             <outlet property="nameLabel" destination="X4M-6O-zTi" id="3S6-vw-cCQ"/>
                                             <outlet property="reviewCount" destination="jIe-6R-KQW" id="lIK-9s-g3Z"/>
@@ -4226,6 +4238,7 @@ Rattanasuwan</string>
                                             <outlet property="star4" destination="8W8-cv-zEp" id="90p-t3-KeI"/>
                                             <outlet property="star5" destination="UEw-WE-vBy" id="koh-YQ-oUn"/>
                                             <outlet property="startLabel" destination="BoM-S2-bkI" id="dd5-tA-JJW"/>
+                                            <outlet property="startTitle" destination="DqK-UI-G1t" id="aaf-yR-eof"/>
                                             <outlet property="topCell" destination="s8f-IF-cr0" id="Z7a-fW-ZGC"/>
                                             <outlet property="userPic" destination="zuC-ml-9Y3" id="Drt-z7-XIz"/>
                                         </connections>
@@ -4384,13 +4397,13 @@ Rattanasuwan</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ไปยัง" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Pp-IG-UKr">
-                                        <rect key="frame" x="28" y="99.5" width="32.5" height="30"/>
+                                        <rect key="frame" x="28" y="99.5" width="32.5" height="29.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <color key="textColor" red="0.60392156860000001" green="0.58431372550000005" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="สวนสยาม" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jpn-7l-Qhz">
-                                        <rect key="frame" x="73" y="99.5" width="262.5" height="30"/>
+                                        <rect key="frame" x="73" y="99.5" width="262.5" height="29.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -4425,7 +4438,7 @@ Rattanasuwan</string>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="L00-Qv-eqm">
-                                        <rect key="frame" x="28" y="155" width="105" height="70"/>
+                                        <rect key="frame" x="28" y="154.5" width="105" height="70"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="วันที่ออกเดินทาง" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzd-NA-hs4">
                                                 <rect key="frame" x="4.5" y="0.0" width="100.5" height="18"/>
@@ -4445,27 +4458,27 @@ Rattanasuwan</string>
                                         </constraints>
                                     </stackView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="19 มิ.ย. 2560" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AZe-AS-J2q">
-                                        <rect key="frame" x="173" y="154.5" width="162.5" height="18.5"/>
+                                        <rect key="frame" x="173" y="148.5" width="162.5" height="29"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="18:30" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v7T-6I-0k2">
-                                        <rect key="frame" x="173" y="206.5" width="162.5" height="18"/>
+                                        <rect key="frame" x="173" y="200.5" width="162.5" height="28.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="รายละเอียดการเดินทาง" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1L7-Pn-9rK">
-                                        <rect key="frame" x="37.5" y="258.5" width="300" height="18"/>
+                                        <rect key="frame" x="37.5" y="257.5" width="300" height="18"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <color key="textColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XO4-LD-iTl">
-                                        <rect key="frame" x="34" y="283.5" width="307.5" height="34"/>
+                                        <rect key="frame" x="34" y="282.5" width="307.5" height="34"/>
                                         <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="กรอกรายละเอียดการเดินทาง" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UxD-13-iRV">
-                                        <rect key="frame" x="34" y="282.5" width="307.5" height="34"/>
+                                        <rect key="frame" x="34" y="281.5" width="307.5" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
@@ -4502,6 +4515,7 @@ Rattanasuwan</string>
                                     <constraint firstItem="7Pp-IG-UKr" firstAttribute="top" secondItem="bLt-wa-87k" secondAttribute="bottom" multiplier="1.1" id="IrI-8S-zV8"/>
                                     <constraint firstItem="7Pp-IG-UKr" firstAttribute="leading" secondItem="6t1-Cj-6gs" secondAttribute="leading" id="ItD-Oa-k2g"/>
                                     <constraint firstItem="L00-Qv-eqm" firstAttribute="top" secondItem="7Pp-IG-UKr" secondAttribute="bottom" multiplier="1.2" id="JT2-bz-FaU"/>
+                                    <constraint firstItem="AZe-AS-J2q" firstAttribute="height" secondItem="DoX-rZ-htZ" secondAttribute="height" id="M9p-RJ-B8f"/>
                                     <constraint firstItem="bLt-wa-87k" firstAttribute="centerX" secondItem="6t1-Cj-6gs" secondAttribute="centerX" id="MKZ-dM-6CM"/>
                                     <constraint firstItem="VO7-aT-2ZI" firstAttribute="height" secondItem="DoX-rZ-htZ" secondAttribute="height" multiplier="0.8" id="SgF-eL-hNt"/>
                                     <constraint firstItem="jpn-7l-Qhz" firstAttribute="height" secondItem="DoX-rZ-htZ" secondAttribute="height" id="UxW-qv-Pf1"/>
@@ -4550,6 +4564,7 @@ Rattanasuwan</string>
                         <outlet property="dateField" destination="AZe-AS-J2q" id="dfI-0x-tnb"/>
                         <outlet property="dateLabel" destination="jzd-NA-hs4" id="H3d-kg-bdC"/>
                         <outlet property="fromField" destination="DoX-rZ-htZ" id="Arj-BC-YOb"/>
+                        <outlet property="fromLabel" destination="6t1-Cj-6gs" id="bLv-nS-uAO"/>
                         <outlet property="headerLBtn" destination="zHd-wQ-FE3" id="26R-37-u3e"/>
                         <outlet property="headerTitle" destination="P2r-rA-mkZ" id="75z-qt-ZVb"/>
                         <outlet property="headerView" destination="oE4-Mx-x5C" id="178-aG-Z2Y"/>
@@ -4561,6 +4576,7 @@ Rattanasuwan</string>
                         <outlet property="timeField" destination="v7T-6I-0k2" id="VZB-r4-FCh"/>
                         <outlet property="timeLabel" destination="zLk-YR-WLO" id="GGu-LJ-t2M"/>
                         <outlet property="toField" destination="jpn-7l-Qhz" id="1zL-Rf-rN9"/>
+                        <outlet property="toLabel" destination="7Pp-IG-UKr" id="Dhg-IH-tO8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EMf-Gy-qbF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -5145,6 +5161,7 @@ Rattanasuwan</string>
                                             <outlet property="detailHeadLabel" destination="NhE-YQ-6By" id="APQ-hK-1iO"/>
                                             <outlet property="detailLabel" destination="iXd-yP-Ip4" id="eT9-z1-kIO"/>
                                             <outlet property="extimeLabel" destination="wQD-Nk-dSM" id="uiG-nf-cwb"/>
+                                            <outlet property="mapHeadLabel" destination="T44-Mb-3UY" id="v2m-lu-fvE"/>
                                             <outlet property="mapWeb" destination="RGl-or-tlR" id="qa6-Ph-64J"/>
                                             <outlet property="pickHeadLabel" destination="H18-Xz-IaL" id="uaP-5b-FMm"/>
                                             <outlet property="pickLabel" destination="cLt-X3-ZYx" id="wDE-lj-iQa"/>
@@ -5516,7 +5533,7 @@ Rattanasuwan</string>
                                 </constraints>
                             </webView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adl-3p-uRq">
-                                <rect key="frame" x="33" y="367" width="270" height="57.5"/>
+                                <rect key="frame" x="16.5" y="367" width="303" height="57.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <color key="textColor" red="0.28235294119999998" green="0.28235294119999998" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -5537,7 +5554,7 @@ Rattanasuwan</string>
                             <constraint firstAttribute="trailing" secondItem="mnX-4M-0Pe" secondAttribute="trailing" id="PQb-yP-uyd"/>
                             <constraint firstItem="mnX-4M-0Pe" firstAttribute="top" secondItem="xFE-BF-hPp" secondAttribute="bottom" constant="10" id="TEu-fA-dDG"/>
                             <constraint firstItem="zFg-20-cPx" firstAttribute="centerX" secondItem="QEE-VC-gF3" secondAttribute="centerX" id="UcL-jT-szX"/>
-                            <constraint firstItem="adl-3p-uRq" firstAttribute="width" secondItem="QEE-VC-gF3" secondAttribute="width" multiplier="0.8" id="VDF-Xa-ZtX"/>
+                            <constraint firstItem="adl-3p-uRq" firstAttribute="width" secondItem="QEE-VC-gF3" secondAttribute="width" multiplier="0.9" id="VDF-Xa-ZtX"/>
                             <constraint firstItem="zFg-20-cPx" firstAttribute="width" secondItem="QEE-VC-gF3" secondAttribute="width" multiplier="0.4" id="Zue-iF-96W"/>
                             <constraint firstItem="zFg-20-cPx" firstAttribute="bottom" secondItem="QEE-VC-gF3" secondAttribute="centerY" multiplier="1.92" id="hRU-kM-vfo"/>
                         </constraints>
@@ -5735,6 +5752,7 @@ Rattanasuwan</string>
                         <outlet property="dateField" destination="6jG-t2-fXl" id="Jgv-tS-1YK"/>
                         <outlet property="dateLabel" destination="w8f-2f-sqG" id="48I-2L-wZm"/>
                         <outlet property="fromField" destination="HHd-s0-NOM" id="UPP-oa-KuW"/>
+                        <outlet property="fromLabel" destination="ile-5g-8wg" id="Rsp-hW-9fK"/>
                         <outlet property="headerLBtn" destination="Zoc-hx-rlD" id="5Hr-ah-ak5"/>
                         <outlet property="headerTitle" destination="p3v-hd-cUp" id="YYM-kG-amI"/>
                         <outlet property="headerView" destination="YBT-jF-ucf" id="Tbh-tc-5EE"/>
@@ -5742,6 +5760,7 @@ Rattanasuwan</string>
                         <outlet property="swapBtn" destination="XPL-ZI-5AB" id="Jer-M7-1FP"/>
                         <outlet property="targetBtn" destination="Sp2-Ng-S0P" id="Fn5-Nn-HBE"/>
                         <outlet property="toField" destination="0R0-aJ-cPI" id="xXm-T9-qpr"/>
+                        <outlet property="toLabel" destination="Ld3-Z3-q3z" id="yV4-vm-NZy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mcP-L9-GSs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -6017,6 +6036,7 @@ Rattanasuwan</string>
                                             <outlet property="carTypeTitle" destination="eiB-Fj-Pb1" id="9tF-35-N6j"/>
                                             <outlet property="dateLabel" destination="u1G-3w-jVU" id="lh9-VA-qOJ"/>
                                             <outlet property="endLabel" destination="mhA-4W-P3S" id="K8d-7n-FsC"/>
+                                            <outlet property="endTitle" destination="LYp-QN-yBC" id="XGH-gV-Bok"/>
                                             <outlet property="leftCell" destination="vig-BL-3XZ" id="0os-dP-0c2"/>
                                             <outlet property="nameLabel" destination="XYO-Z6-hWA" id="dGI-yV-y8v"/>
                                             <outlet property="priceLabel" destination="WzF-ff-wA2" id="cUO-MX-TGz"/>
@@ -6029,6 +6049,7 @@ Rattanasuwan</string>
                                             <outlet property="star4" destination="2MU-Jq-9XX" id="LrO-bl-I6X"/>
                                             <outlet property="star5" destination="xMk-JJ-oqU" id="OrI-Rg-n8p"/>
                                             <outlet property="startLabel" destination="sou-5y-fh2" id="CgI-T8-FXh"/>
+                                            <outlet property="startTitle" destination="LbH-hd-fEC" id="OK0-hm-9e4"/>
                                             <outlet property="topCell" destination="tcD-ce-KFz" id="Dwy-6b-PXt"/>
                                             <outlet property="userPic" destination="RzC-eQ-jla" id="YbR-SI-QqA"/>
                                         </connections>
@@ -6353,7 +6374,7 @@ Rattanasuwan</string>
         <image name="promptpay" width="311" height="105"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9E2-D2-nQA"/>
+        <segue reference="spe-lz-Aop"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.23900237679481506" green="0.65089207887649536" blue="0.86191731691360474" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

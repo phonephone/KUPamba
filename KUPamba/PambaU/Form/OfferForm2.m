@@ -21,7 +21,7 @@
 
 @synthesize fromID,fromName,toID,toName,distance,duration,goDate,goH,goM,exTime,seats,gender,luggage,option,price,remark,waypoint,carType;
 
-@synthesize headerView,headerTitle,headerLBtn,myTable,tableViewHeight,checkTitle,checkBox1,checkBox2,checkBox3,checkBox4,checkLabel1,checkLabel2,checkLabel3,checkLabel4,remarkTitle,remarkText,pickTitle,waypointBtn,createBtn;
+@synthesize headerView,headerTitle,headerLBtn,myTable,tableViewHeight,checkTitle,checkBox1,checkBox2,checkBox3,checkBox4,checkLabel1,checkLabel2,checkLabel3,checkLabel4,remarkTitle,remarkText,pickTitle,waypointBtn,createBtn,infoLabel;
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -36,7 +36,7 @@
     
     headerView.backgroundColor = sharedManager.mainThemeColor;
     //headerTitle.text = //NSLocalizedString(@"You like?", nil);
-    headerTitle.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    headerTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
     [headerLBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
     
     df = [[NSDateFormatter alloc] init];
@@ -62,14 +62,14 @@
     [checkBox3.imageView setContentMode:UIViewContentModeScaleAspectFit];
     [checkBox4.imageView setContentMode:UIViewContentModeScaleAspectFit];
     
-    /*
-    checkLabel1.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+2];
-    checkLabel2.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+2];
-    checkLabel3.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+2];
-    checkLabel4.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+2];
+    checkTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    checkLabel1.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    checkLabel2.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    checkLabel3.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    checkLabel4.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
     
-    remarkTitle.font = [UIFont fontWithName:@"Kanit-Medium" size:sharedManager.fontSize+3];
-    */
+    remarkTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    remarkText.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
     remarkText.delegate = self;
     //remarkText.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+2];
     //remarkText.layer.borderWidth = 1.0f;
@@ -77,13 +77,16 @@
     //remarkText.textContainer.maximumNumberOfLines = 5;
     //remarkText.textContainer.lineBreakMode = NSLineBreakByTruncatingTail;
     
-    //pickTitle.font = [UIFont fontWithName:@"Kanit-Medium" size:sharedManager.fontSize+3];
+    pickTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
     
     waypointBtn.backgroundColor = sharedManager.mainThemeColor;
     [waypointBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
+    waypointBtn.titleLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
     
     createBtn.backgroundColor = sharedManager.btnThemeColor;
-    createBtn.titleLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    createBtn.titleLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
+    
+    infoLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
     
     pickupArray = [[NSMutableArray alloc] init];
     myTable.editing = YES;
@@ -224,7 +227,7 @@
     
     MainCell *cell = (MainCell *)[tableView dequeueReusableCellWithIdentifier:@"MainCell"];
     cell.nameLabel.text = [[pickupArray objectAtIndex:indexPath.row] objectForKey:@"placeName"];
-    //cell.nameLabel.font = [UIFont fontWithName:@"Kanit-Medium" size:sharedManager.fontSize+2];
+    cell.nameLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
     
     [cell.detailBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
     [cell.detailBtn addTarget:self action:@selector(deleteClick:) forControlEvents:UIControlEventTouchUpInside];

@@ -29,10 +29,10 @@
     
     headerView.backgroundColor = sharedManager.mainThemeColor;
     //headerTitle.text = //NSLocalizedString(@"You like?", nil);
-    headerTitle.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    headerTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
     [headerLBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
     
-    termLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:15];
+    termLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
     //termLabel.text = @"ข้อกำหนด\n\nข้อกำหนดและเงื่อนไขข้อกำหนด";
     //termLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Yesterday you sold %@ apps", nil), @(1000000)];
     
@@ -40,11 +40,11 @@
     //checkBtn.imageView.image = [checkBtn.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     //[checkBtn.imageView setTintColor:sharedManager.mainThemeColor];
     
-    checkLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:15];
+    checkLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
     //checkLabel.text = @"ฉันยอมรับข้อกำหนดและเงื่อนไข";
     
     acceptBtn.backgroundColor = sharedManager.btnThemeColor;
-    acceptBtn.titleLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    acceptBtn.titleLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
     
     //[self loadDemo];//อย่าลืมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมม
     

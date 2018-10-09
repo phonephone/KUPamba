@@ -49,14 +49,24 @@
     
     headerView.backgroundColor = sharedManager.mainThemeColor;
     //headerTitle.text = //NSLocalizedString(@"You like?", nil);
-    headerTitle.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    headerTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
     [headerLBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
     
     chatBtn.backgroundColor = sharedManager.btnThemeColor;
-    chatBtn.titleLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    chatBtn.titleLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
+    chatBtnLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
     
     callBtn.backgroundColor = sharedManager.mainThemeColor;
-    callBtn.titleLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    callBtn.titleLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
+    callBtnLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
+    
+    profileName.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
+    reviewCount.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightRegular];
+    offerCount.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    requestCount.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    
+    carDetail.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    
     
     myPage.currentPageIndicatorTintColor = sharedManager.mainThemeColor;
     

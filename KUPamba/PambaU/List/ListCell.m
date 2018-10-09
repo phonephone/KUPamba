@@ -10,6 +10,6 @@
 
 @implementation ListCell
 
-@synthesize topCell,leftCell,rightCell,bottomCell,userPic,nameLabel,star1,star2,star3,star4,star5,reviewCount,carTypeTitle,carTypeLabel,moreBtn,startLabel,endLabel,priceLabel,bahtLabel,dateLabel,seatLabel,statusLabel,statusAlert,duplicateBtn,trashBtn,chatBtn,acceptBtn,rejectBtn,trashCell;
+@synthesize topCell,leftCell,rightCell,bottomCell,userPic,nameLabel,star1,star2,star3,star4,star5,reviewCount,carTypeTitle,carTypeLabel,moreBtn,startTitle,endTitle,startLabel,endLabel,priceLabel,bahtLabel,dateLabel,seatLabel,statusLabel,statusAlert,duplicateBtn,trashBtn,chatBtn,acceptBtn,rejectBtn,trashCell;
 
 @end

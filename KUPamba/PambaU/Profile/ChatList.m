@@ -43,8 +43,11 @@
     
     headerView.backgroundColor = sharedManager.mainThemeColor;
     //headerTitle.text = //NSLocalizedString(@"You like?", nil);
-    headerTitle.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    headerTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
     [headerLBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
+    
+    noresultLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
+    noresultLabel.hidden = YES;
 }
 
 - (void)loadList
@@ -127,11 +130,11 @@
     cell.chatUserPic.layer.masksToBounds = YES;
     
     cell.chatUserName.text = [cellArray objectForKey:@"name"];
+    cell.chatUserName.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
     
-    //cell.chatLastMessage.text = [cellArray objectForKey:@"checkLastMessage"];
     cell.chatLastMessage.attributedText = [[NSAttributedString alloc] initWithData:[[cellArray objectForKey:@"checkLastMessage"] dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil];
     cell.chatLastMessage.textColor = [UIColor colorWithRed:154.0/255 green:149.0/255 blue:152.0/255 alpha:1];
-    cell.chatLastMessage.font = [UIFont systemFontOfSize:15 weight:UIFontWeightMedium];
+    cell.chatLastMessage.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
     
     int chatAlert = [[cellArray objectForKey:@"notification_chat"] intValue];
     if (chatAlert > 0)

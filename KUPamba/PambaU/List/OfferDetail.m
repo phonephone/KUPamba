@@ -43,14 +43,14 @@
     
     headerView.backgroundColor = sharedManager.mainThemeColor;
     //headerTitle.text = //NSLocalizedString(@"You like?", nil);
-    headerTitle.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    headerTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
     [headerLBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
     
     actionBtn.backgroundColor = sharedManager.btnThemeColor;
-    actionBtn.titleLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    actionBtn.titleLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
     
-    //carTypeLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:13];
-    //priceLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:13];
+    carTypeLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    priceLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
 }
 
 - (void)loadList
@@ -171,6 +171,8 @@
     
     cell1.messageBtn.hidden = NO;
     cell1.callBtn.hidden = YES;
+    cell1.messageBtn.titleLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize11 weight:UIFontWeightRegular];
+    cell1.callBtn.titleLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize11 weight:UIFontWeightRegular];
     
     if ([[cellArray objectForKey:@"user"] isEqualToString:sharedManager.memberID]) {
         owner = YES;
@@ -226,6 +228,23 @@
         }
         cell1.callBtn.layer.cornerRadius = 2;
         cell1.callBtn.layer.masksToBounds = YES;
+        
+        cell1.nameLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        cell1.reviewCount.font = [UIFont systemFontOfSize:sharedManager.fontSize11 weight:UIFontWeightRegular];
+        
+        cell1.startLabelL.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        cell1.endLabelL.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        cell1.dateLabelL.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        cell1.distanceLabelL.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        cell1.timeLabelL.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        cell1.seatLabelL.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        
+        cell1.startLabelR.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        cell1.endLabelR.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        cell1.dateLabelR.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        cell1.distanceLabelR.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        cell1.timeLabelR.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        cell1.seatLabelR.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
         
         cell1.nameLabel.text = [cellArray objectForKey:@"name"];
         cell1.startLabelR.text = [cellArray objectForKey:@"From"];
@@ -300,6 +319,12 @@
         [self setAllowCircleImage:cell2.noPic3 withIcon:cell2.noIcon3 allowStatus:YES];
         [self setAllowCircleImage:cell2.noPic4 withIcon:cell2.noIcon4 allowStatus:YES];
         
+        cell2.noLabel1.font = [UIFont systemFontOfSize:sharedManager.fontSize11 weight:UIFontWeightRegular];
+        cell2.noLabel2.font = [UIFont systemFontOfSize:sharedManager.fontSize11 weight:UIFontWeightRegular];
+        cell2.noLabel3.font = [UIFont systemFontOfSize:sharedManager.fontSize11 weight:UIFontWeightRegular];
+        cell2.noLabel4.font = [UIFont systemFontOfSize:sharedManager.fontSize11 weight:UIFontWeightRegular];
+        cell2.noLabel5.font = [UIFont systemFontOfSize:sharedManager.fontSize11 weight:UIFontWeightRegular];
+        
         cell2.noLabel1.text = @"สูบบุหรี่ได้";
         cell2.noLabel2.text = @"สัตว์เลี้ยง";
         cell2.noLabel3.text = @"อาหาร";
@@ -348,6 +373,18 @@
     }
     
     if (indexPath.row == 2) {//DETAIL
+        
+        cell3.detailHeadLabel.textColor = sharedManager.mainThemeColor;
+        cell3.pickHeadLabel.textColor = sharedManager.mainThemeColor;
+        cell3.mapHeadLabel.textColor = sharedManager.mainThemeColor;
+        
+        cell3.detailHeadLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        cell3.detailLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
+        cell3.pickHeadLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        cell3.pickLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
+        cell3.mapHeadLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+        
+        cell3.extimeLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
         
         NSString *routeDetail = [cellArray objectForKey:@"remark"];
         if ([routeDetail isEqualToString:@""])

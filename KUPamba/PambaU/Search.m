@@ -19,7 +19,7 @@
     GMSAutocompleteResultsViewController *_resultsViewController;
 }
 
-@synthesize headerView,headerTitle,headerLBtn,fromField,toField,targetBtn,swapBtn,nextBtn,dateLabel,dateField;
+@synthesize headerView,headerTitle,headerLBtn,fromLabel,toLabel,fromField,toField,targetBtn,swapBtn,nextBtn,dateLabel,dateField;
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -40,7 +40,7 @@
     
     headerView.backgroundColor = sharedManager.mainThemeColor;
     //headerTitle.text = //NSLocalizedString(@"You like?", nil);
-    headerTitle.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    headerTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
     [headerLBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
     
     [swapBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
@@ -48,7 +48,14 @@
     [swapBtn.imageView setTintColor:sharedManager.mainThemeColor];
     
     nextBtn.backgroundColor = sharedManager.btnThemeColor;
-    nextBtn.titleLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    nextBtn.titleLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
+    
+    fromLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    toLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    fromField.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    toField.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    
+    dateLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
     
     [self addbottomBorder:fromField withColor:sharedManager.btnThemeColor];
     [self addbottomBorder:toField withColor:nil];

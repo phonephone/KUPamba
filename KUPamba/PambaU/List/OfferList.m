@@ -21,7 +21,7 @@
 
 @implementation OfferList
 
-@synthesize mycollectionView,addBtn;
+@synthesize searchBox,mycollectionView,addBtn;
 
 - (void)viewDidLayoutSubviews
 {
@@ -47,6 +47,8 @@
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
     [locationManager requestWhenInUseAuthorization];
+    
+    searchBox.titleLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightRegular];
     
     refreshController = [[UIRefreshControl alloc] init];
     [refreshController addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
@@ -140,6 +142,10 @@
     ResultHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:
                                 UICollectionElementKindSectionHeader withReuseIdentifier:@"ResultHeader" forIndexPath:indexPath];
     //headerView.resultTitle.text = @"Popular Tracks";
+    
+    headerView.resultSort.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightRegular];
+    headerView.fiterBtn.titleLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightRegular];
+    
     [headerView.fiterBtn addTarget:self action:@selector(filterClick:) forControlEvents:UIControlEventTouchUpInside];
     headerView.fiterBtn.tag = indexPath.row;
     [headerView.arrowBtn addTarget:self action:@selector(filterClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -158,7 +164,7 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
     if (showFilter) {
-        return CGSizeMake(collectionView.frame.size.width,25);
+        return CGSizeMake(collectionView.frame.size.width,sharedManager.fontSize13*2);
     }else {
         return CGSizeZero;
     }
@@ -179,19 +185,19 @@
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(15, 0, 15, 0); // top, left, bottom, right
+    return UIEdgeInsetsMake(sharedManager.fontSize15, 0, sharedManager.fontSize15, 0); // top, left, bottom, right
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     
-    return 15.0;
+    return sharedManager.fontSize15;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView
                    layout:(UICollectionViewLayout*)collectionViewLayout
 minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
-    return 15.0;
+    return sharedManager.fontSize15;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
@@ -205,6 +211,21 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     
     cell.userPic.layer.cornerRadius = cell.userPic.frame.size.width/2;
     cell.userPic.layer.masksToBounds = YES;
+    
+    cell.nameLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
+    cell.reviewCount.font = [UIFont systemFontOfSize:sharedManager.fontSize11 weight:UIFontWeightRegular];
+    cell.carTypeLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize17+3 weight:UIFontWeightMedium];
+    cell.startTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    cell.endTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    cell.startLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    cell.endLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    
+    cell.priceLabel.font = [UIFont systemFontOfSize:(sharedManager.fontSize15+5)*2 weight:UIFontWeightMedium];
+    cell.bahtLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
+    cell.dateLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
+    //cell.nearLabel.font = [UIFont fontWithName:@"Kanit-Light" size:sharedManager.fontSize-3];
+    //cell.percentLabel.font = [UIFont fontWithName:@"Kanit-SemiBold" size:sharedManager.fontSize-2];
+    cell.seatLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
     
     cell.nameLabel.text = [NSString stringWithFormat:@"%@\n%@",[cellArray objectForKey:@"forename"],[cellArray objectForKey:@"surname"]];
     
@@ -287,22 +308,6 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             break;
     }
     
-    /*
-    cell.nameLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:15];
-    cell.reviewCount.font = [UIFont fontWithName:sharedManager.fontRegular size:11];
-    cell.carTypeLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:25];
-    cell.startLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:15];
-    cell.endLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:15];
-    
-    
-    cell.priceLabel.font = [UIFont fontWithName:sharedManager.fontRegular size:35];
-    cell.bahtLabel.font = [UIFont fontWithName:sharedManager.fontRegular size:15];
-    cell.dateLabel.font = [UIFont fontWithName:sharedManager.fontRegular size:13];
-    //cell.nearLabel.font = [UIFont fontWithName:@"Kanit-Light" size:sharedManager.fontSize-3];
-    //cell.percentLabel.font = [UIFont fontWithName:@"Kanit-SemiBold" size:sharedManager.fontSize-2];
-    cell.seatLabel.font = [UIFont fontWithName:sharedManager.fontRegular size:13];
-     */
-    
     return cell;
 }
 
@@ -348,7 +353,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     configuration.menuRowHeight = self.view.frame.size.width*0.1;
     configuration.menuWidth = self.view.frame.size.width*0.25;
     configuration.textColor = [UIColor darkGrayColor];
-    configuration.textFont = [UIFont fontWithName:sharedManager.fontRegular size:13];
+    configuration.textFont = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
     configuration.tintColor = [UIColor whiteColor];
     configuration.borderColor = [UIColor colorWithRed:222.0/255 green:222.0/255 blue:222.0/255 alpha:1];
     /*

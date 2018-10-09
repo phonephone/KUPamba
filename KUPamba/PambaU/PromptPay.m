@@ -24,8 +24,11 @@
     
     promptPayField.delegate = self;
     
+    promptPayTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
+    promptPayField.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
+    
     promptPayBtn.backgroundColor = sharedManager.btnThemeColor;
-    promptPayBtn.titleLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    promptPayBtn.titleLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
 }
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField

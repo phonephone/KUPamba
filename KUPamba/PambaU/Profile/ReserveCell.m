@@ -10,6 +10,6 @@
 
 @implementation ReserveCell
 
-@synthesize startLabel,endLabel,priceLabel,bahtLabel,carTypeLabel,dateLabel,statusLabel,trashBtn,moreBtn,trashCell;
+@synthesize startTitle,endTitle,startLabel,endLabel,priceLabel,bahtLabel,carTypeLabel,dateLabel,statusLabel,trashBtn,moreBtn,trashCell;
 
 @end

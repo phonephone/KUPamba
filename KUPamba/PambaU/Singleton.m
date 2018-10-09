@@ -19,7 +19,7 @@
 
 @synthesize homeExisted,reloadOffer,reloadRequest,clearOffer,clearRequest,showQR,loginStatus;
 
-@synthesize fontSize17,fontSize15,fontSize13,fontSize11,GoogleAPIKey,memberID,memberToken,filterMode,latitude,longitude,mainThemeColor,btnThemeColor,cancelThemeColor,fontRegular,fontMedium,detailPlaceholder,profileJSON,mainRoot;
+@synthesize fontSize17,fontSize15,fontSize13,fontSize11,GoogleAPIKey,memberID,memberToken,filterMode,latitude,longitude,mainThemeColor,btnThemeColor,cancelThemeColor,fontNameRegular,fontNameMedium,detailPlaceholder,profileJSON,mainRoot;
 
 #pragma mark Singleton Methods
 
@@ -63,11 +63,11 @@
         //HelveticaNeue
         //HelveticaNeue-Medium
         
-        //Thonburi
-        //Thonburi-Bold
+        //@"Thonburi"
+        //@"Thonburi-Bold"
+        fontNameRegular = @"Thonburi";
+        fontNameMedium = @"Thonburi-Bold";
         
-        fontRegular = @"Thonburi";
-        fontMedium = @"Thonburi-Bold";
         //[self loadFontWithName:fontRegular];
         //[self loadFontWithName:fontMedium];
         

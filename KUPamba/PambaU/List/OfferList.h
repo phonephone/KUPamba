@@ -21,7 +21,7 @@
     CLLocationManager * locationManager;
     BOOL showFilter;
 }
-
+@property (weak, nonatomic) IBOutlet UIButton *searchBox;
 @property (weak, nonatomic) IBOutlet UICollectionView *mycollectionView;
 @property (weak, nonatomic) IBOutlet UIButton *addBtn;
 

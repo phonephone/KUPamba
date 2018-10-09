@@ -47,8 +47,31 @@
     
     headerView.backgroundColor = sharedManager.mainThemeColor;
     //headerTitle.text = //NSLocalizedString(@"You like?", nil);
-    headerTitle.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    headerTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
     [headerLBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
+    headerRBtn.titleLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    
+    reviewCount.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightRegular];
+    
+    profileL1.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
+    profileL2.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
+    profileL3.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
+    profileL4.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
+    profileR1.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
+    profileR2.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
+    profileR3.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
+    profileR4.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
+    
+    carTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
+    
+    carL1.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
+    carL2.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
+    carL3.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
+    carL4.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
+    carR1.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
+    carR2.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
+    carR3.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
+    carR4.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
     
     myPage.currentPageIndicatorTintColor = sharedManager.mainThemeColor;
     

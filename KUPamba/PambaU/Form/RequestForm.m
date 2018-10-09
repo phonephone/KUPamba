@@ -21,7 +21,7 @@
     GMSAutocompleteResultsViewController *_resultsViewController;
 }
 
-@synthesize headerView,headerTitle,headerLBtn,fromField,toField,targetBtn,swapBtn,nextBtn,dateLabel,timeLabel,dateField,timeField,remarkTitle,remarkText;
+@synthesize headerView,headerTitle,headerLBtn,fromLabel,toLabel,fromField,toField,targetBtn,swapBtn,nextBtn,dateLabel,timeLabel,dateField,timeField,remarkTitle,remarkText;
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -42,7 +42,7 @@
     
     headerView.backgroundColor = sharedManager.mainThemeColor;
     //headerTitle.text = //NSLocalizedString(@"You like?", nil);
-    headerTitle.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    headerTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
     [headerLBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
     
     [swapBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
@@ -50,7 +50,22 @@
     [swapBtn.imageView setTintColor:sharedManager.mainThemeColor];
     
     nextBtn.backgroundColor = sharedManager.btnThemeColor;
-    nextBtn.titleLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
+    nextBtn.titleLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
+    
+    fromLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    toLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    fromField.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    toField.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    
+    dateLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    timeLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    
+    dateField.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    timeField.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    
+    remarkTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    remarkText.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    remarkText.delegate = self;
     
     [self addbottomBorder:fromField withColor:sharedManager.btnThemeColor];
     [self addbottomBorder:toField withColor:nil];
@@ -104,8 +119,6 @@
     timeField.inputView = timePicker;
     [df setDateFormat:@"HH : mm"];
     timeField.text = [df stringFromDate:[NSDate date]];
-    
-    remarkText.delegate = self;
     
     [df setDateFormat:@"yyyy-MM-dd"];
     goDate = [df stringFromDate:[NSDate date]];
@@ -308,8 +321,6 @@ didFailAutocompleteWithError:(NSError *)error {
     UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
     textField.leftView = paddingView;
     textField.leftViewMode = UITextFieldViewModeAlways;
-    
-    //textField.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+2];
     
     return textField;
 }

@@ -10,7 +10,7 @@
 
 @implementation DetailCell
 
-@synthesize detailHeadLabel,detailLabel,pickHeadLabel,pickLabel,extimeLabel,mapWeb;
+@synthesize detailHeadLabel,detailLabel,pickHeadLabel,pickLabel,extimeLabel,mapHeadLabel,mapWeb;
 
 - (void)awakeFromNib {
     [super awakeFromNib];

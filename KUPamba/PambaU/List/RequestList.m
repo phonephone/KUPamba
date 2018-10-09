@@ -129,8 +129,14 @@
     ResultHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:
                                 UICollectionElementKindSectionHeader withReuseIdentifier:@"ResultHeader" forIndexPath:indexPath];
     //headerView.resultTitle.text = @"Popular Tracks";
+    
+    headerView.resultSort.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightRegular];
+    headerView.fiterBtn.titleLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightRegular];
+    
     [headerView.fiterBtn addTarget:self action:@selector(filterClick:) forControlEvents:UIControlEventTouchUpInside];
     headerView.fiterBtn.tag = indexPath.row;
+    [headerView.arrowBtn addTarget:self action:@selector(filterClick:) forControlEvents:UIControlEventTouchUpInside];
+    headerView.arrowBtn.tag = indexPath.row;
     
     if ([sharedManager.filterMode isEqualToString:@"nearby"]) {
         [headerView.fiterBtn setTitle:@"  ระยะทาง" forState:UIControlStateNormal];
@@ -144,8 +150,8 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    if (searchResult) {
-        return CGSizeMake(collectionView.frame.size.width,30);
+    if (showFilter) {
+        return CGSizeMake(collectionView.frame.size.width,sharedManager.fontSize13*2);
     }else {
         return CGSizeZero;
     }
@@ -166,19 +172,19 @@
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(15, 0, 15, 0); // top, left, bottom, right
+    return UIEdgeInsetsMake(sharedManager.fontSize15, 0, sharedManager.fontSize15, 0); // top, left, bottom, right
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     
-    return 15.0;
+    return sharedManager.fontSize15;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView
                    layout:(UICollectionViewLayout*)collectionViewLayout
 minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
-    return 15.0;
+    return sharedManager.fontSize15;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
@@ -278,20 +284,16 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             break;
     }
     
-    /*
-    cell.nameLabel.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+4];
-    cell.reviewCount.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+1];
-    cell.startLabel.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+1];
-    cell.endLabel.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+1];
-    cell.dateLabel.font = [UIFont fontWithName:@"Kanit-Light" size:sharedManager.fontSize-3];
-    //cell.nearLabel.font = [UIFont fontWithName:@"Kanit-Light" size:sharedManager.fontSize-3];
-    //cell.percentLabel.font = [UIFont fontWithName:@"Kanit-SemiBold" size:sharedManager.fontSize-2];
-    */
+    cell.nameLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
+    cell.reviewCount.font = [UIFont systemFontOfSize:sharedManager.fontSize11 weight:UIFontWeightRegular];
+    cell.startTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    cell.endTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    cell.startLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    cell.endLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize15 weight:UIFontWeightMedium];
+    cell.dateLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize13 weight:UIFontWeightMedium];
      
     return cell;
 }
-
-
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {

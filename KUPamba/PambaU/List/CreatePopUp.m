@@ -25,6 +25,8 @@
     
     offerLabel.textColor = sharedManager.mainThemeColor;
     requestLabel.textColor = sharedManager.mainThemeColor;
+    offerLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
+    requestLabel.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
     
     offerIcon.image = [offerIcon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [offerIcon setTintColor:sharedManager.mainThemeColor];

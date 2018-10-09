@@ -74,4 +74,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *waypointBtn;
 @property (weak, nonatomic) IBOutlet UIButton *createBtn;
+
+@property (weak, nonatomic) IBOutlet UILabel *infoLabel;
 @end
