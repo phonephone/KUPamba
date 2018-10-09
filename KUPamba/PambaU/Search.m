@@ -50,9 +50,6 @@
     nextBtn.backgroundColor = sharedManager.btnThemeColor;
     nextBtn.titleLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
     
-    //[fromField setAttributedText:[self shorttext:fromField.text withFont:nil]];
-    //[toField setAttributedText:[self shorttext:toField.text withFont:nil]];
-    
     [self addbottomBorder:fromField withColor:sharedManager.btnThemeColor];
     [self addbottomBorder:toField withColor:nil];
     [self addbottomBorder:dateField withColor:nil];
@@ -67,9 +64,6 @@
     
     goDate = @"";
     goDateEN = @"";
-    
-    //[dateLabel setAttributedText:[self shorttext:dateLabel.text withFont:nil]];
-    //[timeLabel setAttributedText:[self shorttext:timeLabel.text withFont:nil]];
     
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;

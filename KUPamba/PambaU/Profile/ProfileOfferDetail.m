@@ -446,16 +446,6 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (UILabel *)shorttext:(UILabel *)originalLabel
-{
-    if (originalLabel.text) {
-        NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:originalLabel.text];
-        [text addAttribute:NSKernAttributeName value:[NSNumber numberWithDouble:-0.5] range:NSMakeRange(0, text.length)];
-        [originalLabel setAttributedText:text];
-    }
-    return originalLabel;
-}
-
 - (void)alertTitle:(NSString*)title detail:(NSString*)alertDetail
 {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:alertDetail preferredStyle:UIAlertControllerStyleAlert];

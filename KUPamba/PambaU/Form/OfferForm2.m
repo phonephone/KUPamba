@@ -62,20 +62,13 @@
     [checkBox3.imageView setContentMode:UIViewContentModeScaleAspectFit];
     [checkBox4.imageView setContentMode:UIViewContentModeScaleAspectFit];
     
-    
-    
     /*
     checkLabel1.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+2];
-    [self shorttext:checkLabel1];
     checkLabel2.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+2];
-    [self shorttext:checkLabel2];
     checkLabel3.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+2];
-    [self shorttext:checkLabel3];
     checkLabel4.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+2];
-    [self shorttext:checkLabel4];
     
     remarkTitle.font = [UIFont fontWithName:@"Kanit-Medium" size:sharedManager.fontSize+3];
-    [self shorttext:remarkTitle];
     */
     remarkText.delegate = self;
     //remarkText.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+2];
@@ -85,7 +78,6 @@
     //remarkText.textContainer.lineBreakMode = NSLineBreakByTruncatingTail;
     
     //pickTitle.font = [UIFont fontWithName:@"Kanit-Medium" size:sharedManager.fontSize+3];
-    //[self shorttext:pickTitle];
     
     waypointBtn.backgroundColor = sharedManager.mainThemeColor;
     [waypointBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
@@ -233,7 +225,6 @@
     MainCell *cell = (MainCell *)[tableView dequeueReusableCellWithIdentifier:@"MainCell"];
     cell.nameLabel.text = [[pickupArray objectAtIndex:indexPath.row] objectForKey:@"placeName"];
     //cell.nameLabel.font = [UIFont fontWithName:@"Kanit-Medium" size:sharedManager.fontSize+2];
-    [self shorttext:cell.nameLabel];
     
     [cell.detailBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
     [cell.detailBtn addTarget:self action:@selector(deleteClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -530,6 +521,7 @@ didFailAutocompleteWithError:(NSError *)error {
          //NSLog(@"Offer %@",responseObject);
          
          [SVProgressHUD showSuccessWithStatus:@"การเสนอที่นั่งถูกบันทึกแล้ว"];
+         [SVProgressHUD dismissWithDelay:3];
          
          sharedManager.reloadOffer = YES;
          sharedManager.clearOffer = YES;
@@ -559,16 +551,6 @@ didFailAutocompleteWithError:(NSError *)error {
                                                   animated:YES];
         }
     }
-}
-
-- (UILabel *)shorttext:(UILabel *)originalLabel
-{
-    if (originalLabel.text) {
-        NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:originalLabel.text];
-        [text addAttribute:NSKernAttributeName value:[NSNumber numberWithDouble:-0.5] range:NSMakeRange(0, text.length)];
-        [originalLabel setAttributedText:text];
-    }
-    return originalLabel;
 }
     
     /*Update Table View Hieght

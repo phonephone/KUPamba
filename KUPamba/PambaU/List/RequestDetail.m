@@ -227,16 +227,10 @@
         
         /*
         cell1.nameLabel.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+4];
-        [self shorttext:cell1.nameLabel];
         cell1.reviewCount.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+1];
-        [self shorttext:cell1.reviewCount];
         cell1.startLabel.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+1];
-        [self shorttext:cell1.startLabel];
         cell1.endLabel.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+1];
-        [self shorttext:cell1.endLabel];
-        
         cell1.dateLabel.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize-2];
-        [self shorttext:cell1.dateLabel];
         NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
         paragraph.alignment = NSTextAlignmentCenter;
         paragraph.lineSpacing = 1.0f;
@@ -245,9 +239,7 @@
         [attrText addAttribute:NSParagraphStyleAttributeName value:paragraph range:NSMakeRange(0, cell1.dateLabel.text.length)];
         [cell1.dateLabel setAttributedText:attrText];
         cell1.timeLabel.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize-2];
-        [self shorttext:cell1.timeLabel];
         cell1.distanceLabel.font = [UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize-2];
-        [self shorttext:cell1.distanceLabel];
         */
         //cell1.seatPic.image = nil;
         //cell1.seatLabel.text = @"";
@@ -267,7 +259,6 @@
                                                                             options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
                                                                                       NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil];
             [cell2.detailLabel setText:[attrText string]];
-            //[self shorttext:cell2.detailLabel];
         }
         
         //POST DATE
@@ -336,7 +327,7 @@
     else
     {
         UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-        
+        /*
         [actionSheet addAction:[UIAlertAction actionWithTitle:@"โทรศัพท์" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             
             [self performSelector:@selector(callClick:) withObject:nil afterDelay:0];
@@ -345,7 +336,7 @@
             [self dismissViewControllerAnimated:YES completion:^{
             }];
         }]];
-        
+        */
         [actionSheet addAction:[UIAlertAction actionWithTitle:@"ส่งข้อความ" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             
             [self performSelector:@selector(messageClick:) withObject:nil afterDelay:0];
@@ -376,16 +367,6 @@
     else{
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:SCB_STORE_URL]];
     }
-}
-
-- (UILabel *)shorttext:(UILabel *)originalLabel
-{
-    if (originalLabel.text) {
-        NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:originalLabel.text];
-        [text addAttribute:NSKernAttributeName value:[NSNumber numberWithDouble:-0.5] range:NSMakeRange(0, text.length)];
-        [originalLabel setAttributedText:text];
-    }
-    return originalLabel;
 }
 
 - (IBAction)back:(id)sender

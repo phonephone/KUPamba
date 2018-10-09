@@ -248,19 +248,6 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (UILabel *)shorttext:(UILabel *)originalLabel
-{
-    if (![originalLabel.text isKindOfClass:[NSNull class]]) {
-        NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:originalLabel.text];
-        [text addAttribute:NSKernAttributeName value:[NSNumber numberWithDouble:-0.5] range:NSMakeRange(0, text.length)];
-        [originalLabel setAttributedText:text];
-    }
-    else{
-        
-    }
-    return originalLabel;
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

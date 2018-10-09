@@ -30,7 +30,11 @@
 
 @interface Singleton : NSObject
 
-@property (nonatomic) float fontSize;
+@property (nonatomic) float fontSize17;
+@property (nonatomic) float fontSize15;
+@property (nonatomic) float fontSize13;
+@property (nonatomic) float fontSize11;
+
 @property (strong, nonatomic) NSString *GoogleAPIKey;
 
 @property (nonatomic) BOOL homeExisted;

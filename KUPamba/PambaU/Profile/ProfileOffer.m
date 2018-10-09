@@ -430,7 +430,6 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
         ProfileOfferDetail *pofd = [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileOfferDetail"];
         pofd.offerID = [[listJSON objectAtIndex:indexPath.row] objectForKey:@"id"];
         [self.navigationController pushViewController:pofd animated:YES];
-        
     }
     if ([mode isEqualToString:@"Reserve"]) {
 
@@ -507,6 +506,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
      {
          //NSLog(@"copyJSON %@",responseObject);
          [SVProgressHUD showSuccessWithStatus:@"การเสนอที่นั่งถูกบันทึกแล้ว"];
+         [SVProgressHUD dismissWithDelay:3];
          
          [self loadList];
      }
@@ -572,6 +572,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
          //NSLog(@"deleteJSON %@",responseObject);
          
          [SVProgressHUD showSuccessWithStatus:@"ยกเลิกเรียบร้อย"];
+         [SVProgressHUD dismissWithDelay:3];
          
          [self loadList];
      }
@@ -588,16 +589,6 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     RightMenu *rm = (RightMenu*)[sharedManager.mainRoot.childViewControllers objectAtIndex:0];
     [rm loadProfile];
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (UILabel *)shorttext:(UILabel *)originalLabel
-{
-    if (originalLabel.text) {
-        NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:originalLabel.text];
-        [text addAttribute:NSKernAttributeName value:[NSNumber numberWithDouble:-0.5] range:NSMakeRange(0, text.length)];
-        [originalLabel setAttributedText:text];
-    }
-    return originalLabel;
 }
 
 - (void)alertTitle:(NSString*)title detail:(NSString*)alertDetail

@@ -100,15 +100,6 @@
     genderField.text = @"ไม่ระบุ";        gender = @"";
     bagField.text = @"เล็ก";             luggage = @"small";
     
-    /*
-    [dateLabel setAttributedText:[self shorttext:dateLabel.text withFont:nil]];
-    [timeLabel setAttributedText:[self shorttext:timeLabel.text withFont:nil]];
-    
-    [extimeLabel setAttributedText:[self shorttext:extimeLabel.text withFont:nil]];
-    [seatLabel setAttributedText:[self shorttext:seatLabel.text withFont:nil]];
-    [bagLabel setAttributedText:[self shorttext:bagLabel.text withFont:nil]];
-    */
-    
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
     [locationManager requestWhenInUseAuthorization];
@@ -590,21 +581,6 @@ didFailAutocompleteWithError:(NSError *)error {
         of2.carType = carType;
         [self.navigationController pushViewController:of2 animated:YES];
     }
-}
-
-- (NSAttributedString *)shorttext:(NSString *)originalText withFont:(UIFont*)fontName
-{
-    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:originalText];
-    [text addAttribute:NSKernAttributeName value:[NSNumber numberWithDouble:-0.5] range:NSMakeRange(0, text.length)];
-    
-    if (fontName == nil) {
-        [text setAttributes:@{ NSFontAttributeName:[UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+2] } range:NSMakeRange(0, text.length)];
-    }
-    else{
-        [text setAttributes:@{ NSFontAttributeName:fontName } range:NSMakeRange(0, text.length)];
-    }
-    
-    return text;
 }
     
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

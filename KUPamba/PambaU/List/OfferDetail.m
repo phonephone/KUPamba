@@ -509,44 +509,60 @@
     }
     else
     {
-        [SVProgressHUD showWithStatus:@"Booking"];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"ยืนยันการจองที่นั่ง" message:@"" preferredStyle:UIAlertControllerStyleAlert];
         
-        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        NSString* url = [NSString stringWithFormat:@"%@bookingSeat",HOST_DOMAIN];
-        NSDictionary *parameters = @{@"oid":offerID,
-                                     @"user":sharedManager.memberID
-                                     };
-        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-        [manager GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
-         {
-             NSLog(@"detailJSON %@",responseObject);
-             
-             [SVProgressHUD showSuccessWithStatus:[[[[responseObject objectForKey:@"data"] objectAtIndex:0] objectForKey:@"status"] objectAtIndex:1]];
-             [SVProgressHUD dismissWithDelay:3];
-             
-             [actionBtn setTitle:@"จองที่นั่งแล้ว" forState:UIControlStateNormal];
-             [actionBtn setBackgroundColor:[UIColor grayColor]];
-             actionBtn.enabled = NO;
-             
-             sharedManager.reloadOffer = YES;
-         }
-             failure:^(AFHTTPRequestOperation *operation, NSError *error)
-         {
-             NSLog(@"Error %@",error);
-             [SVProgressHUD dismiss];
-             
-             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"เกิดข้อผิดพลาด" message:@"กรุณาตรวจสอบ Internet ของท่านแล้วลองใหม่อีกครั้ง" preferredStyle:UIAlertControllerStyleAlert];
-             
-             UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-                 
-                 [self loadList];
-             }];
-             [alertController addAction:ok];
-             
-             [self presentViewController:alertController animated:YES completion:nil];
-             
-         }];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"ตกลง" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            [self loadBooking];
+        }];
+        [alertController addAction:ok];
+        
+        UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"ยกเลิก" style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
+        }];
+        [alertController addAction:cancel];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
     }
+}
+
+- (void)loadBooking
+{
+    [SVProgressHUD showWithStatus:@"Booking"];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSString* url = [NSString stringWithFormat:@"%@bookingSeat",HOST_DOMAIN];
+    NSDictionary *parameters = @{@"oid":offerID,
+                                 @"user":sharedManager.memberID
+                                 };
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    [manager GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         NSLog(@"detailJSON %@",responseObject);
+         
+         [SVProgressHUD showSuccessWithStatus:[[[[responseObject objectForKey:@"data"] objectAtIndex:0] objectForKey:@"status"] objectAtIndex:1]];
+         [SVProgressHUD dismissWithDelay:3];
+         
+         [actionBtn setTitle:@"จองที่นั่งแล้ว" forState:UIControlStateNormal];
+         [actionBtn setBackgroundColor:[UIColor grayColor]];
+         actionBtn.enabled = NO;
+         
+         sharedManager.reloadOffer = YES;
+     }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error)
+     {
+         NSLog(@"Error %@",error);
+         [SVProgressHUD dismiss];
+         
+         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"เกิดข้อผิดพลาด" message:@"กรุณาตรวจสอบ Internet ของท่านแล้วลองใหม่อีกครั้ง" preferredStyle:UIAlertControllerStyleAlert];
+         
+         UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+             
+             [self loadList];
+         }];
+         [alertController addAction:ok];
+         
+         [self presentViewController:alertController animated:YES completion:nil];
+         
+     }];
 }
 
 - (IBAction)payBySCB:(id)sender
@@ -559,16 +575,6 @@
     else{
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:SCB_STORE_URL]];
     }
-}
-
-- (UILabel *)shorttext:(UILabel *)originalLabel
-{
-    if (originalLabel.text) {
-        NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:originalLabel.text];
-        [text addAttribute:NSKernAttributeName value:[NSNumber numberWithDouble:-0.5] range:NSMakeRange(0, text.length)];
-        [originalLabel setAttributedText:text];
-    }
-    return originalLabel;
 }
 
 - (IBAction)back:(id)sender

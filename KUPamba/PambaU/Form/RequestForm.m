@@ -52,9 +52,6 @@
     nextBtn.backgroundColor = sharedManager.btnThemeColor;
     nextBtn.titleLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:17];
     
-    //[fromField setAttributedText:[self shorttext:fromField.text withFont:nil]];
-    //[toField setAttributedText:[self shorttext:toField.text withFont:nil]];
-    
     [self addbottomBorder:fromField withColor:sharedManager.btnThemeColor];
     [self addbottomBorder:toField withColor:nil];
     [self addbottomBorder:dateField withColor:nil];
@@ -75,9 +72,6 @@
     goH = @"";
     goM = @"";
     remark = @"";
-    
-    //[dateLabel setAttributedText:[self shorttext:dateLabel.text withFont:nil]];
-    //[timeLabel setAttributedText:[self shorttext:timeLabel.text withFont:nil]];
     
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
@@ -148,7 +142,6 @@
 - (BOOL)textFieldDidChange:(UITextField *)textField
 {
     //NSLog(@"Change %@", textField.text);
-    [textField setAttributedText:[self shorttext:textField.text withFont:nil]];
     return YES;
 }
 
@@ -492,6 +485,7 @@ didFailAutocompleteWithError:(NSError *)error {
          NSLog(@"Request %@",responseObject);
          
          [SVProgressHUD showSuccessWithStatus:@"หาเพื่อนร่วมทางถูกบันทึกแล้ว"];
+         [SVProgressHUD dismissWithDelay:3];
          
          sharedManager.reloadRequest = YES;
          sharedManager.clearRequest = YES;
@@ -504,31 +498,6 @@ didFailAutocompleteWithError:(NSError *)error {
          [self alertTitle:@"เกิดข้อผิดพลาด" detail:@"กรุณาตรวจสอบ Internet ของท่านแล้วลองใหม่อีกครั้ง"];
      }];
     webLoaded = NO;
-}
-
-- (UILabel *)shorttext:(UILabel *)originalLabel
-{
-    if (originalLabel.text) {
-        NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:originalLabel.text];
-        [text addAttribute:NSKernAttributeName value:[NSNumber numberWithDouble:-0.5] range:NSMakeRange(0, text.length)];
-        [originalLabel setAttributedText:text];
-    }
-    return originalLabel;
-}
-
-- (NSAttributedString *)shorttext:(NSString *)originalText withFont:(UIFont*)fontName
-{
-    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:originalText];
-    [text addAttribute:NSKernAttributeName value:[NSNumber numberWithDouble:-0.5] range:NSMakeRange(0, text.length)];
-    
-    if (fontName == nil) {
-        [text setAttributes:@{ NSFontAttributeName:[UIFont fontWithName:@"Kanit-Regular" size:sharedManager.fontSize+2] } range:NSMakeRange(0, text.length)];
-    }
-    else{
-        [text setAttributes:@{ NSFontAttributeName:fontName } range:NSMakeRange(0, text.length)];
-    }
-    
-    return text;
 }
 
 - (IBAction)back:(id)sender

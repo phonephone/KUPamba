@@ -19,7 +19,7 @@
 
 @synthesize homeExisted,reloadOffer,reloadRequest,clearOffer,clearRequest,showQR,loginStatus;
 
-@synthesize fontSize,GoogleAPIKey,memberID,memberToken,filterMode,latitude,longitude,mainThemeColor,btnThemeColor,cancelThemeColor,fontRegular,fontMedium,detailPlaceholder,profileJSON,mainRoot;
+@synthesize fontSize17,fontSize15,fontSize13,fontSize11,GoogleAPIKey,memberID,memberToken,filterMode,latitude,longitude,mainThemeColor,btnThemeColor,cancelThemeColor,fontRegular,fontMedium,detailPlaceholder,profileJSON,mainRoot;
 
 #pragma mark Singleton Methods
 
@@ -95,12 +95,17 @@
         longitude = @"";
         
         if (IS_IPHONE) {
-            float factor = [UIScreen mainScreen].bounds.size.width/320;
-            fontSize = 13*factor;
+            float factor = [UIScreen mainScreen].bounds.size.width/414;
+            NSLog(@"FACTOR %f",factor);
+            fontSize17 = 17*factor;
+            fontSize15 = 15*factor;
+            fontSize13 = 13*factor;
+            fontSize11 = 11*factor;
+            NSLog(@"FONTTTTT %f",fontSize13);
         }
         if (IS_IPAD) {
             float factor = [UIScreen mainScreen].bounds.size.width/768;
-            fontSize = 25*factor;
+            fontSize13 = 25*factor;
         }
     }
     return self;

@@ -194,30 +194,17 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     
     /*
      cell.nameLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:15];
-     [self shorttext:cell.nameLabel];
      cell.reviewCount.font = [UIFont fontWithName:sharedManager.fontRegular size:11];
-     [self shorttext:cell.reviewCount];
-     
      cell.carTypeLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:25];
-     [self shorttext:cell.carTypeLabel];
      cell.startLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:15];
-     [self shorttext:cell.startLabel];
      cell.endLabel.font = [UIFont fontWithName:sharedManager.fontMedium size:15];
-     [self shorttext:cell.endLabel];
-     
      
      cell.priceLabel.font = [UIFont fontWithName:sharedManager.fontRegular size:35];
-     [self shorttext:cell.priceLabel];
      cell.bahtLabel.font = [UIFont fontWithName:sharedManager.fontRegular size:15];
-     [self shorttext:cell.bahtLabel];
      cell.dateLabel.font = [UIFont fontWithName:sharedManager.fontRegular size:13];
-     [self shorttext:cell.dateLabel];
      //cell.nearLabel.font = [UIFont fontWithName:@"Kanit-Light" size:sharedManager.fontSize-3];
-     //[self shorttext:cell.nearLabel];
      //cell.percentLabel.font = [UIFont fontWithName:@"Kanit-SemiBold" size:sharedManager.fontSize-2];
-     //[self shorttext:cell.percentLabel];
      cell.seatLabel.font = [UIFont fontWithName:sharedManager.fontRegular size:13];
-     [self shorttext:cell.seatLabel];
      */
     
     return cell;
