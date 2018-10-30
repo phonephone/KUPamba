@@ -19,7 +19,7 @@
 
 @synthesize homeExisted,reloadOffer,reloadRequest,clearOffer,clearRequest,showQR,loginStatus;
 
-@synthesize fontSize17,fontSize15,fontSize13,fontSize11,GoogleAPIKey,memberID,memberToken,filterMode,latitude,longitude,mainThemeColor,btnThemeColor,cancelThemeColor,fontNameRegular,fontNameMedium,detailPlaceholder,profileJSON,mainRoot;
+@synthesize fontSize17,fontSize15,fontSize13,fontSize11,GoogleAPIKey,memberID,memberToken,filterMode,latitude,longitude,mainThemeColor,btnThemeColor,cancelThemeColor,appName,fontNameRegular,fontNameMedium,detailPlaceholder,profileJSON,mainRoot;
 
 #pragma mark Singleton Methods
 

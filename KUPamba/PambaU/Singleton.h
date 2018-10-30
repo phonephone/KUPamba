@@ -62,6 +62,8 @@
 @property (nonatomic) NSString *fontNameRegular;
 @property (nonatomic) NSString *fontNameMedium;
 
+@property (nonatomic) NSString *appName;
+
 @property (nonatomic) NSString *detailPlaceholder;
 
 @property (strong, nonatomic) NSMutableDictionary *profileJSON;

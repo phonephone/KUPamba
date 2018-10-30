@@ -48,6 +48,7 @@
     
     //[self loadDemo];//อย่าลืมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมม
     
+    sharedManager.appName = [NSString stringWithFormat:@"%@ Shareways",appID];
     [self loadLogin];
     [self loadHome];
     /*

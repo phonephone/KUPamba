@@ -45,6 +45,7 @@
     //headerTitle.text = //NSLocalizedString(@"You like?", nil);
     
     headerTitle.font = [UIFont systemFontOfSize:sharedManager.fontSize17 weight:UIFontWeightMedium];
+    headerTitle.text = sharedManager.appName;
     [headerLBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
     [headerRBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
 
