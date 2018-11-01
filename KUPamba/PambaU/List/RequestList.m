@@ -76,12 +76,14 @@
     if ([sharedManager.filterMode isEqualToString:@"nearby"]) {
         url = [NSString stringWithFormat:@"%@searchRequestNearMe",HOST_DOMAIN];
         parameters = @{@"lat":sharedManager.latitude,
-                       @"lng":sharedManager.longitude
+                       @"lng":sharedManager.longitude,
+                       @"user_id":sharedManager.memberID
                        };
     }
     else{
         url = [NSString stringWithFormat:@"%@RequestList",HOST_DOMAIN];
-        parameters = @{};
+        parameters = @{@"user_id":sharedManager.memberID
+                       };
     }
     
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
