@@ -50,7 +50,7 @@
     
     sharedManager.appName = [NSString stringWithFormat:@"%@ Shareways",appID];
     [self loadLogin];
-    [self loadHome];
+    
     /*
     ISMessages* alert = [ISMessages cardAlertWithTitle:@"This is custom alert with callback"
                                                message:@"This is your message!!"
@@ -139,6 +139,8 @@
      {
          NSLog(@"UAapp %@",responseObject);
          sharedManager.memberID = [[[responseObject objectForKey:@"data"] objectAtIndex:0] objectForKey:@"user_id"];
+         
+         [self loadHome];
          
          //sharedManager.memberID = @"3";//อย่าลืมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมมม
          RightMenu *rm = (RightMenu*)[sharedManager.mainRoot.childViewControllers objectAtIndex:0];
